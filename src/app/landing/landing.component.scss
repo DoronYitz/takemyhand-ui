@@ -1,0 +1,270 @@
+// Header
+.page-header {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgb(4, 9, 30, 0.4), rgb(4, 9, 30, 0.9)),
+    url(../../assets/img/hero1.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  clip-path: circle(450vh at 50% -350vh);
+
+  &__text {
+    width: 70%;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  &__text h1 {
+    opacity: 0;
+    animation: scale 0.7s forwards;
+    animation-delay: 0.5s;
+  }
+
+  &__text h3 {
+    opacity: 0;
+    animation: fadeUp 0.8s forwards;
+    animation-delay: 0.8s;
+  }
+
+  &__text a {
+    opacity: 0;
+    transition: 0.8s;
+    animation: fadeDown 0.8s forwards;
+    animation-delay: 1.4s;
+    transition: 0.8s;
+    border-color: #f5593d;
+    margin: 0 1%;
+  }
+
+  &__text a:hover {
+    background-color: #f5593d;
+    color: white;
+    border-color: #f5593d;
+  }
+}
+
+// About Us
+.about {
+  margin-top: 2%;
+  position: relative;
+  width: 100%;
+  padding: 45px 0;
+}
+
+.about .section-header {
+  margin-bottom: 15px;
+  margin-left: 0;
+}
+
+.about .about-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.about .about-img::after {
+  position: absolute;
+  content: "";
+  top: 60px;
+  right: 60px;
+  bottom: 60px;
+  left: 60px;
+  background: transparent;
+  border: 30px solid;
+  border-image: repeating-linear-gradient(
+      45deg,
+      rgba(245, 89, 61, 0.05),
+      rgba(245, 89, 61, 0.2) 0.5%,
+      rgba(245, 89, 61, 0.2) 0.5%,
+      rgba(245, 89, 61, 0.15) 1%
+    )
+    30;
+  z-index: 1;
+}
+
+.about .about-img-1 {
+  position: relative;
+  height: 100%;
+  height: 100%;
+  margin: 0 150px 150px 0;
+}
+
+.about .about-img-2 {
+  position: absolute;
+  height: 100%;
+  height: 100%;
+  top: 150px;
+  left: 150px;
+  z-index: 3;
+}
+
+.about .about-img-1 img,
+.about .about-img-2 img {
+  position: relative;
+  width: 100%;
+}
+
+.about .about-text p {
+  font-size: 16px;
+}
+
+.about .about-text a.btn {
+  position: relative;
+  margin-top: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+@media (max-width: 767.98px) {
+  .about .about-img {
+    margin-bottom: 30px;
+    height: auto;
+  }
+}
+
+/*******************************/
+/*********** Blog CSS **********/
+/*******************************/
+.blog {
+  position: relative;
+  width: 100%;
+  padding: 45px 0;
+}
+
+.blog .section-header {
+  margin-bottom: 40px;
+}
+
+.blog .blog-item {
+  position: relative;
+  margin: 0px;
+}
+
+.blog .blog-img {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.blog .blog-img img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.blog .blog-content {
+  position: relative;
+  width: calc(100% - 60px);
+  top: -30px;
+  left: 30px;
+  padding: 15px 30px 15px;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.blog .blog-content h2.blog-title {
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.blog .blog-meta {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.blog .blog-meta * {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 300;
+  color: #797979;
+}
+
+.blog .blog-meta i {
+  color: #f5593d;
+  margin: 5px 5px 0 10px;
+}
+
+.blog .blog-meta i:first-child {
+  margin-left: 0;
+}
+
+.blog .blog-text {
+  position: relative;
+}
+
+.blog .blog-text p {
+  margin-bottom: 10px;
+}
+
+/*******************************/
+/*********** Quote **********/
+/*******************************/
+
+.quote-section {
+  min-height: 20vh;
+  width: 100%;
+  color: white;
+  background-image: linear-gradient(rgb(4, 9, 30, 0.5), rgb(4, 9, 30, 0.7)),
+    url(../../assets/img/qoute.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.quote {
+  font-weight: 500;
+}
+
+@media (max-width: 767.98px) {
+  .quote-section {
+    background-size: 100vh;
+    background-attachment: unset;
+  }
+}
+
+/* Animation */
+@keyframes fadeUp {
+  0% {
+    transform: translateY(4rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    transform: translateY(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
