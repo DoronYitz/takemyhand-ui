@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +16,7 @@ export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private navCollapse: any;
   private nav: HTMLElement;
+  @Output() navOpened = new EventEmitter<boolean>();
 
   constructor(private element: ElementRef) {}
 
@@ -19,10 +26,12 @@ export class NavbarComponent implements OnInit {
     this.nav = navbar.getElementsByTagName('nav')[0];
   }
   sidebarOpen() {
+    this.navOpened.emit(this.navbarCollapsed);
     this.navbarCollapsed = !this.navbarCollapsed;
     this.toggleButton.classList.add('active');
   }
   sidebarClose() {
+    this.navOpened.emit(this.navbarCollapsed);
     this.toggleButton.classList.remove('active');
     this.navbarCollapsed = !this.navbarCollapsed;
   }

@@ -231,12 +231,16 @@ nav {
     display: inline;
   }
 
+  .navbar-nav {
+    padding: 0 2%;
+  }
+
   .nav-link::after {
     position: absolute;
     display: block;
   }
 
-  .nav-link:hover::after {
+  nav .nav-link:hover::after {
     width: 10%;
     opacity: 1;
     display: block;
