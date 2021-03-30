@@ -18,9 +18,9 @@ export class AppComponent {
       .children[0];
     const number = window.scrollY;
     if (window.pageYOffset >= 150) {
-      navbar.classList.add('bg-dark');
+      navbar.style.backgroundColor = 'rgb(21, 20, 43)';
     } else {
-      navbar.classList.remove('bg-dark');
+      navbar.style.backgroundColor = '';
     }
   }
 }
