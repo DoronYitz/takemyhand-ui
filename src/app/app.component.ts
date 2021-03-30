@@ -18,7 +18,7 @@ export class AppComponent {
       .children[0];
     const number = window.scrollY;
     if (window.pageYOffset >= 150) {
-      navbar.style.backgroundColor = 'rgb(21, 20, 43)';
+      navbar.style.backgroundColor = 'rgb(29, 28, 49)';
     } else {
       navbar.style.backgroundColor = '';
     }

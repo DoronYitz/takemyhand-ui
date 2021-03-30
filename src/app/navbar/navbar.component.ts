@@ -1,9 +1,4 @@
-import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
-import {
-  Location,
-  LocationStrategy,
-  PathLocationStrategy,
-} from '@angular/common';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -11,36 +6,28 @@ import {
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  public navbarCollapsed = true;
   private toggleButton: any;
   private navCollapse: any;
-  sidebarVisible: boolean;
-  isScrolled = false;
+  private nav: HTMLElement;
 
-  constructor(public location: Location, private element: ElementRef) {
-    this.sidebarVisible = false;
-  }
+  constructor(private element: ElementRef) {}
 
   ngOnInit() {
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName('navTrigger')[0];
-    this.navCollapse = navbar.getElementsByClassName('navbar-collapse')[0];
+    this.nav = navbar.getElementsByTagName('nav')[0];
   }
   sidebarOpen() {
-    const toggleButton = this.toggleButton;
-    const navCollapse = this.navCollapse;
-    setTimeout(function () {
-      toggleButton.classList.add('active');
-      navCollapse.classList.add('collapse');
-    }, 500);
-    this.sidebarVisible = true;
+    this.navbarCollapsed = !this.navbarCollapsed;
+    this.toggleButton.classList.add('active');
   }
   sidebarClose() {
     this.toggleButton.classList.remove('active');
-    this.navCollapse.classList.remove('collapse');
-    this.sidebarVisible = false;
+    this.navbarCollapsed = !this.navbarCollapsed;
   }
   sidebarToggle() {
-    if (this.sidebarVisible === false) {
+    if (this.navbarCollapsed === true) {
       this.sidebarOpen();
     } else {
       this.sidebarClose();

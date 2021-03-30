@@ -173,7 +173,7 @@
     <!-- Process End  -->
 
     <!-- Quote  -->
-    <div class="section text-left quote-section mt-5 py-5">
+    <div class="section text-left quote-section mt-5">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -199,29 +199,47 @@
         <p>Contact us</p>
         <h2>Tell us your thoughts</h2>
         <div class="row mt-4">
-          <form class="example-form m-auto">
-            <mat-form-field class="example-full-width mx-2">
-              <mat-label>Full name</mat-label>
-              <input matInput placeholder="Your name" autocomplete="none" />
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-              <mat-label>Email </mat-label>
-              <input
-                matInput
-                type="text"
-                placeholder="Your mail"
-                autocomplete="none"
-              />
-            </mat-form-field>
-            <br />
-
-            <mat-form-field class="example-full-width">
-              <mat-label>Leave a comment</mat-label>
-              <textarea
-                matInput
-                placeholder="Ex. It makes me feel..."
-              ></textarea>
-            </mat-form-field>
+          <form class="form m-auto py-3">
+            <p>
+              <mat-form-field appearance="outline" class="input col-md-6">
+                <mat-label>Full name</mat-label>
+                <input
+                  matInput
+                  required
+                  type="text"
+                  placeholder="Israel Israeli"
+                  autocomplete="off"
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="input col-md-6">
+                <mat-label autocomplete="none">Email</mat-label>
+                <input
+                  matInput
+                  required
+                  type="text"
+                  placeholder="name@email.com"
+                  autocomplete="doNotAutoComplete"
+                />
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline" class="col-md-12">
+                <mat-label>Tell us your thoughts</mat-label>
+                <textarea
+                  matInput
+                  required
+                  type="text"
+                  placeholder="It was a wonderful experiece"
+                ></textarea>
+              </mat-form-field>
+            </p>
+            <button
+              mat-stroked-button
+              color="warn"
+              class="btnSend btn-lg btn-round"
+            >
+              Send
+            </button>
           </form>
         </div>
       </div>

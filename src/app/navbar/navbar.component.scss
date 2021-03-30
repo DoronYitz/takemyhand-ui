@@ -1,13 +1,7 @@
 .navTrigger {
   cursor: pointer;
   width: 25px;
-  height: 20px;
-  margin: auto;
-  position: absolute;
-  left: 50%;
-  right: -20%;
-  top: 50%;
-  bottom: 50%;
+  max-width: 20px;
   i {
     background-color: #fff;
     border-radius: 2px;
@@ -176,6 +170,10 @@
   }
 }
 
+nav {
+  display: flex;
+}
+
 .nav-item {
   list-style: none;
   display: inline-block;
@@ -184,31 +182,32 @@
 }
 
 .navbar {
-  height: 11%;
   transition: 0.4s;
 }
 
 .nav-text {
   color: white;
+  font-weight: 500;
 }
 
 .logo {
   width: 30%;
   height: 30%;
   display: inline-block;
-  margin-right: 7%;
+  margin: 0 7%;
 }
 
 .nav-link {
   color: white;
   font-weight: 500;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .nav-link::after {
   content: "";
   width: 0;
+  opacity: 0;
   height: 2px;
   background: #f44336;
   display: block;
@@ -219,6 +218,7 @@
 
 .nav-link:hover::after {
   width: 100%;
+  opacity: 1;
 }
 
 .times {
@@ -226,8 +226,20 @@
   font-size: 22px;
 }
 
-@media (max-width: 767px) {
-  .navbar-collapse {
-    background-color: #fa0;
+@media (max-width: 1024px) {
+  .nav-link {
+    display: inline;
+  }
+
+  .nav-link::after {
+    position: absolute;
+    display: block;
+  }
+
+  .nav-link:hover::after {
+    width: 10%;
+    opacity: 1;
+    display: block;
+    position: absolute;
   }
 }
