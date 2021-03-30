@@ -18,11 +18,17 @@ import {
 import { InputTextModule } from 'primeng/inputtext';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [AppComponent, LandingComponent, NavbarComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    LandingComponent,
+    NavbarComponent,
+    FooterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,7 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppModule implements OnInit {
   constructor(library: FaIconLibrary, private primengConfig: PrimeNGConfig) {
-    library.addIconPacks(fas, far);
+    library.addIconPacks(fas, far, fab);
   }
 
   ngOnInit() {

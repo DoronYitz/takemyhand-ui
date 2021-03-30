@@ -1,1 +1,23 @@
-<p>footer works!</p>
+<footer class="container-fluid footer py-4">
+  <div class="container text-center">
+    <p>Follow us on</p>
+    <div class="icons">
+      <span class="social facebook">
+        <a href=""><fa-icon [icon]="['fab', 'facebook']"></fa-icon></a>
+      </span>
+      <span class="social instagram">
+        <a href=""><fa-icon [icon]="['fab', 'instagram']"></fa-icon></a>
+      </span>
+      <span class="social youtube">
+        <a href=""><fa-icon [icon]="['fab', 'youtube']"></fa-icon></a>
+      </span>
+    </div>
+    <hr />
+    <div class="credits">
+      <p class="copyright">
+        © {{ date | date: "yyyy" }}, made by <span>TakeMy&</span> Project and
+        Haifa Univ.
+      </p>
+    </div>
+  </div>
+</footer>

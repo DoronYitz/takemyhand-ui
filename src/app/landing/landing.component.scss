@@ -136,6 +136,14 @@
     margin-bottom: 30px;
     height: auto;
   }
+
+  .about .about-img-1 img {
+    left: 25px;
+  }
+
+  .about .about-img-2 img {
+    right: 25px;
+  }
 }
 
 /*******************************/
@@ -217,13 +225,15 @@
   margin-bottom: 10px;
 }
 
-/*******************************/
-/*********** Blog CSS **********/
-/*******************************/
-
 .info fa-icon {
   color: #f5593d;
   font-size: 3rem;
+}
+
+@media (max-width: 748px) {
+  .blog .blog-img img:last-child {
+    margin-top: 20px;
+  }
 }
 
 /*******************************/
@@ -231,7 +241,7 @@
 /*******************************/
 
 .quote-section {
-  padding: 4% 0;
+  padding: 6vh 0;
   min-height: 20vh;
   width: 100%;
   color: white;

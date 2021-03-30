@@ -1,3 +1,81 @@
+nav {
+  display: flex;
+}
+
+.nav-item {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.navbar {
+  transition: 0.4s;
+}
+
+.nav-text {
+  color: white;
+  font-weight: 500;
+}
+
+.logo {
+  width: 30%;
+  height: 30%;
+  display: inline-block;
+  margin: 0 7%;
+}
+
+.nav-link {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav-link::after {
+  content: "";
+  width: 0;
+  opacity: 0;
+  height: 2px;
+  background: #f5593d;
+  display: block;
+  margin: auto;
+  margin-top: 2px;
+  transition: 0.5s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+
+.times {
+  color: white;
+  font-size: 22px;
+}
+
+@media (max-width: 1024px) {
+  .nav-link {
+    display: inline;
+  }
+
+  .navbar-nav {
+    padding: 0 2%;
+  }
+
+  .nav-link::after {
+    position: absolute;
+    display: block;
+  }
+
+  nav .nav-link:hover::after {
+    width: 10%;
+    opacity: 1;
+    display: block;
+    position: absolute;
+  }
+}
+
 .navTrigger {
   cursor: pointer;
   width: 25px;
@@ -167,83 +245,5 @@
   }
   100% {
     transform: translateY(-9px) rotate(135deg);
-  }
-}
-
-nav {
-  display: flex;
-}
-
-.nav-item {
-  list-style: none;
-  display: inline-block;
-  padding: 8px 12px;
-  position: relative;
-}
-
-.navbar {
-  transition: 0.4s;
-}
-
-.nav-text {
-  color: white;
-  font-weight: 500;
-}
-
-.logo {
-  width: 30%;
-  height: 30%;
-  display: inline-block;
-  margin: 0 7%;
-}
-
-.nav-link {
-  color: white;
-  font-weight: 500;
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.nav-link::after {
-  content: "";
-  width: 0;
-  opacity: 0;
-  height: 2px;
-  background: #f44336;
-  display: block;
-  margin: auto;
-  margin-top: 2px;
-  transition: 0.5s;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-  opacity: 1;
-}
-
-.times {
-  color: white;
-  font-size: 22px;
-}
-
-@media (max-width: 1024px) {
-  .nav-link {
-    display: inline;
-  }
-
-  .navbar-nav {
-    padding: 0 2%;
-  }
-
-  .nav-link::after {
-    position: absolute;
-    display: block;
-  }
-
-  nav .nav-link:hover::after {
-    width: 10%;
-    opacity: 1;
-    display: block;
-    position: absolute;
   }
 }
