@@ -21,6 +21,9 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { VolunteerComponent } from './volunteer/volunteer.component';
+import { CardModule } from 'primeng/card';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LandingComponent,
     NavbarComponent,
     FooterComponent,
+    VolunteerComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     InputTextModule,
     InputTextareaModule,
     NgbModule,
+    CardModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

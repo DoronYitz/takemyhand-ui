@@ -1,0 +1,96 @@
+/*******************************/
+/*********** Header CSS **********/
+/*******************************/
+.page-header {
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(29, 28, 49);
+  background-image: linear-gradient(rgba(4, 9, 30, 0.3), rgb(4, 9, 30, 0.4)),
+    url(../../assets/img/takelove.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.content {
+  background-color: rgb(4, 9, 30, 0.4);
+  padding: 12% 6%;
+  text-align: left;
+}
+
+.input {
+  width: 350px;
+  font-size: 14px;
+  margin-bottom: -15px;
+}
+
+.input mat-label {
+  color: #ffffff;
+  /* add label text color here */
+}
+
+.input .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #ffffff;
+}
+
+.input .mat-input-element {
+  color: #ffffff;
+  /* add input text color here */
+}
+
+.input .mat-input-element::placeholder {
+  color: #dddddd;
+  /* add placeholder css here */
+}
+
+::ng-deep {
+  .mat-form-field-appearance-outline .mat-form-field-outline,
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: white;
+  }
+  mat-form-field {
+    .mat-hint,
+    input,
+    ::placeholder,
+    .mat-form-field-label {
+      color: white;
+    }
+  }
+}
+
+/* Animation */
+@keyframes fadeUp {
+  0% {
+    transform: translateY(4rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    transform: translateY(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

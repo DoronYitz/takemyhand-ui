@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-nav fixed-top py-3">
   <div class="container">
-    <a class="navbar-brand nav-text" href="#">
+    <a class="navbar-brand nav-text" routerLink="/">
       <img class="logo" src="../../../assets/img/Logo.png" alt="" />Takemy&
     </a>
     <button
@@ -21,16 +21,13 @@
     >
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="#" class="nav-link" target="_blank">Volunteer</a>
+          <a routerLink="/volunteer" class="nav-link">Volunteer</a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link" target="_blank">Donate</a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link" target="_blank">Contact Us</a>
-        </li>
-        <li class="nav-item">
-          <a [routerLink]="['/home']" class="nav-link">Components</a>
         </li>
       </ul>
     </div>
