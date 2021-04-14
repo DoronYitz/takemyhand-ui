@@ -4,6 +4,7 @@ import {
   OnInit,
   Output,
   EventEmitter,
+  HostListener,
 } from '@angular/core';
 
 @Component({
@@ -14,9 +15,7 @@ import {
 export class NavbarComponent implements OnInit {
   public navbarCollapsed = true;
   private toggleButton: any;
-  private navCollapse: any;
   private nav: HTMLElement;
-  @Output() navOpened = new EventEmitter<boolean>();
 
   constructor(private element: ElementRef) {}
 
@@ -25,21 +24,34 @@ export class NavbarComponent implements OnInit {
     this.toggleButton = navbar.getElementsByClassName('navTrigger')[0];
     this.nav = navbar.getElementsByTagName('nav')[0];
   }
-  sidebarOpen() {
-    this.navOpened.emit(this.navbarCollapsed);
+  navbarOpen() {
     this.navbarCollapsed = !this.navbarCollapsed;
     this.toggleButton.classList.add('active');
   }
-  sidebarClose() {
-    this.navOpened.emit(this.navbarCollapsed);
+  navbarClose() {
     this.toggleButton.classList.remove('active');
     this.navbarCollapsed = !this.navbarCollapsed;
   }
+
   sidebarToggle() {
     if (this.navbarCollapsed === true) {
-      this.sidebarOpen();
+      this.navbarOpen();
+      this.nav.style.backgroundColor = 'rgb(29, 28, 49)';
     } else {
-      this.sidebarClose();
+      this.navbarClose();
+      this.changeColor();
+    }
+  }
+
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  changeColor() {
+    if (window.pageYOffset >= 150) {
+      this.nav.style.backgroundColor = 'rgb(29, 28, 49)';
+    } else {
+      if (!this.navbarCollapsed) {
+        return;
+      }
+      this.nav.style.backgroundColor = '';
     }
   }
 }
