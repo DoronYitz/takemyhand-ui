@@ -24,6 +24,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { CardModule } from 'primeng/card';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { MatRadioModule } from '@angular/material/radio';
     NgbModule,
     CardModule,
     MatRadioModule,
+    MatSelectModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

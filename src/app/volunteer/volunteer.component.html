@@ -1,13 +1,13 @@
 <!-- Header  -->
 <div class="page-header" data-parallax="true">
   <div class="text-center page-header__text">
-    <div class="container content">
-      <h1>Join to our next event:</h1>
-      <h3>And make someone's day happier</h3>
+    <div class="container content text-left">
       <div class="row">
-        <form class="form m-auto py-3">
-          <p>
-            <mat-form-field appearance="outline" class="input col-md-12">
+        <div class="col-12 col-md-6 formContent ml-auto">
+          <h1>Join to our next event:</h1>
+          <h5>And make someone's day happier</h5>
+          <form class="form">
+            <mat-form-field appearance="outline" class="input mt-4">
               <mat-label>Full name</mat-label>
               <input
                 matInput
@@ -17,7 +17,25 @@
                 autocomplete="off"
               />
             </mat-form-field>
-            <mat-form-field appearance="outline" class="input">
+            <br />
+            <mat-form-field appearance="outline" class="input mt-2">
+              <mat-label>Your Neighborhood</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let nbhood of nbhoods" [value]="nbhood">
+                  {{ nbhood }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-checkbox class="input mt-2" color="warn"
+              >Willing to Deliver Packages by car</mat-checkbox
+            >
+            <hr />
+            <div class="thanks">
+              <p class="mt-4">Awesome!</p>
+              <p>We are creating a user for our drivers</p>
+              <p>To help us manage packges easily</p>
+            </div>
+            <mat-form-field appearance="outline" class="input mt-2">
               <mat-label>Email</mat-label>
               <input
                 matInput
@@ -27,15 +45,33 @@
                 autocomplete="doNotAutoComplete"
               />
             </mat-form-field>
-          </p>
-          <button
-            mat-stroked-button
-            color="warn"
-            class="btnSend btn-lg btn-round"
-          >
-            Send
-          </button>
-        </form>
+            <mat-form-field appearance="outline" class="input mt-2">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                required
+                type="password"
+                autocomplete="doNotAutoComplete"
+              />
+            </mat-form-field>
+            <br />
+            <button
+              mat-flat-button
+              color="warn"
+              class="btnSend btn-lg btn-round mt-3"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../assets/img/takelove.jpg"
+            alt=""
+            class="w-100 h-100"
+            id="picture"
+          />
+        </div>
       </div>
     </div>
   </div>
