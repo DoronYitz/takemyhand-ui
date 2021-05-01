@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VolunteerComponent implements OnInit {
   nbhoods: String[] = ['Beit Eliezer', 'Ein Ayam', 'Shonat a Tikva'];
-  hasLicense = false;
   constructor() {}
 
   ngOnInit(): void {}

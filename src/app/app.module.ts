@@ -26,6 +26,7 @@ import { CardModule } from 'primeng/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     NavbarComponent,
     FooterComponent,
     VolunteerComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

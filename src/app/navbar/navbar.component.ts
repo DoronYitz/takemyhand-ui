@@ -17,10 +17,12 @@ export class NavbarComponent implements OnInit {
     this.toggleButton = navbar.getElementsByClassName('navTrigger')[0];
     this.nav = navbar.getElementsByTagName('nav')[0];
   }
+
   navbarOpen() {
     this.navbarCollapsed = !this.navbarCollapsed;
     this.toggleButton.classList.add('active');
   }
+
   navbarClose() {
     this.toggleButton.classList.remove('active');
     this.navbarCollapsed = !this.navbarCollapsed;
