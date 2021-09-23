@@ -1,0 +1,44 @@
+<div class="page-wrapper">
+  <div class="sidebar">
+    <div>
+      <a class="navbar-brand nav-text" routerLink="/">
+        <img class="logo" src="../../../assets/img/Logo.png" alt="" />Takemy&
+      </a>
+    </div>
+    <div class="menu-item">
+      <a routerLink="parcels">
+        <span>
+          <fa-icon class="small-icon" [icon]="['fas', 'archive']"></fa-icon>
+          Parcels
+        </span>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a routerLink="volunteers">
+        <span>
+          <fa-icon class="small-icon" [icon]="['fas', 'user']"></fa-icon>
+          Volunteers
+        </span>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a routerLink="drivers">
+        <span>
+          <fa-icon class="small-icon" [icon]="['fas', 'car']"></fa-icon>
+          Drivers
+        </span>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a routerLink="control">
+        <span>
+          <fa-icon class="small-icon" [icon]="['fas', 'cog']"></fa-icon>
+          Control
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="main-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>

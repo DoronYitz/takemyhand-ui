@@ -23,7 +23,9 @@ h5 {
 hr {
   border-color: #f5593d;
   width: 80%;
-  margin: 1.75rem 0;
+  margin-top: 1.75rem;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .content {
@@ -42,12 +44,10 @@ hr {
 }
 
 .btnSend {
-  opacity: 1;
   background-color: #e7553b;
   color: white;
   font-weight: 500;
-  animation: fadeDown 0.7s backwards;
-  animation-delay: 0.7s;
+  animation: fadeDown 0.7s 0.7s both;
   &:hover {
     background-color: #c3442d;
   }
@@ -60,9 +60,22 @@ hr {
 }
 
 ::ng-deep {
-  .mat-form-field-appearance-outline .mat-form-field-outline,
   .mat-form-field.mat-focused .mat-form-field-label {
     color: white;
+  }
+
+  .mat-form-field-suffix .mat-icon {
+    font-size: 120%;
+  }
+
+  .mat-form-field-appearance-standard .mat-form-field-underline {
+    transition: 0.5s;
+    background-color: white;
+  }
+
+  .mat-form-field-appearance-standard .mat-form-field-ripple {
+    transition: 0.2s;
+    background-color: white;
   }
 
   .mat-focused {
@@ -113,6 +126,7 @@ hr {
   }
 
   100% {
+    opacity: 1;
     transform: translateY(0);
   }
 }

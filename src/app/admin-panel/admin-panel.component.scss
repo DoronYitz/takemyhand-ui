@@ -1,0 +1,48 @@
+.page-wrapper {
+  display: flex;
+}
+
+.main-wrapper {
+  background-color: red;
+  min-height: 100vh;
+  flex-basis: 86%;
+}
+
+.sidebar {
+  background-color: rgb(29, 28, 49);
+  min-height: 100vh;
+  flex-basis: 14%;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .nav-text {
+    color: white;
+    font-weight: 500;
+    transform: translateX(30px);
+  }
+
+  .logo {
+    width: 25%;
+    height: 25%;
+    display: inline-block;
+    margin: 0 7%;
+  }
+
+  .menu-item {
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 2.5rem;
+    a {
+      color: white;
+    }
+  }
+
+  .small-icon {
+    margin-right: 13px;
+  }
+
+  .large-icon {
+    margin-right: 7px;
+  }
+}

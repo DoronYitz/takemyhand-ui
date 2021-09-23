@@ -25,6 +25,11 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { ParcelsComponent } from './admin-panel/parcels/parcels.component';
+import { DriversComponent } from './admin-panel//drivers/drivers.component';
+import { ControlPanelComponent } from './admin-panel//control-panel/control-panel.component';
+import { VolunteersComponent } from './admin-panel//volunteers/volunteers.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,11 @@ import { MatIconModule } from '@angular/material/icon';
     FooterComponent,
     VolunteerComponent,
     LoginComponent,
+    AdminPanelComponent,
+    ParcelsComponent,
+    DriversComponent,
+    ControlPanelComponent,
+    VolunteersComponent,
   ],
   imports: [
     BrowserModule,
