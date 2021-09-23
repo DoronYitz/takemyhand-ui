@@ -6,30 +6,59 @@
         <div class="formContent">
           <h1>Login</h1>
           <h5>Log into our driver's portal</h5>
-          <form class="form">
+          <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
             <hr />
-            <mat-form-field appearance="outline" class="input mt-2">
+            <mat-form-field appearance="outline" class="input mt-4">
               <mat-label>Email</mat-label>
               <input
                 matInput
-                required
                 type="email"
-                placeholder="Jane@doe.com"
+                id="email"
+                name="email"
                 autocomplete="off"
+                formControlName="email"
               />
+              <mat-error *ngIf="email.errors?.required"
+                >Email is required</mat-error
+              >
+              <mat-error *ngIf="email.errors?.email"
+                >Not a valid email pattern</mat-error
+              >
             </mat-form-field>
-            <mat-form-field appearance="outline" class="input mt-2">
+            <mat-form-field appearance="outline" class="input mt-4">
               <mat-label>Password</mat-label>
-              <input matInput required type="password" autocomplete="off" />
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                type="password"
+                autocomplete="off"
+                formControlName="password"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+                type="button"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+              <mat-error *ngIf="password.errors?.required"
+                >Password is required</mat-error
+              >
             </mat-form-field>
-            <br />
-            <button
-              mat-flat-button
-              color="warn"
-              class="btnSend btn-lg btn-round mt-3"
-            >
-              Send
-            </button>
+            <div class="mt-2">
+              <button
+                class="btnSend btn btn-round mt-4 px-4 py-2"
+                type="submit"
+                [disabled]="!profileForm.valid"
+              >
+                Login
+              </button>
+            </div>
           </form>
         </div>
       </div>

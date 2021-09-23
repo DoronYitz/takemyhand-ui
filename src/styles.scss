@@ -1,6 +1,3 @@
-/* Importing Bootstrap SCSS file. */
-@import "~bootstrap/scss/bootstrap";
-
 html,
 body {
   height: 100%;
@@ -32,7 +29,7 @@ a:active {
 }
 
 .btn-round {
-  border-radius: 30px !important;
+  border-radius: 1.5rem !important;
 }
 
 .btn h1,
