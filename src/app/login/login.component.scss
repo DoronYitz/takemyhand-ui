@@ -47,7 +47,7 @@ hr {
   background-color: #e7553b;
   color: white;
   font-weight: 500;
-  animation: fadeDown 0.7s 0.7s both;
+  animation: fadeDown 0.7s 0.7s backwards;
   &:hover {
     background-color: #c3442d;
   }
@@ -124,7 +124,6 @@ hr {
   }
 
   100% {
-    opacity: 1;
     transform: translateY(0);
   }
 }

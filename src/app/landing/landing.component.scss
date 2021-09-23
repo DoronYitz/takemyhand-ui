@@ -331,34 +331,6 @@
   }
 }
 
-//Form
-
-form {
-  width: 80%;
-}
-
-.input {
-  width: 100%;
-}
-
-.btnSend {
-  opacity: 0;
-  transition: 0.8s;
-  animation: fadeDown 0.8s both;
-  animation-delay: 1.4s;
-  transition: 0.8s;
-  border-color: #f5593d;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 0 5%;
-}
-
-.btnSend:hover {
-  background-color: #f5593d;
-  color: white;
-  border-color: #f5593d;
-}
-
 /* Animation */
 @keyframes fadeUp {
   0% {
