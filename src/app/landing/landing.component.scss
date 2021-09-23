@@ -10,7 +10,9 @@
   background-position: center;
   background-size: cover;
   position: relative;
-  clip-path: circle(450vh at 50% -350vh);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  // clip-path: circle(450vh at 50% -350vh);
 
   &__text {
     width: 70%;
@@ -47,6 +49,46 @@
       background-color: #6e6e6e;
       color: white;
       opacity: 0.6;
+    }
+  }
+
+  .icon-scroll,
+  .icon-scroll:before {
+    animation: fade 0.8s both;
+    animation-delay: 1.4s;
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+  }
+
+  .icon-scroll {
+    width: 30px;
+    height: 50px;
+    margin-left: -20px;
+    margin-top: -35px;
+    box-shadow: inset 0 0 0 1px #fff;
+    border-radius: 25px;
+  }
+  .icon-scroll:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    margin-left: -4px;
+    top: 8px;
+    border-radius: 4px;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: scroll;
+  }
+
+  @keyframes scroll {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(25px);
     }
   }
 }
@@ -127,6 +169,11 @@
   font-weight: 600;
   letter-spacing: 1px;
   transition: 0.5s;
+  background-color: #df533b;
+  color: white;
+  &:hover {
+    background-color: #af3d29;
+  }
 }
 
 @media (max-width: 748px) {
@@ -322,6 +369,17 @@ form {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Animation */
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
