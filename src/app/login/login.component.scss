@@ -32,7 +32,7 @@ hr {
   background-color: rgb(29, 28, 49, 0.9);
   border-radius: 1rem;
   padding: 2.5rem 3.5rem;
-  animation: fadeUp 0.7s ease-in-out;
+  animation: fade 0.7s ease-in-out;
 }
 
 .input {
@@ -107,15 +107,13 @@ hr {
 }
 
 /* Animation */
-@keyframes fadeUp {
+@keyframes fade {
   0% {
     opacity: 0;
-    transform: translateY(1.25rem);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 

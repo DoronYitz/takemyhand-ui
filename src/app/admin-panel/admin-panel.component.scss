@@ -3,7 +3,11 @@
 }
 
 .main-wrapper {
-  background-color: red;
+  background-image: linear-gradient(
+      rgba(4, 10, 31, 0.705),
+      rgba(4, 9, 30, 0.705)
+    ),
+    url(../../assets/img/qoute.jpg);
   min-height: 100vh;
   flex-basis: 86%;
 }
@@ -30,12 +34,22 @@
   }
 
   .menu-item {
-    margin: 0 auto;
-    width: 50%;
-    margin-top: 2.5rem;
+    margin: 0.25rem auto;
     a {
-      color: white;
+      display: block;
+      width: 12rem;
+      color: #d3d3d3;
+      padding: 1rem 1.5rem;
+      border-radius: 0.25rem;
+      &:hover {
+        color: white;
+      }
     }
+  }
+
+  .active-link {
+    color: white !important;
+    background-color: #3b577d;
   }
 
   .small-icon {
