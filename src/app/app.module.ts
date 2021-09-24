@@ -6,7 +6,9 @@ import { LandingComponent } from './landing/landing.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSortModule } from '@angular/material/sort';
 import {
   FontAwesomeModule,
   FaIconLibrary,
@@ -30,6 +32,8 @@ import { ParcelsComponent } from './admin-panel/parcels/parcels.component';
 import { DriversComponent } from './admin-panel//drivers/drivers.component';
 import { ControlPanelComponent } from './admin-panel//control-panel/control-panel.component';
 import { VolunteersComponent } from './admin-panel//volunteers/volunteers.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,7 @@ import { VolunteersComponent } from './admin-panel//volunteers/volunteers.compon
     ReactiveFormsModule,
     MatIconModule,
     MatInputModule,
+    MatTableModule,
     MatButtonModule,
     FontAwesomeModule,
     InputTextModule,
@@ -60,6 +65,9 @@ import { VolunteersComponent } from './admin-panel//volunteers/volunteers.compon
     MatRadioModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatSortModule,
+    MatFormFieldModule,
+    NgxMatSelectSearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

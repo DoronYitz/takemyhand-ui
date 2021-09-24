@@ -1,6 +1,6 @@
 export interface Volunteer {
-  _id: string;
-  first_name: string;
-  last_name: string;
-  neighborhood: string;
+  _id?: string;
+  full_name?: string;
+  phone?: string;
+  num_of_people?: number;
 }

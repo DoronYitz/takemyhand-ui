@@ -1,0 +1,46 @@
+.demo-table {
+  width: 100%;
+}
+
+.content-wrapper {
+  margin-top: 5rem;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+::ng-deep .mat-checkbox-background {
+  border: 1px solid white;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #ef3e36;
+}
+
+.mat-table {
+  background: transparent;
+}
+
+.mat-header-cell {
+  color: rgb(255, 255, 255);
+}
+
+mat-row,
+mat-header-row,
+mat-footer-row,
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  border-bottom-color: rgb(204, 204, 204, 41%);
+}
+
+[mat-header-row] {
+  background: #090d1d;
+}
+
+.mat-cell,
+.mat-footer-cell {
+  color: white;
+}

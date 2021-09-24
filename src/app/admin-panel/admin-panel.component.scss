@@ -3,11 +3,8 @@
 }
 
 .main-wrapper {
-  background-image: linear-gradient(
-      rgba(4, 10, 31, 0.705),
-      rgba(4, 9, 30, 0.705)
-    ),
-    url(../../assets/img/qoute.jpg);
+  background-image: linear-gradient(rgba(22, 29, 54, 0.7), rgba(4, 9, 30, 0.7)),
+    url(../../assets/img/hero.jpg);
   min-height: 100vh;
   flex-basis: 86%;
 }
