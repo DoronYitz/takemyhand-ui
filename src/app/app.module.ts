@@ -33,7 +33,6 @@ import { DriversComponent } from './admin-panel//drivers/drivers.component';
 import { ControlPanelComponent } from './admin-panel//control-panel/control-panel.component';
 import { VolunteersComponent } from './admin-panel//volunteers/volunteers.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
   declarations: [
@@ -67,7 +66,6 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     MatCheckboxModule,
     MatSortModule,
     MatFormFieldModule,
-    NgxMatSelectSearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

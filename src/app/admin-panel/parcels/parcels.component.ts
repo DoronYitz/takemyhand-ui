@@ -46,19 +46,14 @@ export class ParcelsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
   columns = [
     {
-      columnDef: '_id',
-      header: 'Id',
-      cell: (element: Parcel) => `${element._id}`,
-    },
-    {
-      columnDef: 'driver_id',
-      header: 'Driver',
-      cell: (element: Parcel) => element.volunteer,
-    },
-    {
       columnDef: 'address',
       header: 'Address',
       cell: (element: Parcel) => `${element.address}`,
+    },
+    {
+      columnDef: 'driver',
+      header: 'Driver',
+      cell: (element: Parcel) => element.volunteer,
     },
     {
       columnDef: 'arrived',
@@ -86,5 +81,10 @@ export class ParcelsComponent implements OnInit, AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  compareByID(a: Volunteer, b: Volunteer) {
+    console.log(a && b && a._id === b._id);
+    return a && b && a._id === b._id;
   }
 }

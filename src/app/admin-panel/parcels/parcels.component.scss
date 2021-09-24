@@ -11,6 +11,31 @@
   width: 100%;
 }
 
+.mat-form-field.table-input {
+  font-size: 14px;
+  width: 80%;
+}
+
+:ng-deep .mat-checkbox {
+  transform: translate(11px, 2px) !important;
+}
+
+.mat-column-driver {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 ::ng-deep .mat-checkbox-background {
   border: 1px solid white;
 }
