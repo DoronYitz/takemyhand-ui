@@ -5,5 +5,5 @@ export interface Parcel {
   address?: string;
   for?: string;
   arrived?: boolean;
-  volunteer: Volunteer;
+  volunteer?: Volunteer;
 }
