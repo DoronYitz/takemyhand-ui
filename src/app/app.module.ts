@@ -1,4 +1,5 @@
 import { Input, NgModule, OnInit } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +37,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { EventsComponent } from './admin-panel/events/events.component';
+import { AddEventComponent } from './admin-panel/events/add-event/add-event.component';
+import { EditEventComponent } from './admin-panel/events/edit-event/edit-event.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -51,6 +56,8 @@ import { EventsComponent } from './admin-panel/events/events.component';
     ControlPanelComponent,
     VolunteersComponent,
     EventsComponent,
+    AddEventComponent,
+    EditEventComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +77,9 @@ import { EventsComponent } from './admin-panel/events/events.component';
     MatSortModule,
     MatFormFieldModule,
     MatSlideToggleModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

@@ -1,13 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { Parcel } from 'src/app/models/parcel.model';
 import { Volunteer } from 'src/app/models/volunteer.model';
-import { VolunteerService } from 'src/app/services/volunteer.service';
-import { ParcelService } from 'src/app/services/parcel.service';
 import { MatSelectChange } from '@angular/material/select';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { IEvent } from 'src/app/models/event.model';
+import * as moment from 'moment';
 import Swal from 'sweetalert2';
+import { EventService } from 'src/app/services/event.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddEventComponent } from './add-event/add-event.component';
 
 @Component({
   selector: 'app-events',
@@ -21,32 +23,32 @@ export class EventsComponent implements OnInit {
     {
       columnDef: 'active',
       header: 'Active',
-      cell: (element: Parcel) => element,
+      cell: (element: IEvent) => element,
     },
     {
       columnDef: 'title',
       header: 'Title',
-      cell: (element: Parcel) => `${element.address}`,
+      cell: (element: IEvent) => `${element.title}`,
     },
     {
       columnDef: 'category',
       header: 'Category',
-      cell: (element: Parcel) => `${element.address}`,
+      cell: (element: IEvent) => `${element.category}`,
     },
     {
       columnDef: 'date',
       header: 'Date',
-      cell: (element: Parcel) => `${element.address}`,
+      cell: (element: IEvent) => `${element.fixedDate}`,
     },
     {
       columnDef: 'edit',
       header: 'Edit',
-      cell: (element: Parcel) => element,
+      cell: (element: IEvent) => element,
     },
     {
       columnDef: 'delete',
       header: 'Delete',
-      cell: (element: Parcel) => element,
+      cell: (element: IEvent) => element,
     },
   ];
   dataSource;
@@ -54,20 +56,20 @@ export class EventsComponent implements OnInit {
   displayedColumns = this.columns.map((c) => c.columnDef);
 
   constructor(
-    private volunteerService: VolunteerService,
-    private parcelService: ParcelService
+    private eventService: EventService,
+    private addEventDialog: MatDialog,
+    private editEventDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.parcelService.getParcels().subscribe((parcels: Parcel[]) => {
-      this.dataSource = new MatTableDataSource(parcels);
+    this.eventService.getEvents().subscribe((events: IEvent[]) => {
+      console.log(events);
+      events.forEach((x) => {
+        x.fixedDate = moment(x.date).format('DD/MM/YYYY');
+      });
+      this.dataSource = new MatTableDataSource(events);
       this.dataSource.sort = this.sort;
     });
-    this.volunteerService
-      .getVolunteers()
-      .subscribe((volunteers: Volunteer[]) => {
-        this.drivers = volunteers;
-      });
   }
 
   applyFilter(event: Event) {
@@ -75,44 +77,26 @@ export class EventsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  compareByID(a: Volunteer, b: Volunteer) {
-    return a && b && a._id === b._id;
+  popAddEventModal() {
+    this.addEventDialog.open(AddEventComponent, { panelClass: 'add-modal' });
   }
 
-  editParcelDriver(parcel: Parcel, event: MatSelectChange) {
-    const parcelClone: Parcel = JSON.parse(JSON.stringify(parcel));
-    parcelClone.volunteer = event.value;
-    this.parcelService.editParcel(parcelClone).subscribe((res: Parcel) => {
-      console.log(res);
-      parcel.volunteer = event.value;
-      const text = `${res.volunteer.full_name} set as driver`;
-      Swal.fire({
-        text: text,
-        timer: 300000,
-        icon: 'success',
-        toast: true,
-        position: 'bottom-right',
-        showConfirmButton: false,
-        background: '#1d1c31',
-      });
-    });
-  }
-
-  editParcelArrived(parcel: Parcel, event: MatCheckboxChange) {
-    const parcelClone: Parcel = JSON.parse(JSON.stringify(parcel));
-    parcelClone.arrived = event.checked;
-    this.parcelService.editParcel(parcelClone).subscribe((res: Parcel) => {
-      parcel.arrived = event.checked;
-      const text = event.checked ? `Arrived checked` : 'Arrived unchecked';
-      Swal.fire({
-        text: text,
-        timer: 300000,
-        icon: 'success',
-        toast: true,
-        position: 'bottom-right',
-        showConfirmButton: false,
-        background: '#1d1c31',
-      });
-    });
-  }
+  // editParcelDriver(parcel: IEvent, event: MatSelectChange) {
+  //   const parcelClone: IEvent = JSON.parse(JSON.stringify(parcel));
+  //   parcelClone.volunteer = event.value;
+  //   this.parcelService.editParcel(parcelClone).subscribe((res: IEvent) => {
+  //     console.log(res);
+  //     parcel.volunteer = event.value;
+  //     const text = `${res.volunteer.full_name} set as driver`;
+  //     Swal.fire({
+  //       text: text,
+  //       timer: 300000,
+  //       icon: 'success',
+  //       toast: true,
+  //       position: 'bottom-right',
+  //       showConfirmButton: false,
+  //       background: '#1d1c31',
+  //     });
+  //   });
+  // }
 }

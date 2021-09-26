@@ -6,4 +6,5 @@ export interface IEvent {
   date?: Date;
   active?: boolean;
   secret?: string;
+  fixedDate?: string;
 }

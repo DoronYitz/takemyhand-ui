@@ -32,6 +32,7 @@
     "bootstrap": "^4.6.0",
     "i": "^0.3.7",
     "jwt-decode": "^3.1.2",
+    "moment": "^2.29.1",
     "npm": "^7.24.1",
     "primeicons": "^4.1.0",
     "primeng": "^11.4.5",
