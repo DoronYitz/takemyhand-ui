@@ -13,7 +13,6 @@ import {
   FontAwesomeModule,
   FaIconLibrary,
 } from '@fortawesome/angular-fontawesome';
-import { InputTextModule } from 'primeng/inputtext';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -24,7 +23,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
@@ -33,6 +32,10 @@ import { DriversComponent } from './admin-panel//drivers/drivers.component';
 import { ControlPanelComponent } from './admin-panel//control-panel/control-panel.component';
 import { VolunteersComponent } from './admin-panel//volunteers/volunteers.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { JwtModule } from '@auth0/angular-jwt';
+import { EventsComponent } from './admin-panel/events/events.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     DriversComponent,
     ControlPanelComponent,
     VolunteersComponent,
+    EventsComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,15 +63,28 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTableModule,
     MatButtonModule,
     FontAwesomeModule,
-    InputTextModule,
     NgbModule,
     MatRadioModule,
     MatSelectModule,
     MatCheckboxModule,
     MatSortModule,
     MatFormFieldModule,
+    MatSlideToggleModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        },
+      },
+    }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule implements OnInit {

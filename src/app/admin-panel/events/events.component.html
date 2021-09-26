@@ -1,6 +1,6 @@
 <div class="container content-wrapper">
   <div class="row">
-    <h1 class="text-white">Parcels</h1>
+    <h1 class="text-white">Events</h1>
     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
       <input
@@ -37,9 +37,9 @@
               </mat-select>
             </mat-form-field>
           </span>
-          <div *ngIf="column.header === 'Arrived'" class="ml-2 checkbox">
+          <div *ngIf="column.header === 'Active'" class="ml-2 checkbox">
             <mat-checkbox
-              [checked]="column.cell(row).arrived"
+              [checked]="column.cell(row).active"
               [color]="warn"
               (change)="editParcelArrived(column.cell(row), $event)"
             >
@@ -47,7 +47,7 @@
           </div>
           <div
             *ngIf="
-              column.header !== 'Arrived' &&
+              column.header !== 'Active' &&
               column.header !== 'Driver' &&
               column.header !== 'Edit' &&
               column.header !== 'Delete'

@@ -11,6 +11,7 @@ export class UserService {
   baseUrl = environment.backendUrl + '/api/user';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    withCredentials: true,
   };
 
   constructor(private http: HttpClient) {}

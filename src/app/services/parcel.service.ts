@@ -11,6 +11,7 @@ export class ParcelService {
   baseUrl = environment.backendUrl + '/api/parcel';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    withCredentials: true,
   };
 
   constructor(private http: HttpClient) {}

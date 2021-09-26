@@ -75,6 +75,7 @@ export class VolunteersComponent implements OnInit {
           toast: true,
           position: 'bottom-right',
           showConfirmButton: false,
+          background: '#1d1c31',
         });
       });
   }

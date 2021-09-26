@@ -11,6 +11,7 @@ export class VolunteerService {
   baseUrl = environment.backendUrl + '/api/volunteer';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    withCredentials: true,
   };
 
   constructor(private http: HttpClient) {}

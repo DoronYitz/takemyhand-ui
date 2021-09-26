@@ -7,24 +7,29 @@
         <div class="formContent">
           <h1>Login</h1>
           <h5>Log into our driver's portal</h5>
-          <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <form
+            class="form"
+            [formGroup]="profileForm"
+            (ngSubmit)="onSubmit(f)"
+            #f="ngForm"
+          >
             <hr />
             <mat-form-field appearance="standard" class="input mt-1">
-              <mat-label>Email</mat-label>
+              <mat-label>Phone</mat-label>
               <input
                 matInput
-                type="email"
+                type="text"
                 required
-                id="email"
-                name="email"
+                id="phone"
+                name="phone"
                 autocomplete="off"
-                formControlName="email"
+                formControlName="phone"
               />
-              <mat-error *ngIf="email.errors?.required"
-                >Email is required</mat-error
+              <mat-error *ngIf="phone.errors?.required"
+                >Phone is required</mat-error
               >
-              <mat-error *ngIf="email.errors?.email"
-                >Not a valid email pattern</mat-error
+              <mat-error *ngIf="phone.errors?.pattern"
+                >Not a valid phone number</mat-error
               >
             </mat-form-field>
             <mat-form-field appearance="standard" class="input mt-3">

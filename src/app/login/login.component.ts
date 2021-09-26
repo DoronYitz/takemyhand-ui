@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, NgForm } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,23 +10,22 @@ import { Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   hide = true;
-  strongRegex = new RegExp(
-    '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})'
-  );
 
   profileForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
+    phone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
     password: ['', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {}
 
   ngOnInit(): void {}
 
-  onSubmit(): void {}
+  onSubmit(form: NgForm): void {
+    this.authService.login(form.value.phone, form.value.password);
+  }
 
-  get email() {
-    return this.profileForm.get('email');
+  get phone() {
+    return this.profileForm.get('phone');
   }
 
   get password() {

@@ -10,28 +10,33 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-parcels',
-  templateUrl: './parcels.component.html',
-  styleUrls: ['./parcels.component.scss'],
+  selector: 'app-events',
+  templateUrl: './events.component.html',
+  styleUrls: ['./events.component.scss'],
 })
-export class ParcelsComponent implements OnInit {
+export class EventsComponent implements OnInit {
   public editState = false;
   @ViewChild(MatSort) sort: MatSort;
   columns = [
     {
-      columnDef: 'arrived',
-      header: 'Arrived',
+      columnDef: 'active',
+      header: 'Active',
       cell: (element: Parcel) => element,
     },
     {
-      columnDef: 'address',
-      header: 'Address',
+      columnDef: 'title',
+      header: 'Title',
       cell: (element: Parcel) => `${element.address}`,
     },
     {
-      columnDef: 'driver',
-      header: 'Driver',
-      cell: (element: Parcel) => element,
+      columnDef: 'category',
+      header: 'Category',
+      cell: (element: Parcel) => `${element.address}`,
+    },
+    {
+      columnDef: 'date',
+      header: 'Date',
+      cell: (element: Parcel) => `${element.address}`,
     },
     {
       columnDef: 'edit',
