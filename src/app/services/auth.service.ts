@@ -21,19 +21,11 @@ export class AuthService {
   ) {}
 
   login(phone: string, password: string) {
-    return this.http
-      .post(
-        `${this.baseUrl}/login`,
-        JSON.stringify({ phone, password }),
-        this.httpOptions
-      )
-      .subscribe(
-        (res: any) => {
-          localStorage.setItem('token', res.token);
-          this.router.navigate(['/']);
-        },
-        (err) => console.log(err)
-      );
+    return this.http.post(
+      `${this.baseUrl}/login`,
+      JSON.stringify({ phone, password }),
+      this.httpOptions
+    );
   }
 
   getToken(): string {

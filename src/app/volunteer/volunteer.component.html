@@ -1,14 +1,19 @@
 <!-- Header  -->
 <app-navbar></app-navbar>
-<div class="page-header" data-parallax="true">
-  <div class="text-center page-header__text">
-    <div class="container content text-left">
-      <div class="row">
-        <div class="col-12 col-md-6 formContent ml-auto">
-          <h1>Join to our next event:</h1>
-          <h5>And make someone's day happier</h5>
-          <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-            <mat-form-field appearance="standard" class="input">
+<div class="page-wrapper" data-parallax="true">
+  <div class="container content">
+    <div class="d-flex">
+      <div class="formContent text-left">
+        <h1>Join to our next event:</h1>
+        <h5>And make someone's day happier</h5>
+        <form
+          class="form register-form"
+          [formGroup]="profileForm"
+          (ngSubmit)="onSubmit(f)"
+          #f="ngForm"
+        >
+          <div>
+            <mat-form-field appearance="standard" class="input d-block">
               <mat-label>Full name</mat-label>
               <input
                 matInput
@@ -27,8 +32,9 @@
                 >Must contain only letters</mat-error
               >
             </mat-form-field>
-            <br />
-            <mat-form-field appearance="standard" class="input mt-2">
+          </div>
+          <div>
+            <mat-form-field appearance="standard" class="input d-block mt-4">
               <mat-label>Phone number</mat-label>
               <input
                 matInput
@@ -40,56 +46,36 @@
                 formControlName="phone"
                 autocomplete="off"
               />
-            </mat-form-field>
-            <br />
-            <mat-form-field appearance="standard" class="input mt-2">
-              <mat-label>Your Neighborhood</mat-label>
-              <mat-select
-                id="neighborhood"
-                name="neighborhood"
-                formControlName="neighborhood"
+              <mat-error *ngIf="phone.errors?.required"
+                >Phone number is required</mat-error
               >
+              <mat-error *ngIf="phone.errors?.pattern"
+                >Invalid phone number</mat-error
+              >
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="standard" class="input mt-5 d-block">
+              <mat-label>Your Neighborhood</mat-label>
+              <mat-select id="address" name="address" formControlName="address">
                 <mat-option *ngFor="let nbhood of nbhoods" [value]="nbhood">
                   {{ nbhood }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-checkbox class="input mt-3" color="warn"
-              >Willing to Deliver Packages by car</mat-checkbox
-            >
-            <hr />
-            <div class="thanks">
-              <p class="mt-4">Awesome!</p>
-              <p>We are creating a user for our drivers</p>
-              <p>To help us manage packges easily</p>
-            </div>
-            <mat-form-field appearance="standard" class="input mt-2">
-              <mat-label>Email</mat-label>
-              <input
-                matInput
-                required
-                type="email"
-                autocomplete="doNotAutoComplete"
-              />
-            </mat-form-field>
-            <mat-form-field appearance="standard" class="input mt-2">
-              <mat-label>Password</mat-label>
-              <input matInput required type="password" autocomplete="off" />
-            </mat-form-field>
-            <div>
-              <button color="warn" class="btnSend btn btn-round mt-4 px-4 py-2">
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="col-md-6 side-image">
-          <img
-            src="../../assets/img/banner-signup.jpg"
-            class="w-100 h-100"
-            id="picture"
-          />
-        </div>
+          </div>
+
+          <div class="mt-5">
+            <button class="btnSend btn btn-round px-4 py-2">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="side-image">
+        <img
+          src="../../assets/img/banner-signup.jpg"
+          class="w-100 h-100"
+          id="picture"
+        />
       </div>
     </div>
   </div>

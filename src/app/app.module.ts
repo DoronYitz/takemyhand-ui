@@ -41,6 +41,8 @@ import { AddEventComponent } from './admin-panel/events/add-event/add-event.comp
 import { EditEventComponent } from './admin-panel/events/edit-event/edit-event.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { DeleteEventComponent } from './admin-panel/events/delete-event/delete-event.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     EventsComponent,
     AddEventComponent,
     EditEventComponent,
+    DeleteEventComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +83,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    TextFieldModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

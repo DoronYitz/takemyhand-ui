@@ -38,14 +38,25 @@
           {{ column.cell(row) }}
         </div>
         <div *ngIf="column.header === 'Active'" class="ml-2 checkbox">
-          <mat-checkbox [checked]="column.cell(row).active" [color]="warn">
-            <!-- (change)="editParcelArrived(column.cell(row), $event)" -->
+          <mat-checkbox
+            [checked]="column.cell(row).active"
+            [color]="warn"
+            (change)="toggleEventActive(column.cell(row), $event)"
+          >
           </mat-checkbox>
         </div>
-        <div *ngIf="column.header === 'Edit'" class="ml-1">
+        <div
+          *ngIf="column.header === 'Edit'"
+          class="ml-1 edit-btn"
+          (click)="popEditEventModal(column.cell(row))"
+        >
           <fa-icon [icon]="['far', 'edit']"></fa-icon>
         </div>
-        <div *ngIf="column.header === 'Delete'" class="ml-2 pl-1">
+        <div
+          *ngIf="column.header === 'Delete'"
+          class="ml-2 pl-1 delete-btn"
+          (click)="popDeleteEventModal(column.cell(row))"
+        >
           <fa-icon [icon]="['far', 'trash-alt']"></fa-icon>
         </div>
       </td>
@@ -56,7 +67,7 @@
 
     <!-- Row shown when there is no matching data. -->
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="3">
+      <td class="mat-cell" colspan="6">
         No data matching the filter "{{ input.value }}"
       </td>
     </tr>

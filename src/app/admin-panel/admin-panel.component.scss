@@ -3,8 +3,11 @@
 }
 
 .main-wrapper {
-  background-image: linear-gradient(rgba(22, 29, 54, 0.7), rgba(4, 9, 30, 0.7)),
-    url(../../assets/img/hero.jpg);
+  background-image: linear-gradient(
+      rgba(22, 29, 54, 0.281),
+      rgba(4, 9, 30, 0.274)
+    ),
+    url(../../assets/img/takelove.jpg);
   min-height: 100vh;
   flex-basis: 86%;
 }

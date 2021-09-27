@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { Volunteer } from 'src/app/models/volunteer.model';
-import { MatSelectChange } from '@angular/material/select';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { IEvent } from 'src/app/models/event.model';
 import * as moment from 'moment';
@@ -10,6 +9,8 @@ import Swal from 'sweetalert2';
 import { EventService } from 'src/app/services/event.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEventComponent } from './add-event/add-event.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
+import { DeleteEventComponent } from './delete-event/delete-event.component';
 
 @Component({
   selector: 'app-events',
@@ -51,6 +52,7 @@ export class EventsComponent implements OnInit {
       cell: (element: IEvent) => element,
     },
   ];
+  events: IEvent[] = [];
   dataSource;
   drivers: Volunteer[];
   displayedColumns = this.columns.map((c) => c.columnDef);
@@ -58,16 +60,17 @@ export class EventsComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private addEventDialog: MatDialog,
-    private editEventDialog: MatDialog
+    private editEventDialog: MatDialog,
+    private deleteEventDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.eventService.getEvents().subscribe((events: IEvent[]) => {
-      console.log(events);
       events.forEach((x) => {
         x.fixedDate = moment(x.date).format('DD/MM/YYYY');
       });
-      this.dataSource = new MatTableDataSource(events);
+      this.events = events;
+      this.dataSource = new MatTableDataSource(this.events);
       this.dataSource.sort = this.sort;
     });
   }
@@ -78,25 +81,71 @@ export class EventsComponent implements OnInit {
   }
 
   popAddEventModal() {
-    this.addEventDialog.open(AddEventComponent, { panelClass: 'add-modal' });
+    const addDialogRef = this.addEventDialog.open(AddEventComponent, {
+      panelClass: 'add-modal',
+    });
+    addDialogRef.afterClosed().subscribe((newEvent: IEvent) => {
+      if (!newEvent) {
+        return;
+      }
+      newEvent.fixedDate = moment(newEvent.date).format('DD/MM/YYYY');
+      this.events.push(newEvent);
+      this.dataSource = new MatTableDataSource(this.events);
+      this.dataSource.sort = this.sort;
+    });
   }
 
-  // editParcelDriver(parcel: IEvent, event: MatSelectChange) {
-  //   const parcelClone: IEvent = JSON.parse(JSON.stringify(parcel));
-  //   parcelClone.volunteer = event.value;
-  //   this.parcelService.editParcel(parcelClone).subscribe((res: IEvent) => {
-  //     console.log(res);
-  //     parcel.volunteer = event.value;
-  //     const text = `${res.volunteer.full_name} set as driver`;
-  //     Swal.fire({
-  //       text: text,
-  //       timer: 300000,
-  //       icon: 'success',
-  //       toast: true,
-  //       position: 'bottom-right',
-  //       showConfirmButton: false,
-  //       background: '#1d1c31',
-  //     });
-  //   });
-  // }
+  popEditEventModal(selectedEvent: IEvent) {
+    const editDialogRef = this.editEventDialog.open(EditEventComponent, {
+      data: selectedEvent,
+      panelClass: 'edit-modal',
+    });
+    editDialogRef.afterClosed().subscribe((edittedEvent: IEvent) => {
+      if (!edittedEvent) {
+        return;
+      }
+      edittedEvent.fixedDate = moment(edittedEvent.date).format('DD/MM/YYYY');
+      let prevEvent = this.events.find((x) => x._id === edittedEvent._id);
+      prevEvent = edittedEvent;
+      this.dataSource = new MatTableDataSource(this.events);
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+  popDeleteEventModal(selectedEvent: IEvent) {
+    const deleteDialogRef = this.deleteEventDialog.open(DeleteEventComponent, {
+      data: selectedEvent,
+      panelClass: 'delete-modal',
+    });
+    deleteDialogRef.afterClosed().subscribe((res) => {
+      if (!res) {
+        return;
+      }
+      const eventIndex = this.events.indexOf(selectedEvent);
+      this.events.splice(eventIndex, 1);
+      this.dataSource = new MatTableDataSource(this.events);
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+  toggleEventActive(selecetedEvent: IEvent, event: MatCheckboxChange) {
+    const eventClone: IEvent = JSON.parse(JSON.stringify(selecetedEvent));
+    eventClone.active = event.checked;
+    this.eventService.editEvent(eventClone).subscribe((res: IEvent) => {
+      console.log(res);
+      selecetedEvent.active = event.checked;
+      const text = event.checked
+        ? `${selecetedEvent.title} is active`
+        : `${selecetedEvent.title} is not active`;
+      Swal.fire({
+        text: text,
+        timer: 3000,
+        icon: 'success',
+        toast: true,
+        position: 'bottom-right',
+        showConfirmButton: false,
+        background: '#1d1c31',
+      });
+    });
+  }
 }

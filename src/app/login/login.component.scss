@@ -29,18 +29,27 @@ hr {
 }
 
 .content {
-  background-color: rgb(29, 28, 49, 0.9);
+  background-color: rgba(29, 28, 49, 0.9);
   border-radius: 1rem;
   padding: 2.5rem 3.5rem;
   animation: fade 0.7s ease-in-out;
 }
 
+.field-wrapper {
+  width: 300px;
+}
+
 .input {
   display: block;
-  width: 300px;
-  max-width: 80%;
-  font-size: 14px;
+  max-width: 25ch;
+  font-size: 0.95rem;
   margin-bottom: -15px;
+}
+
+.error-msg {
+  color: rgb(255, 81, 81);
+  font-size: 0.85rem;
+  margin-top: 1.5rem;
 }
 
 .btnSend {
@@ -60,43 +69,44 @@ hr {
 }
 
 ::ng-deep {
-  .mat-form-field.mat-focused .mat-form-field-label {
-    color: white;
-  }
+  .login-form {
+    .mat-form-field.mat-focused .mat-form-field-label {
+      color: white !important;
+    }
 
-  .mat-form-field-suffix .mat-icon {
-    font-size: 120%;
-  }
+    .mat-form-field-suffix .mat-icon {
+      font-size: 120%;
+    }
 
-  .mat-form-field-appearance-standard .mat-form-field-underline {
-    transition: 0.5s;
-    background-color: white;
-  }
+    .mat-form-field-appearance-standard .mat-form-field-underline {
+      transition: 0.5s;
+      background-color: white !important;
+    }
 
-  .mat-form-field-appearance-standard .mat-form-field-ripple {
-    transition: 0.2s;
-    background-color: white;
-  }
+    .mat-form-field-appearance-standard .mat-form-field-ripple {
+      transition: 0.2s;
+      background-color: white !important;
+    }
 
-  .mat-focused {
-    color: white !important;
-  }
+    mat-form-field input {
+      caret-color: white !important;
+    }
 
-  .mat-select-min-line {
-    color: white;
-  }
+    .mat-focused {
+      color: white !important;
+    }
 
-  mat-form-field {
-    .mat-hint,
-    input,
-    ::placeholder,
-    .mat-form-field-label {
+    .mat-select-min-line {
       color: white;
     }
-  }
 
-  .mat-checkbox-background {
-    border: 1px solid white;
+    mat-form-field {
+      .mat-hint,
+      input,
+      .mat-form-field-label {
+        color: white;
+      }
+    }
   }
 }
 

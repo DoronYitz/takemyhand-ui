@@ -1,1 +1,103 @@
-<p>edit-event works!</p>
+<h1 mat-dialog-title>Edit Event</h1>
+<form
+  class="form"
+  [formGroup]="profileForm"
+  (ngSubmit)="onSubmit(f)"
+  #f="ngForm"
+>
+  <hr />
+  <mat-form-field appearance="standard" class="input d-block">
+    <mat-label>Title</mat-label>
+    <input
+      matInput
+      type="text"
+      required
+      id="title"
+      name="title"
+      autocomplete="off"
+      formControlName="title"
+    />
+    <mat-error *ngIf="title.errors?.required">Title is required</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="standard" class="input d-block">
+    <mat-label>Category</mat-label>
+    <input
+      matInput
+      type="text"
+      required
+      id="category"
+      name="category"
+      autocomplete="off"
+      formControlName="category"
+    />
+    <mat-error *ngIf="secret.errors?.required">Category is required</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="standard" class="input d-block">
+    <mat-label>Choose a date</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      name="date"
+      id="date"
+      required
+      formControlName="date"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="picker"
+      class="text-white"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #picker color="warn"></mat-datepicker>
+    <mat-error *ngIf="date.errors?.required">Date is required</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="standard" class="input d-block">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      type="text"
+      required
+      id="description"
+      name="description"
+      autocomplete="off"
+      formControlName="description"
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="4"
+      cdkAutosizeMaxRows="6"
+    ></textarea>
+    <mat-error *ngIf="description.errors?.required"
+      >Description is required</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="standard" class="input d-block">
+    <mat-label>Secret Key</mat-label>
+    <input
+      matInput
+      name="secret"
+      id="secret"
+      required
+      type="text"
+      autocomplete="off"
+      formControlName="secret"
+    />
+    <mat-error *ngIf="secret.errors?.required"
+      >Secret key is required</mat-error
+    >
+    <mat-error *ngIf="secret.errors?.pattern"
+      >1 Upper-case, 1 Lower-case, 1 Number, 1 Special Char - Length
+      8</mat-error
+    >
+  </mat-form-field>
+  <div class="mt-3">
+    <button
+      class="btnSend btn btn-round mt-4 px-4 py-2"
+      type="submit"
+      [disabled]="!profileForm.valid"
+    >
+      Login
+    </button>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close type="button">Close</button>
+      <button mat-button color="warn" type="submit">Submit</button>
+    </div>
+  </div>
+</form>

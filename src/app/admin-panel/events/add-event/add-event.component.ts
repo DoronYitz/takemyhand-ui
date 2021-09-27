@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { IEvent } from 'src/app/models/event.model';
+import { EventService } from 'src/app/services/event.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-event',
@@ -8,7 +12,6 @@ import { FormBuilder, NgForm, Validators } from '@angular/forms';
   encapsulation: ViewEncapsulation.None,
 })
 export class AddEventComponent implements OnInit {
-  public hide: boolean = true;
   private strongSecretRegex = new RegExp(
     '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$'
   );
@@ -25,14 +28,32 @@ export class AddEventComponent implements OnInit {
     description: ['', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private eventService: EventService,
+    private dialogRef: MatDialogRef<AddEventComponent>
+  ) {}
 
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
+    this.eventService.createEvent(form.value).subscribe((res: IEvent) => {
+      Swal.fire({
+        text: 'Event added successfully',
+        timer: 3000,
+        icon: 'success',
+        toast: true,
+        position: 'bottom-right',
+        showConfirmButton: false,
+        background: '#1d1c31',
+      });
+
+      // Passing parent component the result
+      this.dialogRef.close(res);
+    });
   }
 
+  // Form Getters
   get secret() {
     return this.profileForm.get('secret');
   }
