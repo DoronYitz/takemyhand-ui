@@ -1,18 +1,16 @@
 <div class="container content-wrapper">
   <h1 class="text-white">Events</h1>
   <div class="text-right">
-    <button class="btn btn-round add-event-btn" (click)="popAddEventModal()">
+    <button
+      class="btn btn-round btn-danger add-event-btn"
+      (click)="popAddEventModal()"
+    >
       Add Event
     </button>
   </div>
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
-    <input
-      matInput
-      (keyup)="applyFilter($event)"
-      placeholder="Ex. ium"
-      #input
-    />
+    <input matInput (keyup)="applyFilter($event)" #input autocomplete="off" />
   </mat-form-field>
   <table
     mat-table
@@ -47,17 +45,20 @@
         </div>
         <div
           *ngIf="column.header === 'Edit'"
-          class="ml-1 edit-btn"
+          class="ml-1"
           (click)="popEditEventModal(column.cell(row))"
         >
-          <fa-icon [icon]="['far', 'edit']"></fa-icon>
+          <fa-icon class="edit-btn icon" [icon]="['far', 'edit']"></fa-icon>
         </div>
         <div
           *ngIf="column.header === 'Delete'"
-          class="ml-2 pl-1 delete-btn"
+          class="ml-2 pl-1"
           (click)="popDeleteEventModal(column.cell(row))"
         >
-          <fa-icon [icon]="['far', 'trash-alt']"></fa-icon>
+          <fa-icon
+            class="delete-btn icon"
+            [icon]="['far', 'trash-alt']"
+          ></fa-icon>
         </div>
       </td>
     </ng-container>

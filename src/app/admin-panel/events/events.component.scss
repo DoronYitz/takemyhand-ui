@@ -20,8 +20,22 @@
     background-color: #af3d29;
   }
 }
-.add-modal {
-  background-color: red;
+
+.icon {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  &:hover {
+    color: #86b1ff;
+  }
+}
+
+.delete-btn {
+  &:hover {
+    color: rgb(255, 71, 71);
+  }
 }
 
 ::ng-deep {
@@ -57,20 +71,62 @@
       color: white !important;
     }
   }
-}
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
 
-.mat-form-field.table-input {
-  font-size: 14px;
-  width: 80%;
-}
+  .mat-form-field.table-input {
+    font-size: 14px;
+    width: 80%;
+  }
 
-:ng-deep .mat-checkbox {
-  transform: translate(11px, 2px) !important;
+  .mat-checkbox {
+    transform: translate(1px, 5px);
+  }
+  .mat-checkbox-background {
+    border: 1px solid white;
+  }
+
+  .mat-select-arrow,
+  .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: white;
+  }
+
+  .mat-slide-toggle-bar {
+    background-color: rgb(255 255 255 / 38%);
+  }
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #ef3e36;
+  }
+
+  .mat-table {
+    background: transparent;
+  }
+
+  .mat-header-cell {
+    color: rgb(255, 255, 255);
+  }
+
+  mat-row,
+  mat-header-row,
+  mat-footer-row,
+  th.mat-header-cell,
+  td.mat-cell,
+  td.mat-footer-cell {
+    border-bottom-color: rgb(204, 204, 204, 41%);
+  }
+
+  [mat-header-row] {
+    background: #090d1d;
+  }
+
+  .mat-cell,
+  .mat-footer-cell {
+    color: white;
+  }
 }
 
 .mat-column-driver {
@@ -131,51 +187,4 @@
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
-}
-
-.checkbox {
-  transform: translateY(5px);
-}
-
-::ng-deep .mat-checkbox-background {
-  border: 1px solid white;
-}
-
-::ng-deep .mat-select-arrow,
-::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-  color: white;
-}
-
-::ng-deep .mat-slide-toggle-bar {
-  background-color: rgb(255 255 255 / 38%);
-}
-
-::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-  background-color: #ef3e36;
-}
-
-.mat-table {
-  background: transparent;
-}
-
-.mat-header-cell {
-  color: rgb(255, 255, 255);
-}
-
-mat-row,
-mat-header-row,
-mat-footer-row,
-th.mat-header-cell,
-td.mat-cell,
-td.mat-footer-cell {
-  border-bottom-color: rgb(204, 204, 204, 41%);
-}
-
-[mat-header-row] {
-  background: #090d1d;
-}
-
-.mat-cell,
-.mat-footer-cell {
-  color: white;
 }

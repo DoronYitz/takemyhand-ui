@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   errorMsg: string;
 
   profileForm = this.fb.group({
-    phone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+    phone: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
     password: ['', [Validators.required]],
   });
 

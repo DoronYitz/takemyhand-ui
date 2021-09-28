@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Load Parcels from file</h1>
+<div mat-dialog-content>
+  <p>Please make sure the pattern is:</p>
+  <p>King Gorge Tel-Aviv</p>
+  <p>Even Gevirol Tel-Aviv</p>
+  <div class="fileUploadInput">
+    <input
+      type="file"
+      accept=".txt"
+      (change)="handleFileInput($event.target.files)"
+    />
+    <button>+</button>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+  <button
+    mat-button
+    color="warn"
+    (click)="uploadFileToActivity()"
+    [disabled]="!this.textFile"
+  >
+    Load Parcels
+  </button>
+</div>

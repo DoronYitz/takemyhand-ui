@@ -8,6 +8,8 @@ import { ParcelService } from 'src/app/services/parcel.service';
 import { MatSelectChange } from '@angular/material/select';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { UploadFileComponent } from './upload-file/upload-file.component';
 
 @Component({
   selector: 'app-parcels',
@@ -50,7 +52,8 @@ export class ParcelsComponent implements OnInit {
 
   constructor(
     private volunteerService: VolunteerService,
-    private parcelService: ParcelService
+    private parcelService: ParcelService,
+    private uploadFileDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -78,9 +81,8 @@ export class ParcelsComponent implements OnInit {
     const parcelClone: Parcel = JSON.parse(JSON.stringify(parcel));
     parcelClone.volunteer = event.value;
     this.parcelService.editParcel(parcelClone).subscribe((res: Parcel) => {
-      console.log(res);
       parcel.volunteer = event.value;
-      const text = `${res.volunteer.full_name} set as driver`;
+      const text = `${parcel.volunteer.full_name} set as driver`;
       Swal.fire({
         text: text,
         timer: 300000,
@@ -108,6 +110,12 @@ export class ParcelsComponent implements OnInit {
         showConfirmButton: false,
         background: '#1d1c31',
       });
+    });
+  }
+
+  popLoadFileModal() {
+    const uploadDialogRef = this.uploadFileDialog.open(UploadFileComponent, {
+      closeOnNavigation: false,
     });
   }
 }

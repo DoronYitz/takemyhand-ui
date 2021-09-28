@@ -3,10 +3,7 @@
 }
 
 .main-wrapper {
-  background-image: linear-gradient(
-      rgba(22, 29, 54, 0.281),
-      rgba(4, 9, 30, 0.274)
-    ),
+  background-image: linear-gradient(rgba(22, 29, 54, 0.5), rgba(4, 9, 30, 0.5)),
     url(../../assets/img/takelove.jpg);
   min-height: 100vh;
   flex-basis: 86%;

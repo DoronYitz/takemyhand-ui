@@ -14,6 +14,11 @@ export class ParcelService {
     withCredentials: true,
   };
 
+  fileHttpOptions = {
+    headers: new HttpHeaders({ enctype: 'multipart/form-data' }),
+    withCredentials: true,
+  };
+
   constructor(private http: HttpClient) {}
 
   getParcels(): Observable<Parcel[]> {
@@ -29,6 +34,16 @@ export class ParcelService {
       this.baseUrl,
       JSON.stringify(parcel),
       this.httpOptions
+    );
+  }
+
+  createParcelsFromTextFile(textFile: File): Observable<Parcel[]> {
+    const formData: FormData = new FormData();
+    formData.append('textFile', textFile, textFile.name);
+    return this.http.post<Parcel[]>(
+      `${this.baseUrl}/textFileHandler`,
+      formData,
+      this.fileHttpOptions
     );
   }
 

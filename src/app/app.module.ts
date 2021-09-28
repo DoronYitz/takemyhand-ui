@@ -43,6 +43,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { DeleteEventComponent } from './admin-panel/events/delete-event/delete-event.component';
+import { UploadFileComponent } from './admin-panel/parcels/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { DeleteEventComponent } from './admin-panel/events/delete-event/delete-e
     AddEventComponent,
     EditEventComponent,
     DeleteEventComponent,
+    UploadFileComponent,
   ],
   imports: [
     BrowserModule,

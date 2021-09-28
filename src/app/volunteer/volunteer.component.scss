@@ -35,6 +35,7 @@ hr {
   width: 100%;
   padding: 0;
   border-radius: 30px;
+  animation: fade 0.7s ease-in-out;
 }
 
 .content img {
@@ -42,21 +43,31 @@ hr {
 }
 
 .formContent {
-  padding: 5rem 3.5rem;
+  padding: 3rem 3.5rem 1rem 3.5rem;
   flex-basis: 50%;
   max-width: 50%;
 }
 
 .thanks {
   font-size: 0.9rem;
-  line-height: 0.4rem;
+  line-height: 1.25rem;
+}
+
+.error-msg {
+  margin-top: 1.5rem;
+  color: rgb(255, 81, 81);
+  font-size: 0.85rem;
 }
 
 .input {
-  width: 300px;
+  width: 250px;
   max-width: 80%;
-  font-size: 14px;
-  margin-bottom: -25px;
+  font-size: 0.95rem;
+  margin-bottom: -15px;
+}
+
+.input.address-input {
+  width: 350px;
 }
 
 .side-image {
@@ -65,12 +76,10 @@ hr {
 }
 
 .btnSend {
-  opacity: 1;
   background-color: #e7553b;
   color: white;
   font-weight: 500;
-  animation: fadeDown 0.7s backwards;
-  animation-delay: 0.7s;
+  animation: fadeDown 0.7s 0.7s backwards;
   &:hover {
     background-color: #c3442d;
   }
@@ -135,10 +144,6 @@ hr {
     display: none;
   }
 
-  .input {
-    width: 300px;
-  }
-
   .content {
     width: 85%;
     padding: 10% 0 0;
@@ -146,16 +151,17 @@ hr {
   }
 
   .formContent {
+    flex-basis: 100%;
+    max-width: 100%;
     padding: 0 12.5%;
-    margin-left: auto;
   }
 
   p {
     font-size: 13px;
   }
 
-  button {
-    margin-bottom: 3rem;
+  .error-msg {
+    margin-bottom: 2.5rem;
   }
 }
 
@@ -193,5 +199,15 @@ hr {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
