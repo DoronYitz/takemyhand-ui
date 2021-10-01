@@ -21,6 +21,23 @@
   }
 }
 
+.icon {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  &:hover {
+    color: #86b1ff;
+  }
+}
+
+.delete-btn {
+  &:hover {
+    color: rgb(255, 71, 71);
+  }
+}
+
 ::ng-deep {
   .mat-form-field.mat-focused .mat-form-field-label {
     color: white !important;

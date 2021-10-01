@@ -10,6 +10,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { UploadFileComponent } from './upload-file/upload-file.component';
+import { DeleteParcelComponent } from './delete-parcel/delete-parcel.component';
 
 @Component({
   selector: 'app-parcels',
@@ -46,6 +47,7 @@ export class ParcelsComponent implements OnInit {
       cell: (element: Parcel) => element,
     },
   ];
+  parcels: Parcel[] = [];
   dataSource;
   drivers: Volunteer[];
   displayedColumns = this.columns.map((c) => c.columnDef);
@@ -53,12 +55,14 @@ export class ParcelsComponent implements OnInit {
   constructor(
     private volunteerService: VolunteerService,
     private parcelService: ParcelService,
-    private uploadFileDialog: MatDialog
+    private uploadFileDialog: MatDialog,
+    private deleteParcelDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.parcelService.getParcels().subscribe((parcels: Parcel[]) => {
-      this.dataSource = new MatTableDataSource(parcels);
+      this.parcels = parcels;
+      this.dataSource = new MatTableDataSource(this.parcels);
       this.dataSource.sort = this.sort;
     });
     this.volunteerService
@@ -116,6 +120,25 @@ export class ParcelsComponent implements OnInit {
   popLoadFileModal() {
     const uploadDialogRef = this.uploadFileDialog.open(UploadFileComponent, {
       closeOnNavigation: false,
+    });
+  }
+
+  popDeleteParcelModal(selectedParcel: Parcel) {
+    const deleteDialogRef = this.deleteParcelDialog.open(
+      DeleteParcelComponent,
+      {
+        closeOnNavigation: false,
+        data: selectedParcel,
+      }
+    );
+    deleteDialogRef.afterClosed().subscribe((res) => {
+      if (!res) {
+        return;
+      }
+      const parcelIndex = this.parcels.indexOf(selectedParcel);
+      this.parcels.splice(parcelIndex, 1);
+      this.dataSource = new MatTableDataSource(this.parcels);
+      this.dataSource.sort = this.sort;
     });
   }
 }

@@ -44,6 +44,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { DeleteEventComponent } from './admin-panel/events/delete-event/delete-event.component';
 import { UploadFileComponent } from './admin-panel/parcels/upload-file/upload-file.component';
+import { DeleteParcelComponent } from './admin-panel/parcels/delete-parcel/delete-parcel.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { UploadFileComponent } from './admin-panel/parcels/upload-file/upload-fi
     EditEventComponent,
     DeleteEventComponent,
     UploadFileComponent,
+    DeleteParcelComponent,
   ],
   imports: [
     BrowserModule,

@@ -40,11 +40,13 @@
       border-radius: 0.25rem;
       &:hover {
         color: white;
+        background-color: #090d1d;
       }
     }
-    .active-link {
-      color: white !important;
-      background-color: #090d1d;
+    .active-link,
+    .active-link:hover {
+      color: white;
+      background-color: #6e6e6e;
     }
   }
 
