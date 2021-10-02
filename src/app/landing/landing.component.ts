@@ -7,15 +7,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor() {}
 
   ngOnInit() {}
-
-  tryme() {
-    this.userService
-      .createUser({ email: 'lolz@gmail.com', password: '32132131' })
-      .subscribe((res) => {
-        console.log(res);
-      });
-  }
 }

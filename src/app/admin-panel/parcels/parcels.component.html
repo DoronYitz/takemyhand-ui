@@ -7,7 +7,10 @@
     >
       Load Parcels from file
     </button>
-    <button class="btn btn-round btn-danger primary-btn ml-3">
+    <button
+      class="btn btn-round btn-danger primary-btn ml-3"
+      (click)="popAddParcelModal()"
+    >
       Add Parcel
     </button>
   </div>
@@ -65,8 +68,13 @@
         >
           {{ column.cell(row) }}
         </div>
-        <div *ngIf="column.header === 'Edit'">
-          <mat-slide-toggle color="warn"></mat-slide-toggle>
+        <div *ngIf="column.header === 'Edit'" class="ml-1">
+          <span
+            (click)="popEditParcelModal(column.cell(row))"
+            class="icon edit-btn"
+          >
+            <fa-icon [icon]="['far', 'edit']"></fa-icon>
+          </span>
         </div>
         <div *ngIf="column.header === 'Delete'" class="ml-2 pl-1">
           <span

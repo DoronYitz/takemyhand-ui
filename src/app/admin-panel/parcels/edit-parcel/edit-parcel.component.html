@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Edit Parcel</h1>
+<form
+  class="form"
+  [formGroup]="profileForm"
+  (ngSubmit)="onSubmit(f)"
+  #f="ngForm"
+>
+  <hr />
+  <mat-form-field appearance="standard" class="input d-block">
+    <mat-label>Address</mat-label>
+    <input
+      matInput
+      type="text"
+      required
+      id="address"
+      name="address"
+      autocomplete="off"
+      formControlName="address"
+    />
+    <mat-error *ngIf="address.errors?.required">Address is required</mat-error>
+  </mat-form-field>
+  <div class="mt-2">
+    <div mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close type="button">Close</button>
+      <button
+        mat-button
+        color="warn"
+        type="submit"
+        [disabled]="!profileForm.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>

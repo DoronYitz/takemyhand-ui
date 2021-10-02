@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { DeleteParcelComponent } from './delete-parcel/delete-parcel.component';
+import { AddParcelComponent } from './add-parcel/add-parcel.component';
+import { EditParcelComponent } from './edit-parcel/edit-parcel.component';
 
 @Component({
   selector: 'app-parcels',
@@ -56,7 +58,9 @@ export class ParcelsComponent implements OnInit {
     private volunteerService: VolunteerService,
     private parcelService: ParcelService,
     private uploadFileDialog: MatDialog,
-    private deleteParcelDialog: MatDialog
+    private deleteParcelDialog: MatDialog,
+    private addParcelDialog: MatDialog,
+    private editParcelDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -121,6 +125,33 @@ export class ParcelsComponent implements OnInit {
     const uploadDialogRef = this.uploadFileDialog.open(UploadFileComponent, {
       closeOnNavigation: false,
     });
+  }
+
+  popAddParcelModal() {
+    const addDialog = this.addParcelDialog.open(AddParcelComponent, {
+      disableClose: true,
+      panelClass: 'add-modal',
+    });
+    addDialog.afterClosed().subscribe((res) => {
+      if (!res) {
+        return;
+      }
+      this.parcels.push(res);
+      this.dataSource = new MatTableDataSource(this.parcels);
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+  popEditParcelModal(selectedParcel: Parcel) {
+    const editDialog = this.editParcelDialog.open(EditParcelComponent, {
+      closeOnNavigation: false,
+      data: selectedParcel,
+      panelClass: 'edit-modal',
+    });
+    let prevParcel = this.parcels.find((x) => x._id === selectedParcel._id);
+    prevParcel = selectedParcel;
+    this.dataSource = new MatTableDataSource(this.parcels);
+    this.dataSource.sort = this.sort;
   }
 
   popDeleteParcelModal(selectedParcel: Parcel) {

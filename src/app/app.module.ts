@@ -45,6 +45,8 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { DeleteEventComponent } from './admin-panel/events/delete-event/delete-event.component';
 import { UploadFileComponent } from './admin-panel/parcels/upload-file/upload-file.component';
 import { DeleteParcelComponent } from './admin-panel/parcels/delete-parcel/delete-parcel.component';
+import { AddParcelComponent } from './admin-panel/parcels/add-parcel/add-parcel.component';
+import { EditParcelComponent } from './admin-panel/parcels/edit-parcel/edit-parcel.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { DeleteParcelComponent } from './admin-panel/parcels/delete-parcel/delet
     DeleteEventComponent,
     UploadFileComponent,
     DeleteParcelComponent,
+    AddParcelComponent,
+    EditParcelComponent,
   ],
   imports: [
     BrowserModule,
