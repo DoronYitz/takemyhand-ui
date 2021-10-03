@@ -23,6 +23,11 @@ const routes: Routes = [
       expectedRole: 'admin',
     },
     children: [
+      {
+        path: '',
+        redirectTo: 'parcels',
+        pathMatch: 'full',
+      },
       { path: 'parcels', component: ParcelsComponent },
       { path: 'drivers', component: DriversComponent },
       { path: 'control', component: ControlPanelComponent },

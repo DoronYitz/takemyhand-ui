@@ -28,7 +28,6 @@ export class EditParcelComponent implements OnInit {
   onSubmit(form: NgForm) {
     let parcelClone = { ...this.selectedParcel };
     parcelClone.address = form.value.address;
-    console.log(parcelClone);
     this.parcelService.editParcel(parcelClone).subscribe((res: Parcel) => {
       Swal.fire({
         text: 'Parcel was editted successfully',

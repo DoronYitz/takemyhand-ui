@@ -148,10 +148,15 @@ export class ParcelsComponent implements OnInit {
       data: selectedParcel,
       panelClass: 'edit-modal',
     });
-    let prevParcel = this.parcels.find((x) => x._id === selectedParcel._id);
-    prevParcel = selectedParcel;
-    this.dataSource = new MatTableDataSource(this.parcels);
-    this.dataSource.sort = this.sort;
+    editDialog.afterClosed().subscribe((res) => {
+      if (!res) {
+        return;
+      }
+      let prevParcel = this.parcels.find((x) => x._id === res._id);
+      prevParcel = res;
+      this.dataSource = new MatTableDataSource(this.parcels);
+      this.dataSource.sort = this.sort;
+    });
   }
 
   popDeleteParcelModal(selectedParcel: Parcel) {
