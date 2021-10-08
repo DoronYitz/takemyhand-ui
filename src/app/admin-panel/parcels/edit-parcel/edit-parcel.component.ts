@@ -28,19 +28,21 @@ export class EditParcelComponent implements OnInit {
   onSubmit(form: NgForm) {
     let parcelClone = { ...this.selectedParcel };
     parcelClone.address = form.value.address;
-    this.parcelService.editParcel(parcelClone).subscribe((res: Parcel) => {
-      Swal.fire({
-        text: 'Parcel was editted successfully',
-        timer: 3000,
-        icon: 'success',
-        toast: true,
-        position: 'bottom-right',
-        showConfirmButton: false,
-        background: '#1d1c31',
+    this.parcelService
+      .editParcelAddress(parcelClone)
+      .subscribe((res: Parcel) => {
+        Swal.fire({
+          text: 'Parcel was editted successfully',
+          timer: 3000,
+          icon: 'success',
+          toast: true,
+          position: 'bottom-right',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+        // Passing parent component the result
+        this.dialogRef.close(res);
       });
-      // Passing parent component the result
-      this.dialogRef.close(res);
-    });
   }
 
   // Form Getters

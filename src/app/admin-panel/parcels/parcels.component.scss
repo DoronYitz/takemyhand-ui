@@ -83,8 +83,8 @@
   width: 80%;
 }
 
-:ng-deep .mat-checkbox {
-  transform: translate(11px, 2px) !important;
+.checkbox {
+  transform: translate(-2px, 4px) !important;
 }
 
 .mat-column-driver {
@@ -126,8 +126,8 @@
 .mat-column-edit {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 10% !important;
-  width: 10% !important;
+  flex: 0 0 7.5% !important;
+  width: 7.5% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -147,8 +147,27 @@
   hyphens: auto;
 }
 
-.checkbox {
-  transform: translateY(5px);
+.mat-column-waze {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 7.5% !important;
+  width: 7.5% !important;
+  overflow-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.waze-icon-background {
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.5rem;
+  transition: 0.2s;
+  color: black;
+  background-color: #74d0eb;
+  &:hover {
+    background-color: #68b5cc;
+  }
 }
 
 ::ng-deep .mat-checkbox-background {

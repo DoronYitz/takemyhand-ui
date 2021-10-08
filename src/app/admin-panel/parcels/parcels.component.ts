@@ -25,27 +25,33 @@ export class ParcelsComponent implements OnInit {
   columns = [
     {
       columnDef: 'arrived',
-      header: 'Arrived',
+      header: 'הגיע',
       cell: (element: Parcel) => element,
     },
     {
       columnDef: 'address',
-      header: 'Address',
+      header: 'כתובת',
       cell: (element: Parcel) => `${element.address}`,
     },
     {
+      columnDef: 'waze',
+      header: 'נווט',
+      cell: (element: Parcel) =>
+        `https://waze.com/ul?q=${encodeURI(element.address)}&navigate=yes`,
+    },
+    {
       columnDef: 'driver',
-      header: 'Driver',
+      header: 'נהג',
       cell: (element: Parcel) => element,
     },
     {
       columnDef: 'edit',
-      header: 'Edit',
+      header: 'עריכה',
       cell: (element: Parcel) => element,
     },
     {
       columnDef: 'delete',
-      header: 'Delete',
+      header: 'מחק',
       cell: (element: Parcel) => element,
     },
   ];

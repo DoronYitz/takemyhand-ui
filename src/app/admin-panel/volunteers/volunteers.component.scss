@@ -5,7 +5,8 @@
 .table-container {
   max-height: 65vh;
   max-width: 100%;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .checkbox {
@@ -62,10 +63,6 @@
       color: white !important;
     }
   }
-}
-
-:ng-deep .mat-checkbox {
-  transform: translate(11px, 2px) !important;
 }
 
 .mat-column-full_name {

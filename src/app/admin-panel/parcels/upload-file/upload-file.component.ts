@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { ParcelService } from 'src/app/services/parcel.service';
 
 @Component({

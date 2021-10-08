@@ -55,6 +55,14 @@ export class ParcelService {
     );
   }
 
+  editParcelAddress(parcel: Parcel): Observable<Parcel> {
+    return this.http.patch<Parcel>(
+      `${this.baseUrl}/address/${parcel._id}`,
+      JSON.stringify(parcel),
+      this.httpOptions
+    );
+  }
+
   deleteParcel(parcel: Parcel): Observable<Parcel> {
     return this.http.delete<Parcel>(
       `${this.baseUrl}/${parcel._id}`,

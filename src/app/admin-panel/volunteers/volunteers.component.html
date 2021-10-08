@@ -1,8 +1,7 @@
-<div class="container content-wrapper">
-  <h1 class="text-white">Volunteers</h1>
+<div class="container content-wrapper" dir="rtl">
   <mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" #input />
+    <mat-label>סנן</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input autocomplete="off" />
   </mat-form-field>
   <div class="table-container mat-elevation-z8">
     <table
@@ -15,11 +14,16 @@
         *ngFor="let column of columns"
         [matColumnDef]="column.columnDef"
       >
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          arrowPosition="after"
+        >
           {{ column.header }}
         </th>
         <td mat-cell *matCellDef="let row">
-          <div *ngIf="column.header === 'Driver'" class="ml-2 checkbox">
+          <div *ngIf="column.columnDef === 'driver'" class="checkbox">
             <mat-checkbox
               [checked]="column.cell(row).driver"
               [color]="warn"
@@ -27,7 +31,7 @@
             >
             </mat-checkbox>
           </div>
-          <div *ngIf="column.header !== 'Driver'">
+          <div *ngIf="column.columnDef !== 'driver'">
             {{ column.cell(row) }}
           </div>
         </td>
@@ -43,5 +47,9 @@
         </td>
       </tr>
     </table>
+  </div>
+  <div class="text-right mt-4 mr-2 text-white">
+    <span>סה"כ מתנדבים: </span>
+    <span class="mr-2">{{ this.totalVolunteers }}</span>
   </div>
 </div>

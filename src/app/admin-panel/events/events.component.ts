@@ -23,32 +23,32 @@ export class EventsComponent implements OnInit {
   columns = [
     {
       columnDef: 'active',
-      header: 'Active',
+      header: 'פעיל',
       cell: (element: IEvent) => element,
     },
     {
       columnDef: 'title',
-      header: 'Title',
+      header: 'כותרת',
       cell: (element: IEvent) => `${element.title}`,
     },
     {
       columnDef: 'category',
-      header: 'Category',
+      header: 'קטגוריה',
       cell: (element: IEvent) => `${element.category}`,
     },
     {
       columnDef: 'date',
-      header: 'Date',
+      header: 'תאריך',
       cell: (element: IEvent) => `${element.fixedDate}`,
     },
     {
       columnDef: 'edit',
-      header: 'Edit',
+      header: 'עריכה',
       cell: (element: IEvent) => element,
     },
     {
       columnDef: 'delete',
-      header: 'Delete',
+      header: 'מחק',
       cell: (element: IEvent) => element,
     },
   ];

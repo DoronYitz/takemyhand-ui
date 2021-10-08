@@ -16,26 +16,27 @@ export class VolunteersComponent implements OnInit {
   columns = [
     {
       columnDef: 'full_name',
-      header: 'Full name',
+      header: 'שם מלא',
       cell: (element: Volunteer) => `${element.full_name}`,
     },
     {
       columnDef: 'phone',
-      header: 'Phone Number',
+      header: 'פלאפון',
       cell: (element: Volunteer) => `${element.phone}`,
     },
     {
       columnDef: 'num_of_people',
-      header: 'Number of people',
+      header: `מס' אנשים`,
       cell: (element: Volunteer) => `${element.num_of_people}`,
     },
     {
       columnDef: 'driver',
-      header: 'Driver',
+      header: 'נהג',
       cell: (element: Volunteer) => element,
     },
   ];
   dataSource;
+  totalVolunteers: number = 0;
   displayedColumns = this.columns.map((c) => c.columnDef);
 
   constructor(private volunteerService: VolunteerService) {}
@@ -44,6 +45,10 @@ export class VolunteersComponent implements OnInit {
     this.volunteerService
       .getVolunteers()
       .subscribe((volunteers: Volunteer[]) => {
+        const total = volunteers.reduce((acc: number, vulenteer) => {
+          return vulenteer.num_of_people + acc;
+        }, 0);
+        this.totalVolunteers = total;
         this.dataSource = new MatTableDataSource(volunteers);
         this.dataSource.sort = this.sort;
       });
