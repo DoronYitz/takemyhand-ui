@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       (err) => {
         this.errorMsg = err?.error?.message;
         if (!this.errorMsg) {
-          this.errorMsg = 'Something went wrong';
+          this.errorMsg = 'משהו השתבש, נסה שנית מאוחר יותר';
         }
       }
     );

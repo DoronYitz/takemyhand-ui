@@ -135,14 +135,14 @@ export class EventsComponent implements OnInit {
       console.log(res);
       selecetedEvent.active = event.checked;
       const text = event.checked
-        ? `${selecetedEvent.title} is active`
-        : `${selecetedEvent.title} is not active`;
+        ? `${selecetedEvent.title} פעיל`
+        : `${selecetedEvent.title} אינו פעיל`;
       Swal.fire({
         text: text,
         timer: 3000,
         icon: 'success',
         toast: true,
-        position: 'bottom-right',
+        position: 'bottom-left',
         showConfirmButton: false,
         background: '#1d1c31',
       });

@@ -1,13 +1,12 @@
-<h1 mat-dialog-title>Add Parcel</h1>
+<h1 mat-dialog-title class="text-right">הוסף חבילה</h1>
 <form
   class="form"
   [formGroup]="profileForm"
   (ngSubmit)="onSubmit(f)"
   #f="ngForm"
 >
-  <hr />
   <mat-form-field appearance="standard" class="input d-block">
-    <mat-label>Address</mat-label>
+    <mat-label>כתובת</mat-label>
     <input
       matInput
       type="text"
@@ -17,18 +16,18 @@
       autocomplete="off"
       formControlName="address"
     />
-    <mat-error *ngIf="address.errors?.required">Address is required</mat-error>
+    <mat-error *ngIf="address.errors?.required">שדה חובה</mat-error>
   </mat-form-field>
   <div class="mt-2">
     <div mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close type="button">Close</button>
+      <button mat-stroked-button mat-dialog-close type="button">ביטול</button>
       <button
-        mat-button
+        mat-stroked-button
         color="warn"
         type="submit"
         [disabled]="!profileForm.valid"
       >
-        Add
+        הוסף
       </button>
     </div>
   </div>

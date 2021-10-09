@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Edit Event</h1>
+<h1 mat-dialog-title class="text-right">ערוך אירוע</h1>
 <form
   class="form"
   [formGroup]="profileForm"
@@ -7,7 +7,7 @@
 >
   <hr />
   <mat-form-field appearance="standard" class="input d-block">
-    <mat-label>Title</mat-label>
+    <mat-label>כותרת</mat-label>
     <input
       matInput
       type="text"
@@ -17,10 +17,10 @@
       autocomplete="off"
       formControlName="title"
     />
-    <mat-error *ngIf="title.errors?.required">Title is required</mat-error>
+    <mat-error *ngIf="title.errors?.required">שדה חובה</mat-error>
   </mat-form-field>
   <mat-form-field appearance="standard" class="input d-block">
-    <mat-label>Category</mat-label>
+    <mat-label>קטגוריה</mat-label>
     <input
       matInput
       type="text"
@@ -30,10 +30,10 @@
       autocomplete="off"
       formControlName="category"
     />
-    <mat-error *ngIf="secret.errors?.required">Category is required</mat-error>
+    <mat-error *ngIf="category.errors?.required">שדה חובה</mat-error>
   </mat-form-field>
   <mat-form-field appearance="standard" class="input d-block">
-    <mat-label>Choose a date</mat-label>
+    <mat-label>בחר תאריך</mat-label>
     <input
       matInput
       [matDatepicker]="picker"
@@ -42,16 +42,12 @@
       required
       formControlName="date"
     />
-    <mat-datepicker-toggle
-      matSuffix
-      [for]="picker"
-      class="text-white"
-    ></mat-datepicker-toggle>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker color="warn"></mat-datepicker>
-    <mat-error *ngIf="date.errors?.required">Date is required</mat-error>
+    <mat-error *ngIf="date.errors?.required">שדה חובה</mat-error>
   </mat-form-field>
   <mat-form-field appearance="standard" class="input d-block">
-    <mat-label>Description</mat-label>
+    <mat-label>תיאור</mat-label>
     <textarea
       matInput
       type="text"
@@ -64,12 +60,10 @@
       cdkAutosizeMinRows="4"
       cdkAutosizeMaxRows="6"
     ></textarea>
-    <mat-error *ngIf="description.errors?.required"
-      >Description is required</mat-error
-    >
+    <mat-error *ngIf="description.errors?.required">שדה חובה</mat-error>
   </mat-form-field>
   <mat-form-field appearance="standard" class="input d-block">
-    <mat-label>Secret Key</mat-label>
+    <mat-label>מפתח סודי</mat-label>
     <input
       matInput
       name="secret"
@@ -79,9 +73,7 @@
       autocomplete="off"
       formControlName="secret"
     />
-    <mat-error *ngIf="secret.errors?.required"
-      >Secret key is required</mat-error
-    >
+    <mat-error *ngIf="secret.errors?.required">שדה חובה</mat-error>
     <mat-error *ngIf="secret.errors?.pattern"
       >1 Upper-case, 1 Lower-case, 1 Number, 1 Special Char - Length
       8</mat-error
@@ -89,14 +81,14 @@
   </mat-form-field>
   <div class="mt-2">
     <div mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close type="button">Close</button>
+      <button mat-stroked-button mat-dialog-close type="button">ביטול</button>
       <button
-        mat-button
+        mat-stroked-button
         color="warn"
         type="submit"
         [disabled]="!profileForm.valid"
       >
-        Submit
+        שמור
       </button>
     </div>
   </div>

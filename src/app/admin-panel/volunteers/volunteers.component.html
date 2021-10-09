@@ -1,4 +1,12 @@
-<div class="container content-wrapper" dir="rtl">
+<div class="container content-wrapper volunteer-wrapper" dir="rtl">
+  <div class="text-left">
+    <button
+      class="btn btn-round btn-danger add-volunteer-btn"
+      (click)="popAddVolunteerModal()"
+    >
+      הוסף מתנדב
+    </button>
+  </div>
   <mat-form-field appearance="standard">
     <mat-label>סנן</mat-label>
     <input matInput (keyup)="applyFilter($event)" #input autocomplete="off" />
@@ -31,8 +39,31 @@
             >
             </mat-checkbox>
           </div>
-          <div *ngIf="column.columnDef !== 'driver'">
+          <div
+            *ngIf="
+              column.columnDef !== 'driver' &&
+              column.columnDef !== 'edit' &&
+              column.columnDef !== 'delete'
+            "
+          >
             {{ column.cell(row) }}
+          </div>
+          <div
+            *ngIf="column.columnDef === 'edit'"
+            class="mr-1"
+            (click)="popEditVolunteerModal(column.cell(row))"
+          >
+            <fa-icon class="edit-btn icon" [icon]="['far', 'edit']"></fa-icon>
+          </div>
+          <div
+            *ngIf="column.columnDef === 'delete'"
+            class="mr-1"
+            (click)="popDeleteVolunteerModal(column.cell(row))"
+          >
+            <fa-icon
+              class="delete-btn icon"
+              [icon]="['far', 'trash-alt']"
+            ></fa-icon>
           </div>
         </td>
       </ng-container>
@@ -42,8 +73,8 @@
 
       <!-- Row shown when there is no matching data. -->
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="5">
-          No data matching the filter "{{ input.value }}"
+        <td class="mat-cell" colspan="7">
+          אין תוצאות עבור "{{ input.value }}"
         </td>
       </tr>
     </table>

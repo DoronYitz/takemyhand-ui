@@ -1,9 +1,10 @@
-<h1 mat-dialog-title>Load Parcels from file</h1>
-<div mat-dialog-content>
-  <p>Please make sure the pattern is:</p>
-  <p>King Gorge Tel-Aviv</p>
-  <p>Even Gevirol Tel-Aviv</p>
-  <div class="fileUploadInput">
+<h1 mat-dialog-title class="text-right">טען חבילות מקובץ</h1>
+<div mat-dialog-content class="text-right">
+  <p>נא לוודא שקובץ הינו קובץ טקסט</p>
+  <p>בנוסף, יש לוודא כי תוכן הקובץ בפורמט הבא</p>
+  <p class="example">הרברט סמואל 50, חדרה</p>
+  <p class="example">דוד שמעוני 68, חדרה</p>
+  <div class="fileUploadInput mt-4">
     <input
       type="file"
       accept=".txt"
@@ -12,14 +13,14 @@
     <button>+</button>
   </div>
 </div>
-<div mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Close</button>
+<div mat-dialog-actions align="end" class="mt-2">
+  <button mat-stroked-button mat-dialog-close>ביטול</button>
   <button
-    mat-button
+    mat-stroked-button
     color="warn"
     (click)="uploadFileToActivity()"
     [disabled]="!this.textFile"
   >
-    Load Parcels
+    טען חבילות
   </button>
 </div>

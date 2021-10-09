@@ -4,4 +4,5 @@ export interface Volunteer {
   phone?: string;
   num_of_people?: number;
   driver?: boolean;
+  address?: string;
 }

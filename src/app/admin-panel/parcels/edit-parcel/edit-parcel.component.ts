@@ -32,11 +32,11 @@ export class EditParcelComponent implements OnInit {
       .editParcelAddress(parcelClone)
       .subscribe((res: Parcel) => {
         Swal.fire({
-          text: 'Parcel was editted successfully',
+          text: 'חבילה נערכה בהצלחה',
           timer: 3000,
           icon: 'success',
           toast: true,
-          position: 'bottom-right',
+          position: 'bottom-left',
           showConfirmButton: false,
           background: '#1d1c31',
         });

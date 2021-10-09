@@ -11,11 +11,12 @@ import { VolunteerService } from '../services/volunteer.service';
 })
 export class VolunteerComponent implements OnInit {
   errorMsg: string;
+  onlyLetters: RegExp = new RegExp('^[a-zA-Z\u0590-\u05FF\u200f\u200e ]+$');
 
   profileForm = this.fb.group({
     full_name: [
       '',
-      [Validators.required, Validators.pattern('^[A-Za-z\\s]+$')],
+      [Validators.required, Validators.pattern(this.onlyLetters)],
     ],
     phone: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
     address: ['', [Validators.required]],
@@ -33,11 +34,11 @@ export class VolunteerComponent implements OnInit {
     this.volunteerService.createVolunteer(form.value).subscribe(
       (newVolunteer) => {
         Swal.fire({
-          text: `${newVolunteer.full_name}, Thanks for joining us`,
+          text: `${newVolunteer.full_name}, תודה שהצטרפת אלינו`,
           timer: 5000,
           icon: 'success',
           toast: true,
-          position: 'bottom-right',
+          position: 'bottom-left',
           showConfirmButton: false,
           background: '#1d1c31',
         });
@@ -46,7 +47,7 @@ export class VolunteerComponent implements OnInit {
       (err) => {
         this.errorMsg = err?.error?.message;
         if (!this.errorMsg) {
-          this.errorMsg = 'Something went wrong';
+          this.errorMsg = 'משהו השתבש, נסה שנית מאוחר יותר';
         }
       }
     );

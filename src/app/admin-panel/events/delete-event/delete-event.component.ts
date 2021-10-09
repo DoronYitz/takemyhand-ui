@@ -21,11 +21,11 @@ export class DeleteEventComponent implements OnInit {
   deleteEvent() {
     this.eventService.deleteEvent(this.selectedEvent).subscribe((res) => {
       Swal.fire({
-        text: `${this.selectedEvent.title} deleted`,
+        text: `${this.selectedEvent.title} נמחק בהצלחה`,
         timer: 3000,
         icon: 'success',
         toast: true,
-        position: 'bottom-right',
+        position: 'bottom-left',
         showConfirmButton: false,
         background: '#1d1c31',
       });

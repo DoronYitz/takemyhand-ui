@@ -1,8 +1,8 @@
-<h1 mat-dialog-title>Delete Event</h1>
+<h1 mat-dialog-title class="text-right">מחיקת אירוע</h1>
 <div mat-dialog-content>
-  Are you sure you want to delete {{ this.selectedEvent.title }} ?
+  האם אתה בטוח שברצונך למחוק את {{ this.selectedEvent.title }} ?
 </div>
-<div mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Close</button>
-  <button mat-button (click)="deleteEvent()" color="warn">Delete</button>
+<div mat-dialog-actions align="end" class="mt-2">
+  <button mat-dialog-close mat-stroked-button>ביטול</button>
+  <button (click)="deleteEvent()" mat-stroked-button color="warn">מחק</button>
 </div>

@@ -4,10 +4,6 @@
   overflow-y: scroll;
 }
 
-.content-wrapper {
-  margin-top: 5rem;
-}
-
 .add-event-btn {
   font-size: 0.9rem;
   transition: 0.4s;
@@ -39,101 +35,82 @@
 }
 
 ::ng-deep {
-  .mat-form-field.mat-focused .mat-form-field-label {
-    color: white !important;
-  }
+  .content-wrapper {
+    margin-top: 5rem;
 
-  .mat-form-field-suffix .mat-icon {
-    font-size: 120%;
-  }
-
-  .mat-form-field-appearance-standard .mat-form-field-underline {
-    transition: 0.5s;
-    background-color: white !important;
-  }
-
-  .mat-form-field-appearance-standard .mat-form-field-ripple {
-    transition: 0.2s;
-    background-color: white !important;
-  }
-
-  .mat-focused {
-    color: white !important;
-  }
-
-  .mat-select-min-line {
-    color: white !important;
-  }
-
-  mat-form-field {
-    input,
-    .mat-form-field-label {
+    .mat-form-field.mat-focused .mat-form-field-label {
       color: white !important;
     }
-  }
 
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
+    .mat-form-field-suffix .mat-icon {
+      font-size: 120%;
+    }
 
-  .mat-form-field.table-input {
-    font-size: 14px;
-    width: 80%;
-  }
+    .mat-form-field-appearance-standard .mat-form-field-underline {
+      transition: 0.5s;
+      background-color: white !important;
+    }
 
-  .mat-checkbox {
-    transform: translate(1px, 5px);
-  }
-  .mat-checkbox-background {
-    border: 1px solid white;
-  }
+    .mat-form-field-appearance-standard .mat-form-field-ripple {
+      transition: 0.2s;
+      background-color: white !important;
+    }
 
-  .mat-select-arrow,
-  .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-    color: white;
-  }
+    .mat-focused {
+      color: white !important;
+    }
 
-  .mat-slide-toggle-bar {
-    background-color: rgb(255 255 255 / 38%);
-  }
+    .mat-select-min-line {
+      color: white !important;
+    }
 
-  .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-    background-color: #ef3e36;
-  }
+    mat-form-field {
+      input,
+      .mat-form-field-label {
+        color: white !important;
+      }
+    }
 
-  .mat-table {
-    background: transparent;
-  }
+    .mat-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
 
-  .mat-header-cell {
-    color: rgb(255, 255, 255);
-  }
+    .mat-form-field.table-input {
+      font-size: 14px;
+      width: 80%;
+    }
 
-  mat-row,
-  mat-header-row,
-  mat-footer-row,
-  th.mat-header-cell,
-  td.mat-cell,
-  td.mat-footer-cell {
-    border-bottom-color: rgb(204, 204, 204, 41%);
-  }
+    .event-checkbox {
+      .mat-checkbox {
+        transform: translate(1px, 5px);
+      }
+    }
 
-  [mat-header-row] {
-    background: #090d1d;
-  }
+    .mat-checkbox-background {
+      border: 1px solid white;
+    }
 
-  .mat-cell,
-  .mat-footer-cell {
-    color: white;
+    .mat-select-arrow,
+    .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+      color: white;
+    }
+
+    .mat-slide-toggle-bar {
+      background-color: rgb(255 255 255 / 38%);
+    }
+
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+      background-color: #ef3e36;
+    }
   }
 }
 
-.mat-column-driver {
+.mat-column-title {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 50% !important;
-  width: 50% !important;
+  flex: 0 0 43% !important;
+  width: 43% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -141,7 +118,7 @@
   hyphens: auto;
 }
 
-.mat-column-driver {
+.mat-column-category {
   word-wrap: break-word !important;
   white-space: unset !important;
   flex: 0 0 20% !important;
@@ -153,11 +130,23 @@
   hyphens: auto;
 }
 
-.mat-column-arrived {
+.mat-column-date {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 10% !important;
-  width: 10% !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-active {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 7% !important;
+  width: 7% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -168,8 +157,8 @@
 .mat-column-edit {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 10% !important;
-  width: 10% !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;

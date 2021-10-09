@@ -2,6 +2,36 @@
   width: 100%;
 }
 
+.add-volunteer-btn {
+  font-size: 0.9rem;
+  transition: 0.4s;
+  animation: fadeDown 0.8s both;
+  animation-delay: 1.4s;
+  background-color: #df533b;
+  color: white;
+  font-weight: 500;
+  &:hover {
+    background-color: #af3d29;
+  }
+}
+
+.icon {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  &:hover {
+    color: #86b1ff;
+  }
+}
+
+.delete-btn {
+  &:hover {
+    color: rgb(255, 71, 71);
+  }
+}
+
 .table-container {
   max-height: 65vh;
   max-width: 100%;
@@ -9,58 +39,67 @@
   overflow-x: hidden;
 }
 
-.checkbox {
-  transform: translateY(5px);
-}
-.content-wrapper {
-  margin-top: 5rem;
-}
-
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-
-.mat-header-cell {
-  color: transparent;
-}
-
-.mat-form-field.table-input {
-  font-size: 14px;
-  width: 80%;
-}
-
 ::ng-deep {
-  .mat-form-field.mat-focused .mat-form-field-label {
-    color: white !important;
-  }
+  .content-wrapper {
+    margin-top: 5rem;
 
-  .mat-form-field-suffix .mat-icon {
-    font-size: 120%;
-  }
-
-  .mat-form-field-appearance-standard .mat-form-field-underline {
-    transition: 0.5s;
-    background-color: white !important;
-  }
-
-  .mat-form-field-appearance-standard .mat-form-field-ripple {
-    transition: 0.2s;
-    background-color: white !important;
-  }
-
-  .mat-focused {
-    color: white !important;
-  }
-
-  .mat-select-min-line {
-    color: white !important;
-  }
-
-  mat-form-field {
-    input,
-    .mat-form-field-label {
+    .mat-form-field.mat-focused .mat-form-field-label {
       color: white !important;
+    }
+
+    .mat-form-field-suffix .mat-icon {
+      font-size: 120%;
+    }
+
+    .checkbox {
+      transform: translateY(5px);
+    }
+
+    .mat-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
+
+    .mat-header-cell {
+      color: transparent;
+    }
+
+    .mat-form-field.table-input {
+      font-size: 14px;
+      width: 80%;
+    }
+
+    .mat-form-field-appearance-standard .mat-form-field-underline {
+      transition: 0.5s;
+      background-color: white !important;
+    }
+
+    .mat-form-field-appearance-standard .mat-form-field-ripple {
+      transition: 0.2s;
+      background-color: white !important;
+    }
+
+    .mat-focused {
+      color: white !important;
+    }
+
+    .mat-select-min-line {
+      color: white !important;
+    }
+
+    mat-form-field {
+      input,
+      .mat-form-field-label {
+        color: white !important;
+      }
+    }
+
+    .mat-checkbox-background {
+      border: 1px solid white;
+    }
+
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+      background-color: #ef3e36;
     }
   }
 }
@@ -68,8 +107,8 @@
 .mat-column-full_name {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 32% !important;
-  width: 32% !important;
+  flex: 0 0 16% !important;
+  width: 16% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -80,8 +119,8 @@
 .mat-column-phone {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 32% !important;
-  width: 32% !important;
+  flex: 0 0 16% !important;
+  width: 16% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -92,8 +131,8 @@
 .mat-column-num_of_people {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 32% !important;
-  width: 32% !important;
+  flex: 0 0 16% !important;
+  width: 16% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -104,8 +143,8 @@
 .mat-column-driver {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 4% !important;
-  width: 4% !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -113,36 +152,38 @@
   hyphens: auto;
 }
 
-::ng-deep .mat-checkbox-background {
-  border: 1px solid white;
+.mat-column-address {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 37% !important;
+  width: 37% !important;
+  overflow-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
-::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-  background-color: #ef3e36;
+.mat-column-edit {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
+  overflow-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
-.mat-table {
-  background: transparent;
-}
-
-.mat-header-cell {
-  color: rgb(255, 255, 255);
-}
-
-mat-row,
-mat-header-row,
-mat-footer-row,
-th.mat-header-cell,
-td.mat-cell,
-td.mat-footer-cell {
-  border-bottom-color: rgb(204, 204, 204, 41%);
-}
-
-[mat-header-row] {
-  background: #090d1d;
-}
-
-.mat-cell,
-.mat-footer-cell {
-  color: white;
+.mat-column-delete {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
+  overflow-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }

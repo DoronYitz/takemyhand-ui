@@ -18,14 +18,14 @@ export class DeleteParcelComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  deleteEvent() {
+  deleteParcel() {
     this.parcelService.deleteParcel(this.selectedParcel).subscribe((res) => {
       Swal.fire({
-        text: `Parcel deleted`,
+        text: `החבילה נמחקה`,
         timer: 3000,
         icon: 'success',
         toast: true,
-        position: 'bottom-right',
+        position: 'bottom-left',
         showConfirmButton: false,
         background: '#1d1c31',
       });

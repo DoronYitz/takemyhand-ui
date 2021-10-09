@@ -2,11 +2,11 @@
 <!-- Header  -->
 <div class="page-header" data-parallax="true">
   <div class="text-center page-header__text">
-    <div class="container content text-left">
+    <div class="container content text-right">
       <div class="row">
         <div class="formContent">
-          <h1>Login</h1>
-          <h5>Log into our driver's portal</h5>
+          <h1>התחבר</h1>
+          <h5>היכנס אל פורטל הנהגים שלנו</h5>
           <form
             class="form login-form"
             [formGroup]="profileForm"
@@ -16,7 +16,7 @@
             <hr />
             <div class="field-wrapper">
               <mat-form-field appearance="standard" class="input mt-1">
-                <mat-label>Phone</mat-label>
+                <mat-label>פלאפון</mat-label>
                 <input
                   matInput
                   type="text"
@@ -26,17 +26,15 @@
                   autocomplete="off"
                   formControlName="phone"
                 />
-                <mat-error *ngIf="phone.errors?.required"
-                  >Phone is required</mat-error
-                >
+                <mat-error *ngIf="phone.errors?.required">שדה חובה</mat-error>
                 <mat-error *ngIf="phone.errors?.pattern"
-                  >Not a valid phone number</mat-error
+                  >מספר הפלאפון שהוזן אינו תקני</mat-error
                 >
               </mat-form-field>
             </div>
             <div class="field-wrapper">
               <mat-form-field appearance="standard" class="input mt-3">
-                <mat-label>Password</mat-label>
+                <mat-label>סיסמא</mat-label>
                 <input
                   matInput
                   name="password"
@@ -60,7 +58,7 @@
                   }}</mat-icon>
                 </button>
                 <mat-error *ngIf="password.errors?.required"
-                  >Password is required</mat-error
+                  >שדה חובה</mat-error
                 >
               </mat-form-field>
             </div>
@@ -70,7 +68,7 @@
                 type="submit"
                 [disabled]="!profileForm.valid"
               >
-                Login
+                התחבר
               </button>
             </div>
             <div *ngIf="errorMsg" class="error-msg">

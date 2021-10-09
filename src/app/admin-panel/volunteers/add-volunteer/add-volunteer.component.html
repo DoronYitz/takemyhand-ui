@@ -1,0 +1,65 @@
+<h1 mat-dialog-title class="text-right">הוסף מתנדב</h1>
+<form
+  class="form"
+  [formGroup]="profileForm"
+  (ngSubmit)="onSubmit(f)"
+  #f="ngForm"
+>
+  <mat-form-field appearance="standard" class="input d-block w-75">
+    <mat-label>שם מלא</mat-label>
+    <input
+      matInput
+      class="w-75"
+      type="text"
+      required
+      id="full_name"
+      name="full_name"
+      autocomplete="off"
+      formControlName="full_name"
+    />
+    <mat-error *ngIf="full_name.errors?.required">שדה חובה</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="standard" class="input d-block w-75">
+    <mat-label>פלאפון</mat-label>
+    <input
+      class="w-75"
+      matInput
+      type="text"
+      required
+      id="phone"
+      name="phone"
+      autocomplete="off"
+      formControlName="phone"
+    />
+    <mat-error *ngIf="phone.errors?.required">שדה חובה</mat-error>
+    <mat-error *ngIf="phone.errors?.pattern"
+      >מספר הפלאפון שהוזן אינו תקני</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="standard" class="input d-block">
+    <mat-label>כתובת</mat-label>
+    <input
+      matInput
+      type="text"
+      required
+      id="address"
+      name="address"
+      autocomplete="off"
+      formControlName="address"
+    />
+    <mat-error *ngIf="address.errors?.required">שדה חובה</mat-error>
+  </mat-form-field>
+  <div class="mt-2">
+    <div mat-dialog-actions align="end">
+      <button mat-stroked-button mat-dialog-close type="button">ביטול</button>
+      <button
+        mat-stroked-button
+        color="warn"
+        type="submit"
+        [disabled]="!profileForm.valid"
+      >
+        הוסף
+      </button>
+    </div>
+  </div>
+</form>

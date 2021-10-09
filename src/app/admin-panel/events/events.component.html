@@ -34,7 +34,7 @@
         >
           {{ column.cell(row) }}
         </div>
-        <div *ngIf="column.columnDef === 'active'" class="checkbox mr-1">
+        <div *ngIf="column.columnDef === 'active'" class="event-checkbox mr-1">
           <mat-checkbox
             [checked]="column.cell(row).active"
             [color]="warn"
@@ -67,9 +67,7 @@
 
     <!-- Row shown when there is no matching data. -->
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="6">
-        No data matching the filter "{{ input.value }}"
-      </td>
+      <td class="mat-cell" colspan="6">אין תוצאות עבור "{{ input.value }}"</td>
     </tr>
   </table>
 </div>

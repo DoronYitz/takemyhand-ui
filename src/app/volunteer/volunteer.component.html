@@ -3,9 +3,9 @@
 <div class="page-wrapper">
   <div class="container content">
     <div class="d-flex">
-      <div class="formContent text-left">
-        <h1>Join to our next event:</h1>
-        <h5>And make someone's day happier</h5>
+      <div class="formContent text-right">
+        <h1>הצטרף לאירוע הבא שלנו</h1>
+        <h5>ותהפוך את יומו של האחר לשמח יותר</h5>
         <form
           class="form register-form"
           [formGroup]="profileForm"
@@ -14,10 +14,9 @@
         >
           <div>
             <mat-form-field appearance="standard" class="input d-block">
-              <mat-label>Full name</mat-label>
+              <mat-label>שם מלא</mat-label>
               <input
                 matInput
-                required
                 type="text"
                 required
                 id="full_name"
@@ -25,11 +24,9 @@
                 formControlName="full_name"
                 autocomplete="off"
               />
-              <mat-error *ngIf="full_name.errors?.required"
-                >Full name is required</mat-error
-              >
+              <mat-error *ngIf="full_name.errors?.required">שדה חובה</mat-error>
               <mat-error *ngIf="full_name.errors?.pattern"
-                >Must contain only letters</mat-error
+                >ניתן להזין רק אותיות</mat-error
               >
             </mat-form-field>
           </div>
@@ -38,10 +35,9 @@
               appearance="standard"
               class="input d-block mt-3 mb-3"
             >
-              <mat-label>Phone number</mat-label>
+              <mat-label>פלאפון</mat-label>
               <input
                 matInput
-                required
                 type="text"
                 required
                 id="phone"
@@ -49,23 +45,20 @@
                 formControlName="phone"
                 autocomplete="off"
               />
-              <mat-error *ngIf="phone.errors?.required"
-                >Phone number is required</mat-error
-              >
+              <mat-error *ngIf="phone.errors?.required">שדה חובה</mat-error>
               <mat-error *ngIf="phone.errors?.pattern"
-                >Invalid phone number</mat-error
+                >מספר הפלאפון שהוזן אינו תקני</mat-error
               >
             </mat-form-field>
           </div>
-          <div>
+          <!-- <div>
             <mat-form-field
               appearance="standard"
               class="number-input d-block mt-3 mb-3"
             >
-              <mat-label>Number of people</mat-label>
+              <mat-label>מס' אנשים</mat-label>
               <input
                 matInput
-                required
                 type="number"
                 required
                 id="phone"
@@ -80,18 +73,18 @@
                 >Invalid phone number</mat-error
               >
             </mat-form-field>
-          </div>
+          </div> -->
           <hr />
           <div>
             <p class="thanks">
-              We are using smart algorithm to deliver packages easily, the more
-              precise the address will be the better :)
+              אנו משתמשים באלגוריתם חכם על מנת לחלק את החבילות ביעילות על פי
+              קרבה, ככל שהכתובת תהיה מדוייקת יותר, כך יותר טוב :)
             </p>
             <mat-form-field
               appearance="standard"
               class="input d-block mt-3 address-input"
             >
-              <mat-label>Address</mat-label>
+              <mat-label>כתובת</mat-label>
               <input
                 matInput
                 required
@@ -102,9 +95,7 @@
                 formControlName="address"
                 autocomplete="off"
               />
-              <mat-error *ngIf="address.errors?.required"
-                >Address is required</mat-error
-              >
+              <mat-error *ngIf="address.errors?.required">שדה חובה</mat-error>
             </mat-form-field>
           </div>
           <div class="mt-5">
@@ -113,7 +104,7 @@
               type="submit"
               [disabled]="!profileForm.valid"
             >
-              Submit
+              שלח
             </button>
           </div>
           <div class="error-msg">

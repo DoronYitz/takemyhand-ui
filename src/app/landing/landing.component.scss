@@ -101,6 +101,7 @@
   position: relative;
   width: 100%;
   padding: 45px 0;
+  text-align: right;
 }
 
 .about .section-header {
@@ -195,6 +196,7 @@
 /*********** Blog CSS **********/
 /*******************************/
 .blog {
+  text-align: right;
   position: relative;
   width: 100%;
   padding: 45px 0;
@@ -224,7 +226,7 @@
   position: relative;
   width: calc(100% - 60px);
   top: -30px;
-  left: 30px;
+  right: 30px;
   padding: 15px 30px 15px;
   border-radius: 5px;
   background: #ffffff;

@@ -17,7 +17,7 @@ export class AddEventComponent implements OnInit {
   );
 
   profileForm = this.fb.group({
-    title: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+    title: ['', [Validators.required]],
     category: ['', [Validators.required]],
     date: ['', [Validators.required]],
     active: [false],
@@ -39,11 +39,11 @@ export class AddEventComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.eventService.createEvent(form.value).subscribe((res: IEvent) => {
       Swal.fire({
-        text: 'Event added successfully',
+        text: 'אירוע נוסף בהצלחה',
         timer: 3000,
         icon: 'success',
         toast: true,
-        position: 'bottom-right',
+        position: 'bottom-left',
         showConfirmButton: false,
         background: '#1d1c31',
       });

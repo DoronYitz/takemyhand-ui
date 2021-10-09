@@ -1,8 +1,15 @@
+@import "~@angular/material/theming";
+$custom-typography: mat-typography-config(
+  $font-family: "Assistant",
+);
+
+@include angular-material-typography($custom-typography);
+
 html,
 body {
   height: 100%;
-  font-family: "Montserrat", sans-serif;
   user-select: none;
+  font-family: "Assistant", "Montserrat", sans-serif;
 }
 
 body {
@@ -11,14 +18,14 @@ body {
 
 //Global
 p {
-  color: #66615b;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  color: #7e7a76;
+  font-family: "Assistant", "Montserrat", sans-serif;
+  font-weight: 400;
 }
 
 a {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 200;
+  font-family: "Assistant", "Montserrat", sans-serif;
+  font-weight: 300;
 }
 
 a:link,
@@ -95,4 +102,30 @@ th {
 
 .mat-sort-header-container {
   justify-content: flex-start !important;
+}
+
+.mat-table {
+  background: transparent;
+}
+
+.mat-header-cell {
+  color: rgb(255, 255, 255) !important;
+}
+
+mat-row,
+mat-header-row,
+mat-footer-row,
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  border-bottom-color: rgb(204, 204, 204, 41%);
+}
+
+[mat-header-row] {
+  background: #090d1d;
+}
+
+.mat-cell,
+.mat-footer-cell {
+  color: white !important;
 }

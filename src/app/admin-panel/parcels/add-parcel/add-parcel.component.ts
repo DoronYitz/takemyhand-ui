@@ -27,11 +27,11 @@ export class AddParcelComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.parcelService.createParcel(form.value).subscribe((res: Parcel) => {
       Swal.fire({
-        text: 'Parcel added successfully',
+        text: 'חבילה נוספה בהצלחה',
         timer: 3000,
         icon: 'success',
         toast: true,
-        position: 'bottom-right',
+        position: 'bottom-left',
         showConfirmButton: false,
         background: '#1d1c31',
       });

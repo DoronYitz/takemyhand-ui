@@ -18,10 +18,7 @@ export class EditEventComponent implements OnInit {
   );
 
   profileForm = this.fb.group({
-    title: [
-      this.selectedEvent.title,
-      [Validators.required, Validators.pattern('^[0-9]*$')],
-    ],
+    title: [this.selectedEvent.title, [Validators.required]],
     category: [this.selectedEvent.category, [Validators.required]],
     date: [this.selectedEvent.date, [Validators.required]],
     active: [this.selectedEvent.active],
@@ -46,11 +43,11 @@ export class EditEventComponent implements OnInit {
       .editEvent({ ...form.value, _id: this.selectedEvent._id })
       .subscribe((res: IEvent) => {
         Swal.fire({
-          text: 'Event was editted successfully',
+          text: 'אירוע נערך בהצלחה',
           timer: 3000,
           icon: 'success',
           toast: true,
-          position: 'bottom-right',
+          position: 'bottom-left',
           showConfirmButton: false,
           background: '#1d1c31',
         });

@@ -4,10 +4,6 @@
   overflow-y: scroll;
 }
 
-.content-wrapper {
-  margin-top: 5rem;
-}
-
 .primary-btn {
   font-size: 0.9rem;
   transition: 0.4s;
@@ -39,59 +35,76 @@
 }
 
 ::ng-deep {
-  .mat-form-field.mat-focused .mat-form-field-label {
-    color: white !important;
-  }
+  .content-wrapper {
+    margin-top: 5rem;
 
-  .mat-form-field-suffix .mat-icon {
-    font-size: 120%;
-  }
-
-  .mat-form-field-appearance-standard .mat-form-field-underline {
-    transition: 0.5s;
-    background-color: white !important;
-  }
-
-  .mat-form-field-appearance-standard .mat-form-field-ripple {
-    transition: 0.2s;
-    background-color: white !important;
-  }
-
-  .mat-focused {
-    color: white !important;
-  }
-
-  .mat-select-min-line {
-    color: white !important;
-  }
-
-  mat-form-field {
-    input,
-    .mat-form-field-label {
+    .mat-form-field.mat-focused .mat-form-field-label {
       color: white !important;
+    }
+
+    .mat-form-field-suffix .mat-icon {
+      font-size: 120%;
+    }
+
+    .mat-form-field-appearance-standard .mat-form-field-underline {
+      transition: 0.5s;
+      background-color: white !important;
+    }
+
+    .mat-form-field-appearance-standard .mat-form-field-ripple {
+      transition: 0.2s;
+      background-color: white !important;
+    }
+
+    .mat-focused {
+      color: white !important;
+    }
+
+    .mat-select-min-line {
+      color: white !important;
+    }
+
+    mat-form-field {
+      input,
+      .mat-form-field-label {
+        color: white !important;
+      }
+    }
+
+    .mat-checkbox-background {
+      border: 1px solid white;
+    }
+
+    .mat-select-arrow,
+    .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+      color: white;
+    }
+
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+      background-color: #ef3e36;
+    }
+
+    .mat-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
+
+    .mat-form-field.table-input {
+      font-size: 14px;
+      width: 80%;
+    }
+
+    .checkbox {
+      transform: translate(-2px, 4px) !important;
     }
   }
 }
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-
-.mat-form-field.table-input {
-  font-size: 14px;
-  width: 80%;
-}
-
-.checkbox {
-  transform: translate(-2px, 4px) !important;
-}
-
-.mat-column-driver {
+.mat-column-address {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 50% !important;
-  width: 50% !important;
+  flex: 0 0 55% !important;
+  width: 55% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -102,8 +115,8 @@
 .mat-column-driver {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 20% !important;
-  width: 20% !important;
+  flex: 0 0 18% !important;
+  width: 18% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -114,8 +127,8 @@
 .mat-column-arrived {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 10% !important;
-  width: 10% !important;
+  flex: 0 0 7% !important;
+  width: 7% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -126,8 +139,8 @@
 .mat-column-edit {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 7.5% !important;
-  width: 7.5% !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -150,8 +163,8 @@
 .mat-column-waze {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 7.5% !important;
-  width: 7.5% !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -168,47 +181,4 @@
   &:hover {
     background-color: #68b5cc;
   }
-}
-
-::ng-deep .mat-checkbox-background {
-  border: 1px solid white;
-}
-
-::ng-deep .mat-select-arrow,
-::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-  color: white;
-}
-
-::ng-deep .mat-slide-toggle-bar {
-  background-color: rgb(255 255 255 / 38%);
-}
-
-::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-  background-color: #ef3e36;
-}
-
-.mat-table {
-  background: transparent;
-}
-
-.mat-header-cell {
-  color: rgb(255, 255, 255);
-}
-
-mat-row,
-mat-header-row,
-mat-footer-row,
-th.mat-header-cell,
-td.mat-cell,
-td.mat-footer-cell {
-  border-bottom-color: rgb(204, 204, 204, 41%);
-}
-
-[mat-header-row] {
-  background: #090d1d;
-}
-
-.mat-cell,
-.mat-footer-cell {
-  color: white;
 }

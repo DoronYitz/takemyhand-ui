@@ -5,6 +5,11 @@ import { Volunteer } from 'src/app/models/volunteer.model';
 import { VolunteerService } from 'src/app/services/volunteer.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { IEvent } from 'src/app/models/event.model';
+import { EditVolunteerComponent } from './edit-volunteer/edit-volunteer.component';
+import { DeleteVolunteerComponent } from './delete-volunteer/delete-volunteer.component';
+import { AddVolunteerComponent } from './add-volunteer/add-volunteer.component';
 
 @Component({
   selector: 'app-volunteers',
@@ -30,16 +35,37 @@ export class VolunteersComponent implements OnInit {
       cell: (element: Volunteer) => `${element.num_of_people}`,
     },
     {
+      columnDef: 'address',
+      header: `כתובת`,
+      cell: (element: Volunteer) => `${element.address}`,
+    },
+    {
       columnDef: 'driver',
       header: 'נהג',
       cell: (element: Volunteer) => element,
     },
+    {
+      columnDef: 'edit',
+      header: 'עריכה',
+      cell: (element: Volunteer) => element,
+    },
+    {
+      columnDef: 'delete',
+      header: 'מחק',
+      cell: (element: Volunteer) => element,
+    },
   ];
   dataSource;
+  volunteers: Volunteer[] = [];
   totalVolunteers: number = 0;
   displayedColumns = this.columns.map((c) => c.columnDef);
 
-  constructor(private volunteerService: VolunteerService) {}
+  constructor(
+    private volunteerService: VolunteerService,
+    private editVolunteerDialog: MatDialog,
+    private deleteVolunteerDialog: MatDialog,
+    private addVolunteerDialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.volunteerService
@@ -48,8 +74,9 @@ export class VolunteersComponent implements OnInit {
         const total = volunteers.reduce((acc: number, vulenteer) => {
           return vulenteer.num_of_people + acc;
         }, 0);
+        this.volunteers = volunteers;
         this.totalVolunteers = total;
-        this.dataSource = new MatTableDataSource(volunteers);
+        this.dataSource = new MatTableDataSource(this.volunteers);
         this.dataSource.sort = this.sort;
       });
   }
@@ -71,17 +98,71 @@ export class VolunteersComponent implements OnInit {
       .subscribe((res: Volunteer) => {
         volunteer.driver = event.checked;
         const text = event.checked
-          ? 'Volunteer added as driver'
-          : 'Volunteer removed from drivers';
+          ? `מתנדב הוגדר כנהג`
+          : `מתנדב הוסר מרשימת הנהגים`;
         Swal.fire({
           text: text,
           timer: 3000,
           icon: 'success',
           toast: true,
-          position: 'bottom-right',
+          position: 'bottom-left',
           showConfirmButton: false,
           background: '#1d1c31',
         });
       });
+  }
+
+  popAddVolunteerModal() {
+    const addDialogRef = this.addVolunteerDialog.open(AddVolunteerComponent, {
+      panelClass: 'add-modal',
+    });
+    addDialogRef.afterClosed().subscribe((newVolunteer: IEvent) => {
+      if (!newVolunteer) {
+        return;
+      }
+      this.volunteers.push(newVolunteer);
+      this.dataSource = new MatTableDataSource(this.volunteers);
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+  popEditVolunteerModal(selectedVolunteer: Volunteer) {
+    const editDialogRef = this.editVolunteerDialog.open(
+      EditVolunteerComponent,
+      {
+        data: selectedVolunteer,
+        panelClass: 'edit-modal',
+      }
+    );
+    editDialogRef.afterClosed().subscribe((edittedVolunteer: Volunteer) => {
+      if (!edittedVolunteer) {
+        return;
+      }
+      let prevVolunteer = this.volunteers.find(
+        (x) => x._id === edittedVolunteer._id
+      );
+      prevVolunteer = edittedVolunteer;
+      this.dataSource = new MatTableDataSource(this.volunteers);
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+  popDeleteVolunteerModal(selectedVolunteer: IEvent) {
+    const deleteDialogRef = this.deleteVolunteerDialog.open(
+      DeleteVolunteerComponent,
+      {
+        data: selectedVolunteer,
+        panelClass: 'delete-modal',
+      }
+    );
+    deleteDialogRef.afterClosed().subscribe((res) => {
+      if (!res) {
+        return;
+      }
+      const eventIndex = this.volunteers.indexOf(selectedVolunteer);
+      this.volunteers.splice(eventIndex, 1);
+      this.dataSource = new MatTableDataSource(this.volunteers);
+      this.dataSource.sort = this.sort;
+    });
   }
 }

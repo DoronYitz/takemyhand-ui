@@ -47,6 +47,9 @@ import { UploadFileComponent } from './admin-panel/parcels/upload-file/upload-fi
 import { DeleteParcelComponent } from './admin-panel/parcels/delete-parcel/delete-parcel.component';
 import { AddParcelComponent } from './admin-panel/parcels/add-parcel/add-parcel.component';
 import { EditParcelComponent } from './admin-panel/parcels/edit-parcel/edit-parcel.component';
+import { EditVolunteerComponent } from './admin-panel/volunteers/edit-volunteer/edit-volunteer.component';
+import { AddVolunteerComponent } from './admin-panel/volunteers/add-volunteer/add-volunteer.component';
+import { DeleteVolunteerComponent } from './admin-panel/volunteers/delete-volunteer/delete-volunteer.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,9 @@ import { EditParcelComponent } from './admin-panel/parcels/edit-parcel/edit-parc
     DeleteParcelComponent,
     AddParcelComponent,
     EditParcelComponent,
+    EditVolunteerComponent,
+    AddVolunteerComponent,
+    DeleteVolunteerComponent,
   ],
   imports: [
     BrowserModule,

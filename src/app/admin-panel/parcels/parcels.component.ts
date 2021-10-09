@@ -34,15 +34,15 @@ export class ParcelsComponent implements OnInit {
       cell: (element: Parcel) => `${element.address}`,
     },
     {
+      columnDef: 'driver',
+      header: 'נהג',
+      cell: (element: Parcel) => element,
+    },
+    {
       columnDef: 'waze',
       header: 'נווט',
       cell: (element: Parcel) =>
         `https://waze.com/ul?q=${encodeURI(element.address)}&navigate=yes`,
-    },
-    {
-      columnDef: 'driver',
-      header: 'נהג',
-      cell: (element: Parcel) => element,
     },
     {
       columnDef: 'edit',
@@ -96,13 +96,13 @@ export class ParcelsComponent implements OnInit {
     parcelClone.volunteer = event.value;
     this.parcelService.editParcel(parcelClone).subscribe((res: Parcel) => {
       parcel.volunteer = event.value;
-      const text = `${parcel.volunteer.full_name} set as driver`;
+      const text = `${parcel.volunteer.full_name} הוגדר כנהג של החבילה`;
       Swal.fire({
         text: text,
         timer: 300000,
         icon: 'success',
         toast: true,
-        position: 'bottom-right',
+        position: 'bottom-left',
         showConfirmButton: false,
         background: '#1d1c31',
       });
@@ -114,13 +114,13 @@ export class ParcelsComponent implements OnInit {
     parcelClone.arrived = event.checked;
     this.parcelService.editParcel(parcelClone).subscribe((res: Parcel) => {
       parcel.arrived = event.checked;
-      const text = event.checked ? `Arrived checked` : 'Arrived unchecked';
+      const text = event.checked ? `סומן כהגיע` : 'סומן כלא הגיע';
       Swal.fire({
         text: text,
         timer: 300000,
         icon: 'success',
         toast: true,
-        position: 'bottom-right',
+        position: 'bottom-left',
         showConfirmButton: false,
         background: '#1d1c31',
       });
