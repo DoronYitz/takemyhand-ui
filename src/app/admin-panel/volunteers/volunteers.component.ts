@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { Volunteer } from 'src/app/models/volunteer.model';
 import { VolunteerService } from 'src/app/services/volunteer.service';
@@ -18,6 +18,7 @@ import { AddVolunteerComponent } from './add-volunteer/add-volunteer.component';
 })
 export class VolunteersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
+
   columns = [
     {
       columnDef: 'full_name',
@@ -138,10 +139,9 @@ export class VolunteersComponent implements OnInit {
       if (!edittedVolunteer) {
         return;
       }
-      let prevVolunteer = this.volunteers.find(
-        (x) => x._id === edittedVolunteer._id
+      this.volunteers = this.volunteers.map((x) =>
+        x._id !== edittedVolunteer._id ? x : edittedVolunteer
       );
-      prevVolunteer = edittedVolunteer;
       this.dataSource = new MatTableDataSource(this.volunteers);
       this.dataSource.sort = this.sort;
     });

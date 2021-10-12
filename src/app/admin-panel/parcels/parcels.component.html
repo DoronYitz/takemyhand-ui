@@ -54,6 +54,8 @@
             [checked]="column.cell(row).arrived"
             [color]="warn"
             (change)="editParcelArrived(column.cell(row), $event)"
+            matTooltip="שנה סטטוס הגעה"
+            matTooltipPosition="above"
           >
           </mat-checkbox>
         </div>
@@ -61,7 +63,12 @@
           <span>{{ column.cell(row) }}</span>
         </div>
         <div *ngIf="column.columnDef === 'waze'">
-          <a [href]="column.cell(row)" target="_blank">
+          <a
+            [href]="column.cell(row)"
+            target="_blank"
+            matTooltip="נווט אל הכתובת"
+            matTooltipPosition="above"
+          >
             <span class="waze-icon-background">
               <fa-icon class="waze-icon" [icon]="['fab', 'waze']"></fa-icon>
             </span>
@@ -71,6 +78,8 @@
           <span
             (click)="popEditParcelModal(column.cell(row))"
             class="icon edit-btn"
+            matTooltip="ערוך חבילה"
+            matTooltipPosition="above"
           >
             <fa-icon [icon]="['far', 'edit']"></fa-icon>
           </span>
@@ -79,6 +88,8 @@
           <span
             (click)="popDeleteParcelModal(column.cell(row))"
             class="icon delete-btn"
+            matTooltip="מחק חבילה"
+            matTooltipPosition="above"
           >
             <fa-icon [icon]="['far', 'trash-alt']"></fa-icon>
           </span>

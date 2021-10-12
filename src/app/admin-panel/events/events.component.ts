@@ -105,8 +105,9 @@ export class EventsComponent implements OnInit {
         return;
       }
       edittedEvent.fixedDate = moment(edittedEvent.date).format('DD/MM/YYYY');
-      let prevEvent = this.events.find((x) => x._id === edittedEvent._id);
-      prevEvent = edittedEvent;
+      this.events = this.events.map((x) =>
+        x._id !== edittedEvent._id ? x : edittedEvent
+      );
       this.dataSource = new MatTableDataSource(this.events);
       this.dataSource.sort = this.sort;
     });

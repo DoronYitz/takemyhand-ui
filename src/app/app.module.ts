@@ -42,6 +42,7 @@ import { EditEventComponent } from './admin-panel/events/edit-event/edit-event.c
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { DeleteEventComponent } from './admin-panel/events/delete-event/delete-event.component';
 import { UploadFileComponent } from './admin-panel/parcels/upload-file/upload-file.component';
 import { DeleteParcelComponent } from './admin-panel/parcels/delete-parcel/delete-parcel.component';
@@ -98,6 +99,7 @@ import { DeleteVolunteerComponent } from './admin-panel/volunteers/delete-volunt
     MatDatepickerModule,
     MatNativeDateModule,
     TextFieldModule,
+    MatTooltipModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

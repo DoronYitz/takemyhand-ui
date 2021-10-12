@@ -36,6 +36,8 @@
               [checked]="column.cell(row).driver"
               [color]="warn"
               (change)="toggleVolunteerDriver(column.cell(row), $event)"
+              matTooltip="שנה תפקיד"
+              matTooltipPosition="above"
             >
             </mat-checkbox>
           </div>
@@ -53,7 +55,12 @@
             class="mr-1"
             (click)="popEditVolunteerModal(column.cell(row))"
           >
-            <fa-icon class="edit-btn icon" [icon]="['far', 'edit']"></fa-icon>
+            <fa-icon
+              class="edit-btn icon"
+              matTooltip="ערוך מתנדב"
+              matTooltipPosition="above"
+              [icon]="['far', 'edit']"
+            ></fa-icon>
           </div>
           <div
             *ngIf="column.columnDef === 'delete'"
@@ -61,6 +68,8 @@
             (click)="popDeleteVolunteerModal(column.cell(row))"
           >
             <fa-icon
+              matTooltip="מחק מתנדב"
+              matTooltipPosition="above"
               class="delete-btn icon"
               [icon]="['far', 'trash-alt']"
             ></fa-icon>

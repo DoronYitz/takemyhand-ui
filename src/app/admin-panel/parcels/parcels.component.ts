@@ -158,8 +158,7 @@ export class ParcelsComponent implements OnInit {
       if (!res) {
         return;
       }
-      let prevParcel = this.parcels.find((x) => x._id === res._id);
-      prevParcel = res;
+      this.parcels = this.parcels.map((x) => (x._id !== res._id ? x : res));
       this.dataSource = new MatTableDataSource(this.parcels);
       this.dataSource.sort = this.sort;
     });

@@ -39,6 +39,8 @@
             [checked]="column.cell(row).active"
             [color]="warn"
             (change)="toggleEventActive(column.cell(row), $event)"
+            matTooltip="שנה סטטוס פעילות"
+            matTooltipPosition="above"
           >
           </mat-checkbox>
         </div>
@@ -47,7 +49,12 @@
           class="mr-1"
           (click)="popEditEventModal(column.cell(row))"
         >
-          <fa-icon class="edit-btn icon" [icon]="['far', 'edit']"></fa-icon>
+          <fa-icon
+            class="edit-btn icon"
+            matTooltip="ערוך אירוע"
+            matTooltipPosition="above"
+            [icon]="['far', 'edit']"
+          ></fa-icon>
         </div>
         <div
           *ngIf="column.columnDef === 'delete'"
@@ -55,6 +62,8 @@
           (click)="popDeleteEventModal(column.cell(row))"
         >
           <fa-icon
+            matTooltip="מחק אירוע"
+            matTooltipPosition="above"
             class="delete-btn icon"
             [icon]="['far', 'trash-alt']"
           ></fa-icon>
