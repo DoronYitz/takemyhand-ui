@@ -44,16 +44,20 @@
           >
           </mat-checkbox>
         </div>
-        <div
-          *ngIf="column.columnDef === 'edit'"
-          class="mr-1"
-          (click)="popEditEventModal(column.cell(row))"
-        >
+        <div *ngIf="column.columnDef === 'edit'">
           <fa-icon
             class="edit-btn icon"
             matTooltip="ערוך אירוע"
             matTooltipPosition="above"
             [icon]="['far', 'edit']"
+            (click)="popEditEventModal(column.cell(row))"
+          ></fa-icon>
+          <fa-icon
+            class="edit-btn icon mr-3"
+            matTooltip="אפס מפתח סודי"
+            matTooltipPosition="above"
+            [icon]="['fas', 'key']"
+            (click)="popEditKeyEventModal(column.cell(row))"
           ></fa-icon>
         </div>
         <div

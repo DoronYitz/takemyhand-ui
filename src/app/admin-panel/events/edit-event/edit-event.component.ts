@@ -13,19 +13,11 @@ import Swal from 'sweetalert2';
   encapsulation: ViewEncapsulation.None,
 })
 export class EditEventComponent implements OnInit {
-  private strongSecretRegex = new RegExp(
-    '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$'
-  );
-
   profileForm = this.fb.group({
     title: [this.selectedEvent.title, [Validators.required]],
     category: [this.selectedEvent.category, [Validators.required]],
     date: [this.selectedEvent.date, [Validators.required]],
     active: [this.selectedEvent.active],
-    secret: [
-      this.selectedEvent.secret,
-      [Validators.required, Validators.pattern(this.strongSecretRegex)],
-    ],
     description: [this.selectedEvent.description, [Validators.required]],
   });
 
@@ -54,11 +46,6 @@ export class EditEventComponent implements OnInit {
         // Passing parent component the result
         this.dialogRef.close(res);
       });
-  }
-
-  // Form Getters
-  get secret() {
-    return this.profileForm.get('secret');
   }
 
   get title() {

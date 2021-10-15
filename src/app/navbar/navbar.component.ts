@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, HostListener } from '@angular/core';
+import { IEvent } from '../models/event.model';
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,10 @@ export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private nav: HTMLElement;
 
-  constructor(private element: ElementRef) {}
+  constructor(
+    private element: ElementRef,
+    private eventService: EventService
+  ) {}
 
   ngOnInit() {
     const navbar: HTMLElement = this.element.nativeElement;

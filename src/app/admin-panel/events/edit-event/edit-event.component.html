@@ -62,23 +62,6 @@
     ></textarea>
     <mat-error *ngIf="description.errors?.required">שדה חובה</mat-error>
   </mat-form-field>
-  <mat-form-field appearance="standard" class="input d-block">
-    <mat-label>מפתח סודי</mat-label>
-    <input
-      matInput
-      name="secret"
-      id="secret"
-      required
-      type="text"
-      autocomplete="off"
-      formControlName="secret"
-    />
-    <mat-error *ngIf="secret.errors?.required">שדה חובה</mat-error>
-    <mat-error *ngIf="secret.errors?.pattern"
-      >1 Upper-case, 1 Lower-case, 1 Number, 1 Special Char - Length
-      8</mat-error
-    >
-  </mat-form-field>
   <div class="mt-2">
     <div mat-dialog-actions align="end">
       <button mat-stroked-button mat-dialog-close type="button">ביטול</button>

@@ -20,8 +20,8 @@ export class EventService {
     return this.http.get<IEvent[]>(this.baseUrl);
   }
 
-  getEvent(event: IEvent): Observable<IEvent> {
-    return this.http.get<IEvent>(`${this.baseUrl}/${event._id}`);
+  getActiveEvent(): Observable<IEvent> {
+    return this.http.get<IEvent>(`${this.baseUrl}/active`);
   }
 
   createEvent(event: IEvent): Observable<IEvent> {
@@ -35,6 +35,14 @@ export class EventService {
   editEvent(event: IEvent): Observable<IEvent> {
     return this.http.patch<IEvent>(
       `${this.baseUrl}/${event._id}`,
+      JSON.stringify(event),
+      this.httpOptions
+    );
+  }
+
+  editEventSecret(event: IEvent): Observable<IEvent> {
+    return this.http.patch<IEvent>(
+      `${this.baseUrl}/secret/${event._id}`,
       JSON.stringify(event),
       this.httpOptions
     );

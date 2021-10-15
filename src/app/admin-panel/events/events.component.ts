@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddEventComponent } from './add-event/add-event.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { DeleteEventComponent } from './delete-event/delete-event.component';
+import { EditSecretEventComponent } from './edit-secret-event/edit-secret-event.component';
 
 @Component({
   selector: 'app-events',
@@ -61,7 +62,8 @@ export class EventsComponent implements OnInit {
     private eventService: EventService,
     private addEventDialog: MatDialog,
     private editEventDialog: MatDialog,
-    private deleteEventDialog: MatDialog
+    private deleteEventDialog: MatDialog,
+    private editKeyEventDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -111,6 +113,16 @@ export class EventsComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.events);
       this.dataSource.sort = this.sort;
     });
+  }
+
+  popEditKeyEventModal(selecetedEvent: IEvent) {
+    const editDialogRef = this.editKeyEventDialog.open(
+      EditSecretEventComponent,
+      {
+        data: selecetedEvent,
+        panelClass: 'edit-modal',
+      }
+    );
   }
 
   popDeleteEventModal(selectedEvent: IEvent) {

@@ -51,6 +51,7 @@ import { EditParcelComponent } from './admin-panel/parcels/edit-parcel/edit-parc
 import { EditVolunteerComponent } from './admin-panel/volunteers/edit-volunteer/edit-volunteer.component';
 import { AddVolunteerComponent } from './admin-panel/volunteers/add-volunteer/add-volunteer.component';
 import { DeleteVolunteerComponent } from './admin-panel/volunteers/delete-volunteer/delete-volunteer.component';
+import { EditSecretEventComponent } from './admin-panel/events/edit-secret-event/edit-secret-event.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { DeleteVolunteerComponent } from './admin-panel/volunteers/delete-volunt
     EditVolunteerComponent,
     AddVolunteerComponent,
     DeleteVolunteerComponent,
+    EditSecretEventComponent,
   ],
   imports: [
     BrowserModule,
