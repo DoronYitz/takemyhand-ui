@@ -1,7 +1,8 @@
-.demo-table {
-  width: 100%;
+.table-container {
   max-height: 70vh;
-  overflow-y: scroll;
+  max-width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .add-event-btn {

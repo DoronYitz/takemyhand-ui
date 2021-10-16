@@ -94,9 +94,8 @@ export class VolunteersComponent implements OnInit {
   toggleVolunteerDriver(volunteer: Volunteer, event: MatCheckboxChange) {
     const volunteerClone: Volunteer = JSON.parse(JSON.stringify(volunteer));
     volunteerClone.driver = event.checked;
-    this.volunteerService
-      .editVolunteer(volunteerClone)
-      .subscribe((res: Volunteer) => {
+    this.volunteerService.editVolunteer(volunteerClone).subscribe(
+      (res: Volunteer) => {
         volunteer.driver = event.checked;
         const text = event.checked
           ? `מתנדב הוגדר כנהג`
@@ -110,7 +109,21 @@ export class VolunteersComponent implements OnInit {
           showConfirmButton: false,
           background: '#1d1c31',
         });
-      });
+      },
+      (err) => {
+        event.source.checked = !event.checked;
+        const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+        Swal.fire({
+          text: text,
+          timer: 3000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      }
+    );
   }
 
   popAddVolunteerModal() {

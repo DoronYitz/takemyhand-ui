@@ -39,19 +39,34 @@ export class EditVolunteerComponent implements OnInit {
     this.volunteerService
       .editVolunteer({ ...form.value, _id: this.selectedVolunteer._id })
       .pipe(tap(() => (this.loading = false)))
-      .subscribe((res: Volunteer) => {
-        Swal.fire({
-          text: 'מתנדב נערך בהצלחה',
-          timer: 3000,
-          icon: 'success',
-          toast: true,
-          position: 'bottom-left',
-          showConfirmButton: false,
-          background: '#1d1c31',
-        });
-        // Passing parent component the result
-        this.dialogRef.close(res);
-      });
+      .subscribe(
+        (res: Volunteer) => {
+          Swal.fire({
+            text: 'מתנדב נערך בהצלחה',
+            timer: 3000,
+            icon: 'success',
+            toast: true,
+            position: 'bottom-left',
+            showConfirmButton: false,
+            background: '#1d1c31',
+          });
+          // Passing parent component the result
+          this.dialogRef.close(res);
+        },
+        (err) => {
+          const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+          Swal.fire({
+            text: text,
+            timer: 3000,
+            icon: 'error',
+            toast: true,
+            position: 'bottom-left',
+            showConfirmButton: false,
+            background: '#1d1c31',
+          });
+          this.dialogRef.close();
+        }
+      );
   }
 
   // Form Getters

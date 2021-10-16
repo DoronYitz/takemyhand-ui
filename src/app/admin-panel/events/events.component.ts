@@ -144,21 +144,36 @@ export class EventsComponent implements OnInit {
   toggleEventActive(selecetedEvent: IEvent, event: MatCheckboxChange) {
     const eventClone: IEvent = JSON.parse(JSON.stringify(selecetedEvent));
     eventClone.active = event.checked;
-    this.eventService.editEvent(eventClone).subscribe((res: IEvent) => {
-      console.log(res);
-      selecetedEvent.active = event.checked;
-      const text = event.checked
-        ? `${selecetedEvent.title} פעיל`
-        : `${selecetedEvent.title} אינו פעיל`;
-      Swal.fire({
-        text: text,
-        timer: 3000,
-        icon: 'success',
-        toast: true,
-        position: 'bottom-left',
-        showConfirmButton: false,
-        background: '#1d1c31',
-      });
-    });
+    this.eventService.editEvent(eventClone).subscribe(
+      (res: IEvent) => {
+        console.log(res);
+        selecetedEvent.active = event.checked;
+        const text = event.checked
+          ? `${selecetedEvent.title} פעיל`
+          : `${selecetedEvent.title} אינו פעיל`;
+        Swal.fire({
+          text: text,
+          timer: 3000,
+          icon: 'success',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      },
+      (err) => {
+        event.source.checked = !event.checked;
+        const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+        Swal.fire({
+          text: text,
+          timer: 3000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      }
+    );
   }
 }

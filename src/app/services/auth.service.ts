@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
@@ -14,11 +13,7 @@ export class AuthService {
   };
 
   baseUrl = environment.backendUrl + '/api/auth';
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    private jwtHelper: JwtHelperService
-  ) {}
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {}
 
   login(phone: string, password: string) {
     return this.http.post(

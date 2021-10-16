@@ -19,17 +19,32 @@ export class DeleteEventComponent implements OnInit {
   ngOnInit(): void {}
 
   deleteEvent() {
-    this.eventService.deleteEvent(this.selectedEvent).subscribe((res) => {
-      Swal.fire({
-        text: `${this.selectedEvent.title} נמחק בהצלחה`,
-        timer: 3000,
-        icon: 'success',
-        toast: true,
-        position: 'bottom-left',
-        showConfirmButton: false,
-        background: '#1d1c31',
-      });
-      this.dialogRef.close('success');
-    });
+    this.eventService.deleteEvent(this.selectedEvent).subscribe(
+      (res) => {
+        Swal.fire({
+          text: `${this.selectedEvent.title} נמחק בהצלחה`,
+          timer: 3000,
+          icon: 'success',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+        this.dialogRef.close('success');
+      },
+      (err) => {
+        const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+        Swal.fire({
+          text: text,
+          timer: 3000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+        this.dialogRef.close();
+      }
+    );
   }
 }

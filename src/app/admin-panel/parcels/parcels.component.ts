@@ -94,37 +94,66 @@ export class ParcelsComponent implements OnInit {
   editParcelDriver(parcel: Parcel, event: MatSelectChange) {
     const parcelClone: Parcel = JSON.parse(JSON.stringify(parcel));
     parcelClone.volunteer = event.value;
-    this.parcelService.editParcel(parcelClone).subscribe((res: Parcel) => {
-      parcel.volunteer = event.value;
-      const text = `${parcel.volunteer.full_name} הוגדר כנהג של החבילה`;
-      Swal.fire({
-        text: text,
-        timer: 300000,
-        icon: 'success',
-        toast: true,
-        position: 'bottom-left',
-        showConfirmButton: false,
-        background: '#1d1c31',
-      });
-    });
+    this.parcelService.editParcel(parcelClone).subscribe(
+      (res: Parcel) => {
+        parcel.volunteer = event.value;
+        const text = `${parcel.volunteer.full_name} הוגדר כנהג של החבילה`;
+        Swal.fire({
+          text: text,
+          timer: 300000,
+          icon: 'success',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      },
+      (err) => {
+        const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+        Swal.fire({
+          text: text,
+          timer: 3000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      }
+    );
   }
 
   editParcelArrived(parcel: Parcel, event: MatCheckboxChange) {
     const parcelClone: Parcel = JSON.parse(JSON.stringify(parcel));
     parcelClone.arrived = event.checked;
-    this.parcelService.editParcel(parcelClone).subscribe((res: Parcel) => {
-      parcel.arrived = event.checked;
-      const text = event.checked ? `סומן כהגיע` : 'סומן כלא הגיע';
-      Swal.fire({
-        text: text,
-        timer: 300000,
-        icon: 'success',
-        toast: true,
-        position: 'bottom-left',
-        showConfirmButton: false,
-        background: '#1d1c31',
-      });
-    });
+    this.parcelService.editParcel(parcelClone).subscribe(
+      (res: Parcel) => {
+        parcel.arrived = event.checked;
+        const text = event.checked ? `סומן כהגיע` : 'סומן כלא הגיע';
+        Swal.fire({
+          text: text,
+          timer: 300000,
+          icon: 'success',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      },
+      (err) => {
+        event.source.checked = !event.checked;
+        const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+        Swal.fire({
+          text: text,
+          timer: 3000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      }
+    );
   }
 
   popLoadFileModal() {

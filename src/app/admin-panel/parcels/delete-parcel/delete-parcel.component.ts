@@ -19,17 +19,32 @@ export class DeleteParcelComponent implements OnInit {
   ngOnInit(): void {}
 
   deleteParcel() {
-    this.parcelService.deleteParcel(this.selectedParcel).subscribe((res) => {
-      Swal.fire({
-        text: `החבילה נמחקה`,
-        timer: 3000,
-        icon: 'success',
-        toast: true,
-        position: 'bottom-left',
-        showConfirmButton: false,
-        background: '#1d1c31',
-      });
-      this.dialogRef.close('success');
-    });
+    this.parcelService.deleteParcel(this.selectedParcel).subscribe(
+      (res) => {
+        Swal.fire({
+          text: `החבילה נמחקה`,
+          timer: 3000,
+          icon: 'success',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+        this.dialogRef.close('success');
+      },
+      (err) => {
+        const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+        Swal.fire({
+          text: text,
+          timer: 3000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+        this.dialogRef.close();
+      }
+    );
   }
 }

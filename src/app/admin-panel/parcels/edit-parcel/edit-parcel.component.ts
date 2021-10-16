@@ -34,19 +34,34 @@ export class EditParcelComponent implements OnInit {
     this.parcelService
       .editParcelAddress(parcelClone)
       .pipe(tap(() => (this.loading = false)))
-      .subscribe((res: Parcel) => {
-        Swal.fire({
-          text: 'חבילה נערכה בהצלחה',
-          timer: 3000,
-          icon: 'success',
-          toast: true,
-          position: 'bottom-left',
-          showConfirmButton: false,
-          background: '#1d1c31',
-        });
-        // Passing parent component the result
-        this.dialogRef.close(res);
-      });
+      .subscribe(
+        (res: Parcel) => {
+          Swal.fire({
+            text: 'חבילה נערכה בהצלחה',
+            timer: 3000,
+            icon: 'success',
+            toast: true,
+            position: 'bottom-left',
+            showConfirmButton: false,
+            background: '#1d1c31',
+          });
+          // Passing parent component the result
+          this.dialogRef.close(res);
+        },
+        (err) => {
+          const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+          Swal.fire({
+            text: text,
+            timer: 3000,
+            icon: 'error',
+            toast: true,
+            position: 'bottom-left',
+            showConfirmButton: false,
+            background: '#1d1c31',
+          });
+          this.dialogRef.close();
+        }
+      );
   }
 
   // Form Getters

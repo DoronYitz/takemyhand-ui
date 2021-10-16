@@ -20,9 +20,8 @@ export class DeleteVolunteerComponent implements OnInit {
   ngOnInit(): void {}
 
   deleteVolunteer() {
-    this.volunteerService
-      .deleteVolunteer(this.selectedVolunteer)
-      .subscribe((res) => {
+    this.volunteerService.deleteVolunteer(this.selectedVolunteer).subscribe(
+      (res) => {
         Swal.fire({
           text: `${this.selectedVolunteer.full_name} נמחק בהצלחה`,
           timer: 3000,
@@ -33,6 +32,20 @@ export class DeleteVolunteerComponent implements OnInit {
           background: '#1d1c31',
         });
         this.dialogRef.close('success');
-      });
+      },
+      (err) => {
+        const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+        Swal.fire({
+          text: text,
+          timer: 3000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+        this.dialogRef.close();
+      }
+    );
   }
 }

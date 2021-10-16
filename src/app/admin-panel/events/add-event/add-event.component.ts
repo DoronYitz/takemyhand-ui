@@ -42,21 +42,40 @@ export class AddEventComponent implements OnInit {
     this.loading = true;
     this.eventService
       .createEvent(form.value)
-      .pipe(tap(() => (this.loading = false)))
-      .subscribe((res: IEvent) => {
-        Swal.fire({
-          text: 'אירוע נוסף בהצלחה',
-          timer: 3000,
-          icon: 'success',
-          toast: true,
-          position: 'bottom-left',
-          showConfirmButton: false,
-          background: '#1d1c31',
-        });
+      .pipe(
+        tap(() => {
+          this.loading = false;
+        })
+      )
+      .subscribe(
+        (res: IEvent) => {
+          Swal.fire({
+            text: 'אירוע נוסף בהצלחה',
+            timer: 3000,
+            icon: 'success',
+            toast: true,
+            position: 'bottom-left',
+            showConfirmButton: false,
+            background: '#1d1c31',
+          });
 
-        // Passing parent component the result
-        this.dialogRef.close(res);
-      });
+          // Passing parent component the result
+          this.dialogRef.close(res);
+        },
+        (err) => {
+          const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+          Swal.fire({
+            text: text,
+            timer: 3000,
+            icon: 'error',
+            toast: true,
+            position: 'bottom-left',
+            showConfirmButton: false,
+            background: '#1d1c31',
+          });
+          this.dialogRef.close();
+        }
+      );
   }
 
   // Form Getters

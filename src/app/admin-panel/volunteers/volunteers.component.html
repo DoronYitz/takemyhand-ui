@@ -11,83 +11,79 @@
     <mat-label>סנן</mat-label>
     <input matInput (keyup)="applyFilter($event)" #input autocomplete="off" />
   </mat-form-field>
-  <div class="table-container mat-elevation-z8">
-    <table
-      mat-table
-      [dataSource]="dataSource"
-      matSort
-      class="mat-elevation-z8 demo-table"
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    class="mat-elevation-z8 demo-table d-block table-container"
+  >
+    <ng-container
+      *ngFor="let column of columns"
+      [matColumnDef]="column.columnDef"
     >
-      <ng-container
-        *ngFor="let column of columns"
-        [matColumnDef]="column.columnDef"
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        arrowPosition="after"
       >
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          mat-sort-header
-          arrowPosition="after"
+        {{ column.header }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <div *ngIf="column.columnDef === 'driver'" class="checkbox">
+          <mat-checkbox
+            [checked]="column.cell(row).driver"
+            [color]="warn"
+            (change)="toggleVolunteerDriver(column.cell(row), $event)"
+            matTooltip="שנה תפקיד"
+            matTooltipPosition="above"
+          >
+          </mat-checkbox>
+        </div>
+        <div
+          *ngIf="
+            column.columnDef !== 'driver' &&
+            column.columnDef !== 'edit' &&
+            column.columnDef !== 'delete'
+          "
         >
-          {{ column.header }}
-        </th>
-        <td mat-cell *matCellDef="let row">
-          <div *ngIf="column.columnDef === 'driver'" class="checkbox">
-            <mat-checkbox
-              [checked]="column.cell(row).driver"
-              [color]="warn"
-              (change)="toggleVolunteerDriver(column.cell(row), $event)"
-              matTooltip="שנה תפקיד"
-              matTooltipPosition="above"
-            >
-            </mat-checkbox>
-          </div>
-          <div
-            *ngIf="
-              column.columnDef !== 'driver' &&
-              column.columnDef !== 'edit' &&
-              column.columnDef !== 'delete'
-            "
-          >
-            {{ column.cell(row) }}
-          </div>
-          <div
-            *ngIf="column.columnDef === 'edit'"
-            class="mr-1"
-            (click)="popEditVolunteerModal(column.cell(row))"
-          >
-            <fa-icon
-              class="edit-btn icon"
-              matTooltip="ערוך מתנדב"
-              matTooltipPosition="above"
-              [icon]="['far', 'edit']"
-            ></fa-icon>
-          </div>
-          <div
-            *ngIf="column.columnDef === 'delete'"
-            class="mr-1"
-            (click)="popDeleteVolunteerModal(column.cell(row))"
-          >
-            <fa-icon
-              matTooltip="מחק מתנדב"
-              matTooltipPosition="above"
-              class="delete-btn icon"
-              [icon]="['far', 'trash-alt']"
-            ></fa-icon>
-          </div>
-        </td>
-      </ng-container>
+          {{ column.cell(row) }}
+        </div>
+        <div
+          *ngIf="column.columnDef === 'edit'"
+          class="mr-1"
+          (click)="popEditVolunteerModal(column.cell(row))"
+        >
+          <fa-icon
+            class="edit-btn icon"
+            matTooltip="ערוך מתנדב"
+            matTooltipPosition="above"
+            [icon]="['far', 'edit']"
+          ></fa-icon>
+        </div>
+        <div
+          *ngIf="column.columnDef === 'delete'"
+          class="mr-1"
+          (click)="popDeleteVolunteerModal(column.cell(row))"
+        >
+          <fa-icon
+            matTooltip="מחק מתנדב"
+            matTooltipPosition="above"
+            class="delete-btn icon"
+            [icon]="['far', 'trash-alt']"
+          ></fa-icon>
+        </div>
+      </td>
+    </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-      <!-- Row shown when there is no matching data. -->
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="7">
-          אין תוצאות עבור "{{ input.value }}"
-        </td>
-      </tr>
-    </table>
-  </div>
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="7">אין תוצאות עבור "{{ input.value }}"</td>
+    </tr>
+  </table>
   <div class="text-right mt-4 mr-2 text-white">
     <span>סה"כ מתנדבים: </span>
     <span class="mr-2">{{ this.totalVolunteers }}</span>
