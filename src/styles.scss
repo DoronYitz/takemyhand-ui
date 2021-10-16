@@ -1,9 +1,9 @@
-@import "~@angular/material/theming";
-$custom-typography: mat-typography-config(
+@use '~@angular/material' as mat;
+$custom-typography: mat.define-typography-config(
   $font-family: "Assistant",
 );
 
-@include angular-material-typography($custom-typography);
+@include mat.all-component-typographies($custom-typography);
 
 html,
 body {
