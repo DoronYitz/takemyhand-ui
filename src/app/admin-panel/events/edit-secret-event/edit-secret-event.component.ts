@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { Validators, FormBuilder, NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { tap } from 'rxjs/operators';
 import { IEvent } from 'src/app/models/event.model';
 import { EventService } from 'src/app/services/event.service';
 import Swal from 'sweetalert2';
@@ -16,6 +17,7 @@ export class EditSecretEventComponent implements OnInit {
   private strongSecretRegex = new RegExp(
     '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$'
   );
+  public loading: boolean = false;
 
   profileForm = this.fb.group({
     secret: [
@@ -34,8 +36,10 @@ export class EditSecretEventComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
+    this.loading = true;
     this.eventService
       .editEventSecret({ ...form.value, _id: this.selectedEvent._id })
+      .pipe(tap(() => (this.loading = false)))
       .subscribe((res: IEvent) => {
         Swal.fire({
           text: 'מפתח סודי של האירוע נקבע בהצלחה',

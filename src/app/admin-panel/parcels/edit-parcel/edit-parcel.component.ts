@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { tap } from 'rxjs/operators';
 import { Parcel } from 'src/app/models/parcel.model';
 import { ParcelService } from 'src/app/services/parcel.service';
 import Swal from 'sweetalert2';
@@ -15,6 +16,7 @@ export class EditParcelComponent implements OnInit {
   profileForm = this.fb.group({
     address: [this.selectedParcel.address, [Validators.required]],
   });
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -28,8 +30,10 @@ export class EditParcelComponent implements OnInit {
   onSubmit(form: NgForm) {
     let parcelClone = { ...this.selectedParcel };
     parcelClone.address = form.value.address;
+    this.loading = true;
     this.parcelService
       .editParcelAddress(parcelClone)
+      .pipe(tap(() => (this.loading = false)))
       .subscribe((res: Parcel) => {
         Swal.fire({
           text: 'חבילה נערכה בהצלחה',

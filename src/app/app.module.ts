@@ -52,6 +52,7 @@ import { EditVolunteerComponent } from './admin-panel/volunteers/edit-volunteer/
 import { AddVolunteerComponent } from './admin-panel/volunteers/add-volunteer/add-volunteer.component';
 import { DeleteVolunteerComponent } from './admin-panel/volunteers/delete-volunteer/delete-volunteer.component';
 import { EditSecretEventComponent } from './admin-panel/events/edit-secret-event/edit-secret-event.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { EditSecretEventComponent } from './admin-panel/events/edit-secret-event
     MatNativeDateModule,
     TextFieldModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

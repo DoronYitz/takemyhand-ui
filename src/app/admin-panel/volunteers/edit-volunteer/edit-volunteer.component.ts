@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { Validators, FormBuilder, NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { tap } from 'rxjs/operators';
 import { Volunteer } from 'src/app/models/volunteer.model';
 import { VolunteerService } from 'src/app/services/volunteer.service';
 import Swal from 'sweetalert2';
@@ -22,6 +23,7 @@ export class EditVolunteerComponent implements OnInit {
     num_of_people: [this.selectedVolunteer.num_of_people],
     driver: [this.selectedVolunteer.driver],
   });
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -33,8 +35,10 @@ export class EditVolunteerComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
+    this.loading = true;
     this.volunteerService
       .editVolunteer({ ...form.value, _id: this.selectedVolunteer._id })
+      .pipe(tap(() => (this.loading = false)))
       .subscribe((res: Volunteer) => {
         Swal.fire({
           text: 'מתנדב נערך בהצלחה',

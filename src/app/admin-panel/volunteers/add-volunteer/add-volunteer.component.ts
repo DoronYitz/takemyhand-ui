@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Validators, FormBuilder, NgForm } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { tap } from 'rxjs/operators';
 import { IEvent } from 'src/app/models/event.model';
 import { VolunteerService } from 'src/app/services/volunteer.service';
 import Swal from 'sweetalert2';
@@ -17,8 +18,8 @@ export class AddVolunteerComponent implements OnInit {
     phone: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
     address: ['', [Validators.required]],
     num_of_people: [1],
-    driver: [false],
   });
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -29,8 +30,10 @@ export class AddVolunteerComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
+    this.loading = true;
     this.volunteerService
       .createVolunteer(form.value)
+      .pipe(tap(() => (this.loading = false)))
       .subscribe((res: IEvent) => {
         Swal.fire({
           text: 'מתנדב נוסף בהצלחה',

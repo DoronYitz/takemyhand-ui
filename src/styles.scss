@@ -129,3 +129,12 @@ td.mat-footer-cell {
 .mat-footer-cell {
   color: white !important;
 }
+
+.mat-stroked-button.mat-warn.mat-button-disabled,
+.mat-stroked-button.mat-button-disabled.mat-button-disabled {
+  cursor: not-allowed;
+}
+
+.spinner {
+  margin: 5px 0;
+}

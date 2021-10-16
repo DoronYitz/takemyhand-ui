@@ -130,6 +130,15 @@ export class ParcelsComponent implements OnInit {
   popLoadFileModal() {
     const uploadDialogRef = this.uploadFileDialog.open(UploadFileComponent, {
       closeOnNavigation: false,
+      panelClass: 'add-modal',
+    });
+    uploadDialogRef.afterClosed().subscribe((res: Parcel[]) => {
+      if (!res) {
+        return;
+      }
+      this.parcels.push(...res);
+      this.dataSource = new MatTableDataSource(this.parcels);
+      this.dataSource.sort = this.sort;
     });
   }
 

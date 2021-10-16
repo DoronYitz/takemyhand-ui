@@ -21,6 +21,12 @@
     (click)="uploadFileToActivity()"
     [disabled]="!this.textFile"
   >
-    טען חבילות
+    <span *ngIf="!loading">טען חבילות</span>
+    <mat-spinner
+      *ngIf="loading"
+      diameter="23"
+      class="spinner mr-1"
+      color="warn"
+    ></mat-spinner>
   </button>
 </div>

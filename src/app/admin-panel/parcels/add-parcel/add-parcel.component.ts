@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { tap } from 'rxjs/operators';
 import { Parcel } from 'src/app/models/parcel.model';
 import { ParcelService } from 'src/app/services/parcel.service';
 import Swal from 'sweetalert2';
@@ -15,6 +16,7 @@ export class AddParcelComponent implements OnInit {
   profileForm = this.fb.group({
     address: ['', [Validators.required]],
   });
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -25,20 +27,24 @@ export class AddParcelComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    this.parcelService.createParcel(form.value).subscribe((res: Parcel) => {
-      Swal.fire({
-        text: 'חבילה נוספה בהצלחה',
-        timer: 3000,
-        icon: 'success',
-        toast: true,
-        position: 'bottom-left',
-        showConfirmButton: false,
-        background: '#1d1c31',
-      });
+    this.loading = true;
+    this.parcelService
+      .createParcel(form.value)
+      .pipe(tap(() => (this.loading = false)))
+      .subscribe((res: Parcel) => {
+        Swal.fire({
+          text: 'חבילה נוספה בהצלחה',
+          timer: 3000,
+          icon: 'success',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
 
-      // Passing parent component the result
-      this.dialogRef.close(res);
-    });
+        // Passing parent component the result
+        this.dialogRef.close(res);
+      });
   }
 
   // Form Getters

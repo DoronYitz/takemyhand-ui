@@ -4,6 +4,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { IEvent } from 'src/app/models/event.model';
 import { EventService } from 'src/app/services/event.service';
 import Swal from 'sweetalert2';
+import { tap } from 'rxjs/operators';
+import { pipe } from 'rxjs';
 
 @Component({
   selector: 'app-add-event',
@@ -15,12 +17,12 @@ export class AddEventComponent implements OnInit {
   private strongSecretRegex = new RegExp(
     '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$'
   );
+  public loading: boolean = false;
 
   profileForm = this.fb.group({
     title: ['', [Validators.required]],
     category: ['', [Validators.required]],
     date: ['', [Validators.required]],
-    active: [false],
     secret: [
       '',
       [Validators.required, Validators.pattern(this.strongSecretRegex)],
@@ -37,20 +39,24 @@ export class AddEventComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    this.eventService.createEvent(form.value).subscribe((res: IEvent) => {
-      Swal.fire({
-        text: 'אירוע נוסף בהצלחה',
-        timer: 3000,
-        icon: 'success',
-        toast: true,
-        position: 'bottom-left',
-        showConfirmButton: false,
-        background: '#1d1c31',
-      });
+    this.loading = true;
+    this.eventService
+      .createEvent(form.value)
+      .pipe(tap(() => (this.loading = false)))
+      .subscribe((res: IEvent) => {
+        Swal.fire({
+          text: 'אירוע נוסף בהצלחה',
+          timer: 3000,
+          icon: 'success',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
 
-      // Passing parent component the result
-      this.dialogRef.close(res);
-    });
+        // Passing parent component the result
+        this.dialogRef.close(res);
+      });
   }
 
   // Form Getters

@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { tap } from 'rxjs/operators';
 import { ParcelService } from 'src/app/services/parcel.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-upload-file',
@@ -9,8 +12,12 @@ import { ParcelService } from 'src/app/services/parcel.service';
 })
 export class UploadFileComponent implements OnInit {
   textFile: File | null = null;
+  loading: boolean = false;
 
-  constructor(private parcelService: ParcelService) {}
+  constructor(
+    private parcelService: ParcelService,
+    private dialogRef: MatDialogRef<UploadFileComponent>
+  ) {}
 
   ngOnInit(): void {}
 
@@ -22,13 +29,27 @@ export class UploadFileComponent implements OnInit {
     if (!this.textFile) {
       return;
     }
-    this.parcelService.createParcelsFromTextFile(this.textFile).subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.loading = true;
+    this.parcelService
+      .createParcelsFromTextFile(this.textFile)
+      .pipe(tap(() => (this.loading = false)))
+      .subscribe(
+        (data) => {
+          Swal.fire({
+            text: 'חבילות נוספו בהצלחה',
+            timer: 3000,
+            icon: 'success',
+            toast: true,
+            position: 'bottom-left',
+            showConfirmButton: false,
+            background: '#1d1c31',
+          });
+          // Passing parent component the result
+          this.dialogRef.close(data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }
