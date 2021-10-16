@@ -54,6 +54,8 @@ import { DeleteVolunteerComponent } from './admin-panel/volunteers/delete-volunt
 import { EditSecretEventComponent } from './admin-panel/events/edit-secret-event/edit-secret-event.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UserPanelComponent } from './user-panel/user-panel.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
@@ -106,6 +108,7 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
     TextFieldModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    SocketIoModule.forRoot(config),
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
