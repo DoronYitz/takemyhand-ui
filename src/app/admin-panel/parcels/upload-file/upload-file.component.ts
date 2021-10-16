@@ -37,7 +37,7 @@ export class UploadFileComponent implements OnInit {
         (data) => {
           Swal.fire({
             text: 'חבילות נוספו בהצלחה',
-            timer: 3000,
+            timer: 5000,
             icon: 'success',
             toast: true,
             position: 'bottom-left',

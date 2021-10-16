@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+<div class="page-wrapper">
+  <div class="container content">
+    <div class="formContent text-right">
+      <h1>הצטרף לאירוע הבא שלנו</h1>
+      <h5>ותהפוך את יומו של האחר לשמח יותר</h5>
+      <form
+        class="form register-form"
+        [formGroup]="profileForm"
+        (ngSubmit)="onSubmit(f)"
+        #f="ngForm"
+      >
+        <div>
+          <mat-form-field appearance="standard" class="input d-block">
+            <mat-label>שם מלא</mat-label>
+            <input
+              matInput
+              type="text"
+              required
+              id="full_name"
+              name="full_name"
+              formControlName="full_name"
+              autocomplete="off"
+            />
+            <mat-error *ngIf="full_name.errors?.required">שדה חובה</mat-error>
+            <mat-error *ngIf="full_name.errors?.pattern"
+              >ניתן להזין רק אותיות</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="standard" class="input d-block mt-3 mb-3">
+            <mat-label>פלאפון</mat-label>
+            <input
+              matInput
+              type="text"
+              required
+              id="phone"
+              name="phone"
+              formControlName="phone"
+              autocomplete="off"
+            />
+            <mat-error *ngIf="phone.errors?.required">שדה חובה</mat-error>
+            <mat-error *ngIf="phone.errors?.pattern"
+              >מספר הפלאפון שהוזן אינו תקני</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <!-- <div>
+            <mat-form-field
+              appearance="standard"
+              class="number-input d-block mt-3 mb-3"
+            >
+              <mat-label>מס' אנשים</mat-label>
+              <input
+                matInput
+                type="number"
+                required
+                id="phone"
+                name="phone"
+                formControlName="phone"
+                autocomplete="off"
+              />
+              <mat-error *ngIf="phone.errors?.required"
+                >Phone number is required</mat-error
+              >
+              <mat-error *ngIf="phone.errors?.pattern"
+                >Invalid phone number</mat-error
+              >
+            </mat-form-field>
+          </div> -->
+        <hr />
+        <div>
+          <p class="thanks">
+            אנו משתמשים באלגוריתם חכם על מנת לחלק את החבילות ביעילות על פי קרבה,
+            ככל שהכתובת תהיה מדוייקת יותר, כך יותר טוב :)
+          </p>
+          <mat-form-field
+            appearance="standard"
+            class="input d-block mt-3 address-input"
+          >
+            <mat-label>כתובת</mat-label>
+            <input
+              matInput
+              required
+              type="text"
+              required
+              id="address"
+              name="address"
+              formControlName="address"
+              autocomplete="off"
+            />
+            <mat-error *ngIf="address.errors?.required">שדה חובה</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="mt-5">
+          <button
+            class="btnSend btn btn-round px-4 py-2"
+            type="submit"
+            [disabled]="!profileForm.valid"
+          >
+            שלח
+          </button>
+        </div>
+        <div class="error-msg">
+          <span>{{ errorMsg }}</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

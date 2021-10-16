@@ -21,16 +21,27 @@
     >
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
+          <a
+            routerLink="/login"
+            *ngIf="!this.authService?.user"
+            class="nav-link"
+            >התחבר</a
+          >
+          <div *ngIf="this.authService?.user" class="nav-link user-link">
+            שלום, {{ this.authService?.user?.username }}
+          </div>
+        </li>
+        <li class="nav-item">
           <a routerLink="/volunteer" class="nav-link">התנדבות</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">תרומות</a>
+          <a class="nav-link">תרומות</a>
         </li>
         <li class="nav-item">
+          <a routerLink="/userpanel" class="nav-link">פורטל אישי</a>
+        </li>
+        <li class="nav-item" *ngIf="this.authService?.user?.role === 'admin'">
           <a routerLink="/admin" class="nav-link">לוח מנהל</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/login" class="nav-link">התחבר</a>
         </li>
       </ul>
     </div>

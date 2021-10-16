@@ -9,12 +9,14 @@ import { VolunteersComponent } from './admin-panel/volunteers/volunteers.compone
 import { RoleGuard } from './guards/role.guard';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'volunteer', component: VolunteerComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'userpanel', component: UserPanelComponent },
   {
     path: 'admin',
     component: AdminPanelComponent,

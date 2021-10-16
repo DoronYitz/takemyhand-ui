@@ -23,7 +23,7 @@ export class DeleteParcelComponent implements OnInit {
       (res) => {
         Swal.fire({
           text: `החבילה נמחקה`,
-          timer: 3000,
+          timer: 5000,
           icon: 'success',
           toast: true,
           position: 'bottom-left',
@@ -36,7 +36,7 @@ export class DeleteParcelComponent implements OnInit {
         const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
         Swal.fire({
           text: text,
-          timer: 3000,
+          timer: 5000,
           icon: 'error',
           toast: true,
           position: 'bottom-left',

@@ -11,6 +11,7 @@ export class AuthService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     withCredentials: true,
   };
+  user = null;
 
   baseUrl = environment.backendUrl + '/api/auth';
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {}

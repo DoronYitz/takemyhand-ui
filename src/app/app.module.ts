@@ -53,6 +53,7 @@ import { AddVolunteerComponent } from './admin-panel/volunteers/add-volunteer/ad
 import { DeleteVolunteerComponent } from './admin-panel/volunteers/delete-volunteer/delete-volunteer.component';
 import { EditSecretEventComponent } from './admin-panel/events/edit-secret-event/edit-secret-event.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { UserPanelComponent } from './user-panel/user-panel.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AddVolunteerComponent,
     DeleteVolunteerComponent,
     EditSecretEventComponent,
+    UserPanelComponent,
   ],
   imports: [
     BrowserModule,

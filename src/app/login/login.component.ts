@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
   onSubmit(form: NgForm): void {
     this.authService.login(form.value.phone, form.value.password).subscribe(
       (res: any) => {
+        this.authService.user = jwtDecode(res.token);
         localStorage.setItem('token', res.token);
         this.router.navigate(['/']);
       },

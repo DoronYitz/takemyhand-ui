@@ -38,7 +38,7 @@ export class EditParcelComponent implements OnInit {
         (res: Parcel) => {
           Swal.fire({
             text: 'חבילה נערכה בהצלחה',
-            timer: 3000,
+            timer: 5000,
             icon: 'success',
             toast: true,
             position: 'bottom-left',
@@ -52,7 +52,7 @@ export class EditParcelComponent implements OnInit {
           const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
           Swal.fire({
             text: text,
-            timer: 3000,
+            timer: 5000,
             icon: 'error',
             toast: true,
             position: 'bottom-left',
