@@ -10,7 +10,6 @@ import { IEvent } from '../models/event.model';
 export class EventService {
   baseUrl = environment.backendUrl + '/api/events';
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     withCredentials: true,
   };
 
@@ -25,17 +24,13 @@ export class EventService {
   }
 
   createEvent(event: IEvent): Observable<IEvent> {
-    return this.http.post<IEvent>(
-      this.baseUrl,
-      JSON.stringify(event),
-      this.httpOptions
-    );
+    return this.http.post<IEvent>(this.baseUrl, event, this.httpOptions);
   }
 
   editEvent(event: IEvent): Observable<IEvent> {
     return this.http.patch<IEvent>(
       `${this.baseUrl}/${event._id}`,
-      JSON.stringify(event),
+      event,
       this.httpOptions
     );
   }
@@ -43,7 +38,7 @@ export class EventService {
   editEventSecret(event: IEvent): Observable<IEvent> {
     return this.http.patch<IEvent>(
       `${this.baseUrl}/secret/${event._id}`,
-      JSON.stringify(event),
+      event,
       this.httpOptions
     );
   }

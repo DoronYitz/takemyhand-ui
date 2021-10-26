@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import jwtDecode from 'jwt-decode';
 import { AuthService } from '../services/auth.service';
+import { TokenStorageService } from '../services/token-storage.service';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-login',
@@ -22,16 +23,20 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private tokenStorage: TokenStorageService,
+    private userData: UserDataService
   ) {}
 
   ngOnInit(): void {}
 
   onSubmit(form: NgForm): void {
     this.authService.login(form.value.phone, form.value.password).subscribe(
-      (res: any) => {
-        this.authService.user = jwtDecode(res.token);
-        localStorage.setItem('token', res.token);
+      (data: any) => {
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveRefreshToken(data.refreshToken);
+        this.tokenStorage.saveUser(data);
+        this.userData.onChange();
         this.router.navigate(['/']);
       },
       (err) => {

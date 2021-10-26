@@ -1,9 +1,13 @@
-@use '~@angular/material' as mat;
+@use "~@angular/material" as mat;
 $custom-typography: mat.define-typography-config(
   $font-family: "Assistant",
 );
 
 @include mat.all-component-typographies($custom-typography);
+
+.cursor-pointer {
+  cursor: pointer;
+}
 
 html,
 body {
@@ -105,7 +109,7 @@ th {
 }
 
 .mat-table {
-  background: transparent;
+  background: rgba(29, 28, 49, 0.164);
 }
 
 .mat-header-cell {

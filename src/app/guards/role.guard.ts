@@ -7,15 +7,16 @@ import {
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
-import jwtDecode from 'jwt-decode';
-import { Payload } from '../models/payload.model';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RoleGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private tokenStorage: TokenStorageService,
+    private router: Router
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -26,19 +27,13 @@ export class RoleGuard implements CanActivate {
     | boolean
     | UrlTree {
     try {
-      // // this will be passed from the route config
-      // // on the data property
-      // const expectedRole = route.data.expectedRole;
-      // const token = localStorage.getItem('token');
-      // // decode the token to get its payload
-      // const tokenPayload: Payload = jwtDecode(token);
-      // if (
-      //   !this.authService.isAuthenticated() ||
-      //   tokenPayload.role !== expectedRole
-      // ) {
-      //   this.router.navigate(['/login']);
-      //   return false;
-      // }
+      // this will be passed from the route config
+      const expectedRole: string = route.data.expectedRole;
+      const user = this.tokenStorage.getUser();
+      if (!this.tokenStorage.getToken() || !user.roles.includes(expectedRole)) {
+        this.router.navigate(['/login']);
+        return false;
+      }
       return true;
     } catch (err) {
       this.router.navigate(['/login']);

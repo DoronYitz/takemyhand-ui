@@ -10,7 +10,6 @@ import { Volunteer } from '../models/volunteer.model';
 export class VolunteerService {
   baseUrl = environment.backendUrl + '/api/volunteer';
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     withCredentials: true,
   };
 
@@ -25,17 +24,13 @@ export class VolunteerService {
   }
 
   createVolunteer(volunteer: Volunteer): Observable<Volunteer> {
-    return this.http.post<Volunteer>(
-      this.baseUrl,
-      JSON.stringify(volunteer),
-      this.httpOptions
-    );
+    return this.http.post<Volunteer>(this.baseUrl, volunteer, this.httpOptions);
   }
 
   editVolunteer(volunteer: Volunteer): Observable<Volunteer> {
     return this.http.patch<Volunteer>(
       `${this.baseUrl}/${volunteer._id}`,
-      JSON.stringify(volunteer),
+      volunteer,
       this.httpOptions
     );
   }

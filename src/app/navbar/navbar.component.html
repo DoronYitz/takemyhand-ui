@@ -23,12 +23,12 @@
         <li class="nav-item">
           <a
             routerLink="/login"
-            *ngIf="!this.authService?.user"
+            *ngIf="!this.userData.isLoggedIn"
             class="nav-link"
             >התחבר</a
           >
-          <div *ngIf="this.authService?.user" class="nav-link user-link">
-            שלום, {{ this.authService?.user?.username }}
+          <div *ngIf="this.userData.isLoggedIn" class="nav-link user-link">
+            שלום, {{ this.userData?.username }}
           </div>
         </li>
         <li class="nav-item">
@@ -37,11 +37,19 @@
         <li class="nav-item">
           <a class="nav-link">תרומות</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="this.userData.showModeratorBoard">
           <a routerLink="/userpanel" class="nav-link">פורטל אישי</a>
         </li>
-        <li class="nav-item" *ngIf="this.authService?.user?.role === 'admin'">
+        <li class="nav-item" *ngIf="this.userData.showAdminBoard">
           <a routerLink="/admin" class="nav-link">לוח מנהל</a>
+        </li>
+        <li class="nav-item">
+          <a
+            *ngIf="this.userData.isLoggedIn"
+            class="nav-link"
+            (click)="logout()"
+            >התנתק</a
+          >
         </li>
       </ul>
     </div>

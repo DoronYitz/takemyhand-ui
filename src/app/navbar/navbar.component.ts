@@ -1,5 +1,9 @@
 import { Component, ElementRef, OnInit, HostListener } from '@angular/core';
+import { EventData } from '../models/eventData.model';
 import { AuthService } from '../services/auth.service';
+import { EventBusService } from '../services/event-bus.service';
+import { TokenStorageService } from '../services/token-storage.service';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +15,13 @@ export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private nav: HTMLElement;
 
-  constructor(private element: ElementRef, public authService: AuthService) {}
+  constructor(
+    private element: ElementRef,
+    public userData: UserDataService,
+    private eventBusService: EventBusService,
+    private authService: AuthService,
+    private tokenStorage: TokenStorageService
+  ) {}
 
   ngOnInit() {
     const navbar: HTMLElement = this.element.nativeElement;
@@ -49,5 +59,15 @@ export class NavbarComponent implements OnInit {
       }
       this.nav.style.backgroundColor = '';
     }
+  }
+
+  logout() {
+    console.log(this.tokenStorage.getRefreshToken());
+    this.authService
+      .logout(this.tokenStorage.getRefreshToken())
+      .subscribe((res) => {
+        console.log(res);
+        this.eventBusService.emit(new EventData('logout', null));
+      });
   }
 }

@@ -1,4 +1,4 @@
-import { Input, NgModule, OnInit } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +24,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
@@ -34,8 +34,7 @@ import { ControlPanelComponent } from './admin-panel//control-panel/control-pane
 import { VolunteersComponent } from './admin-panel//volunteers/volunteers.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { JwtModule } from '@auth0/angular-jwt';
+import { authInterceptorProviders } from './interceptors/auth.interceptor';
 import { EventsComponent } from './admin-panel/events/events.component';
 import { AddEventComponent } from './admin-panel/events/add-event/add-event.component';
 import { EditEventComponent } from './admin-panel/events/edit-event/edit-event.component';
@@ -109,21 +108,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     MatTooltipModule,
     MatProgressSpinnerModule,
     SocketIoModule.forRoot(config),
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: () => {
-          return localStorage.getItem('token');
-        },
-      },
-    }),
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true,
-    },
-  ],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule implements OnInit {

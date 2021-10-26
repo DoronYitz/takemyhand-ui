@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2';
+import { Parcel } from '../models/parcel.model';
+import { Volunteer } from '../models/volunteer.model';
+import { ParcelService } from '../services/parcel.service';
 import { VolunteerService } from '../services/volunteer.service';
 
 @Component({
@@ -10,31 +14,56 @@ import { VolunteerService } from '../services/volunteer.service';
   styleUrls: ['./user-panel.component.scss'],
 })
 export class UserPanelComponent implements OnInit {
-  errorMsg: string;
-  onlyLetters: RegExp = new RegExp('^[a-zA-Z\u0590-\u05FF\u200f\u200e ]+$');
-
-  profileForm = this.fb.group({
-    full_name: [
-      '',
-      [Validators.required, Validators.pattern(this.onlyLetters)],
-    ],
-    phone: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
-    address: ['', [Validators.required]],
-  });
+  @ViewChild(MatSort) sort: MatSort;
+  columns = [
+    {
+      columnDef: 'arrived',
+      header: 'הגיע',
+      cell: (element: Parcel) => element,
+    },
+    {
+      columnDef: 'address',
+      header: 'כתובת',
+      cell: (element: Parcel) => `${element.address}`,
+    },
+    {
+      columnDef: 'waze',
+      header: 'נווט',
+      cell: (element: Parcel) =>
+        `https://waze.com/ul?q=${encodeURI(element.address)}&navigate=yes`,
+    },
+  ];
+  parcels: Parcel[] = [];
+  dataSource;
+  drivers: Volunteer[];
+  displayedColumns = this.columns.map((c) => c.columnDef);
 
   constructor(
-    private fb: FormBuilder,
     private volunteerService: VolunteerService,
-    private router: Router
+    private parcelService: ParcelService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.parcelService.getDriverParcels().subscribe((parcels: Parcel[]) => {
+      this.parcels = parcels;
+      this.dataSource = new MatTableDataSource(this.parcels);
+      this.dataSource.sort = this.sort;
+    });
+  }
 
-  onSubmit(form: NgForm): void {
-    this.volunteerService.createVolunteer(form.value).subscribe(
-      (newVolunteer) => {
+  compareByID(a: Volunteer, b: Volunteer) {
+    return a && b && a._id === b._id;
+  }
+
+  editParcelArrived(parcel: Parcel, event: MatCheckboxChange) {
+    const parcelClone: Parcel = JSON.parse(JSON.stringify(parcel));
+    parcelClone.arrived = event.checked;
+    this.parcelService.editParcel(parcelClone).subscribe(
+      (res: Parcel) => {
+        parcel.arrived = event.checked;
+        const text = event.checked ? `סומן כהגיע` : 'סומן כלא הגיע';
         Swal.fire({
-          text: `${newVolunteer.full_name}, תודה שהצטרפת אלינו`,
+          text: text,
           timer: 5000,
           icon: 'success',
           toast: true,
@@ -42,26 +71,20 @@ export class UserPanelComponent implements OnInit {
           showConfirmButton: false,
           background: '#1d1c31',
         });
-        this.router.navigate(['/']);
       },
       (err) => {
-        this.errorMsg = err?.error?.message;
-        if (!this.errorMsg) {
-          this.errorMsg = 'משהו השתבש, נסה שנית מאוחר יותר';
-        }
+        event.source.checked = !event.checked;
+        const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+        Swal.fire({
+          text: text,
+          timer: 5000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
       }
     );
-  }
-
-  get full_name() {
-    return this.profileForm.get('full_name');
-  }
-
-  get phone() {
-    return this.profileForm.get('phone');
-  }
-
-  get address() {
-    return this.profileForm.get('address');
   }
 }

@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -10,12 +11,6 @@ import { Parcel } from '../models/parcel.model';
 export class ParcelService {
   baseUrl = environment.backendUrl + '/api/parcel';
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    withCredentials: true,
-  };
-
-  fileHttpOptions = {
-    headers: new HttpHeaders({ enctype: 'multipart/form-data' }),
     withCredentials: true,
   };
 
@@ -25,16 +20,16 @@ export class ParcelService {
     return this.http.get<Parcel[]>(this.baseUrl);
   }
 
+  getDriverParcels(): Observable<Parcel[]> {
+    return this.http.get<Parcel[]>(`${this.baseUrl}/driverparcels`);
+  }
+
   getParcel(parcel: Parcel): Observable<Parcel> {
     return this.http.get<Parcel>(`${this.baseUrl}/${parcel._id}`);
   }
 
   createParcel(parcel: Parcel): Observable<Parcel> {
-    return this.http.post<Parcel>(
-      this.baseUrl,
-      JSON.stringify(parcel),
-      this.httpOptions
-    );
+    return this.http.post<Parcel>(this.baseUrl, parcel, this.httpOptions);
   }
 
   createParcelsFromTextFile(textFile: File): Observable<Parcel[]> {
@@ -43,14 +38,14 @@ export class ParcelService {
     return this.http.post<Parcel[]>(
       `${this.baseUrl}/textFileHandler`,
       formData,
-      this.fileHttpOptions
+      this.httpOptions
     );
   }
 
   editParcel(parcel: Parcel): Observable<Parcel> {
     return this.http.patch<Parcel>(
       `${this.baseUrl}/${parcel._id}`,
-      JSON.stringify(parcel),
+      parcel,
       this.httpOptions
     );
   }
@@ -58,7 +53,7 @@ export class ParcelService {
   editParcelAddress(parcel: Parcel): Observable<Parcel> {
     return this.http.patch<Parcel>(
       `${this.baseUrl}/address/${parcel._id}`,
-      JSON.stringify(parcel),
+      parcel,
       this.httpOptions
     );
   }
