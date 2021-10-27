@@ -62,7 +62,6 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    console.log(this.tokenStorage.getRefreshToken());
     this.authService
       .logout(this.tokenStorage.getRefreshToken())
       .subscribe((res) => {

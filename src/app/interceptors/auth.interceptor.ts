@@ -43,7 +43,7 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((error) => {
         if (
           error instanceof HttpErrorResponse &&
-          !authReq.url.includes('auth/signin') &&
+          !authReq.url.includes('auth/login') &&
           error.status === 401
         ) {
           return this.handle401Error(authReq, next);

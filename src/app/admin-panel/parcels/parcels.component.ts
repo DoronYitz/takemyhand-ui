@@ -75,11 +75,9 @@ export class ParcelsComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.parcels);
       this.dataSource.sort = this.sort;
     });
-    this.volunteerService
-      .getVolunteers()
-      .subscribe((volunteers: Volunteer[]) => {
-        this.drivers = volunteers;
-      });
+    this.volunteerService.getDrivers().subscribe((volunteers: Volunteer[]) => {
+      this.drivers = volunteers;
+    });
   }
 
   applyFilter(event: Event) {

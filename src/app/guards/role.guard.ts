@@ -30,7 +30,7 @@ export class RoleGuard implements CanActivate {
       // this will be passed from the route config
       const expectedRole: string = route.data.expectedRole;
       const user = this.tokenStorage.getUser();
-      if (!this.tokenStorage.getToken() || !user.roles.includes(expectedRole)) {
+      if (!user.roles.includes(expectedRole)) {
         this.router.navigate(['/login']);
         return false;
       }

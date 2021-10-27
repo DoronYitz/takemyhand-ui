@@ -16,7 +16,7 @@ export class UserDataService {
   }
 
   onChange() {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    this.isLoggedIn = !!this.tokenStorageService.getUser();
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       const roles = user.roles;
