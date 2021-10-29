@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-landing',
@@ -7,11 +6,7 @@ import { Socket } from 'ngx-socket-io';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
-  constructor(private socket: Socket) {}
+  constructor() {}
 
   ngOnInit() {}
-
-  sendMessage() {
-    this.socket.emit('message', { name: 'doron' });
-  }
 }

@@ -7,6 +7,7 @@ import { Parcel } from '../models/parcel.model';
 import { Volunteer } from '../models/volunteer.model';
 import { ParcelService } from '../services/parcel.service';
 import { VolunteerService } from '../services/volunteer.service';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-user-panel',

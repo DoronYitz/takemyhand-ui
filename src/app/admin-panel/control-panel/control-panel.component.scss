@@ -1,0 +1,64 @@
+.canvas-wrapper {
+  margin: 0 auto;
+  border-radius: 2rem;
+  color: white;
+  height: 380px;
+  width: 600px;
+}
+
+.vi-icon {
+  color: rgb(54, 162, 235);
+}
+
+.warning-icon {
+  color: rgb(255, 99, 132);
+}
+
+.demo-table {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+.table-container {
+  margin: 5rem auto 5rem;
+  max-height: 40vh;
+  max-width: 85%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.mat-column-text {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 30% !important;
+  width: 30% !important;
+  overflow-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-arrived {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 3% !important;
+  width: 3% !important;
+  overflow-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-date {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 3% !important;
+  width: 3% !important;
+  overflow-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}

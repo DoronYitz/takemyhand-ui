@@ -2,6 +2,7 @@ import { NgModule, OnInit } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -53,6 +54,7 @@ import { DeleteVolunteerComponent } from './admin-panel/volunteers/delete-volunt
 import { EditSecretEventComponent } from './admin-panel/events/edit-secret-event/edit-secret-event.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UserPanelComponent } from './user-panel/user-panel.component';
+import { ChartsModule } from 'ng2-charts';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -88,6 +90,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     MatIconModule,
     MatInputModule,
@@ -106,6 +109,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     MatNativeDateModule,
     TextFieldModule,
     MatTooltipModule,
+    ChartsModule,
     MatProgressSpinnerModule,
     SocketIoModule.forRoot(config),
   ],
