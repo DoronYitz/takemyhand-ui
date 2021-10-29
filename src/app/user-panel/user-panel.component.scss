@@ -159,7 +159,7 @@ p {
 }
 
 .waze-icon-background {
-  padding: 0.2rem 0.3rem;
+  padding: 0.27rem 0.23rem;
   border-radius: 0.5rem;
   transition: 0.2s;
   color: black;
@@ -167,6 +167,12 @@ p {
   &:hover {
     background-color: #68b5cc;
   }
+}
+
+.waze-icon {
+  margin-bottom: 3px;
+  height: 20px;
+  width: 20px;
 }
 
 .content {
