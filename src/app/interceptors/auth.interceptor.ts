@@ -14,6 +14,7 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, filter, switchMap, take } from 'rxjs/operators';
 import { TokenStorageService } from '../services/token-storage.service';
 import { AuthService } from '../services/auth.service';
+import { UserDataService } from '../services/user-data.service';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
@@ -26,7 +27,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor(
     private tokenService: TokenStorageService,
-    private authService: AuthService
+    private authService: AuthService,
+    private userData: UserDataService
   ) {}
 
   intercept(
@@ -74,6 +76,7 @@ export class AuthInterceptor implements HttpInterceptor {
           catchError((err) => {
             this.isRefreshing = false;
             this.tokenService.signOut();
+            this.userData.onChange();
             return throwError(err);
           })
         );

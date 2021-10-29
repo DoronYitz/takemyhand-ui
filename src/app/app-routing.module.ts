@@ -16,7 +16,14 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'volunteer', component: VolunteerComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'userpanel', component: UserPanelComponent },
+  {
+    path: 'userpanel',
+    canActivate: [RoleGuard],
+    data: {
+      expectedRole: 'driver',
+    },
+    component: UserPanelComponent,
+  },
   {
     path: 'admin',
     component: AdminPanelComponent,

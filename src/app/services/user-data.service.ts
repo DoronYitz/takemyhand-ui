@@ -16,7 +16,7 @@ export class UserDataService {
   }
 
   onChange() {
-    this.isLoggedIn = !!this.tokenStorageService.getUser();
+    this.isLoggedIn = !!this.tokenStorageService.getRefreshToken();
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       const roles = user.roles;
@@ -24,6 +24,12 @@ export class UserDataService {
       this.showAdminBoard = roles.includes('admin');
       this.showModeratorBoard = roles.includes('driver');
       this.username = user.username;
+    } else {
+      this.isLoggedIn = false;
+      this.roles = [];
+      this.showAdminBoard = false;
+      this.showModeratorBoard = false;
+      this.username = '';
     }
   }
 }
