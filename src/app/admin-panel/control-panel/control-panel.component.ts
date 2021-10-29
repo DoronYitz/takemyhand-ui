@@ -13,6 +13,7 @@ import { MessageService } from 'src/app/services/message.service';
 import { IMessage } from 'src/app/models/message.model';
 import * as moment from 'moment';
 import { MatTableDataSource } from '@angular/material/table';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-control-panel',
@@ -80,6 +81,15 @@ export class ControlPanelComponent implements OnInit {
     this.getParcels();
     this.socket.fromEvent('message').subscribe((message: IMessage) => {
       this.messages.unshift(message);
+      Swal.fire({
+        text: message.content,
+        timer: 5000,
+        icon: message.arrived ? 'success' : 'warning',
+        toast: true,
+        position: 'bottom-left',
+        showConfirmButton: false,
+        background: '#1d1c31',
+      });
       this.dataSource = new MatTableDataSource(this.messages);
       this.getParcels();
     });
