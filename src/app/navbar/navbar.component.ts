@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import { EventData } from '../models/eventData.model';
 import { AuthService } from '../services/auth.service';
 import { EventBusService } from '../services/event-bus.service';
@@ -20,7 +21,8 @@ export class NavbarComponent implements OnInit {
     public userData: UserDataService,
     private eventBusService: EventBusService,
     private authService: AuthService,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -65,7 +67,6 @@ export class NavbarComponent implements OnInit {
     this.authService
       .logout(this.tokenStorage.getRefreshToken())
       .subscribe((res) => {
-        console.log(res);
         this.eventBusService.emit(new EventData('logout', null));
       });
   }

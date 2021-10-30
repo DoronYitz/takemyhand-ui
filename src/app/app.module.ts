@@ -56,7 +56,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { ChartsModule } from 'ng2-charts';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+import { AlgoDialogComponent } from './admin-panel/control-panel/algo-dialog/algo-dialog.component';
+import { FinishEventComponent } from './admin-panel/control-panel/finish-event/finish-event.component';
+import { environment } from 'src/environments/environment';
+
+const config: SocketIoConfig = { url: environment.backendUrl, options: {} };
 
 @NgModule({
   declarations: [
@@ -84,6 +88,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     DeleteVolunteerComponent,
     EditSecretEventComponent,
     UserPanelComponent,
+    AlgoDialogComponent,
+    FinishEventComponent,
   ],
   imports: [
     BrowserModule,

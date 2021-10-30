@@ -38,6 +38,7 @@
     </tr>
   </table>
 </div>
+
 <div class="canvas-wrapper text-center">
   <h5 class="mt-2">Parcels Details</h5>
   <canvas
@@ -52,4 +53,18 @@
     [legend]="pieChartLegend"
   >
   </canvas>
+</div>
+<div class="buttons">
+  <button
+    class="btn btn-round btn-danger primary-btn ml-3"
+    (click)="popAlertModal()"
+  >
+    קבע נהגים אוטומטית
+  </button>
+  <button
+    class="btn btn-round btn-secondary secondary-btn ml-3"
+    (click)="popDeleteEventDataModal()"
+  >
+    סיים אירוע
+  </button>
 </div>

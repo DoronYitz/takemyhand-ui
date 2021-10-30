@@ -49,4 +49,8 @@ export class EventService {
       this.httpOptions
     );
   }
+
+  deleteEventData(): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/data`, this.httpOptions);
+  }
 }

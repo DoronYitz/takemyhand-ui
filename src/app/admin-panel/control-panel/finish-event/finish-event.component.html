@@ -1,0 +1,10 @@
+<h1 mat-dialog-title class="text-right">סיים אירוע</h1>
+<div mat-dialog-content>
+  האם אתה בטוח שברצונך לסיים אירוע ולמחוק את כלל המתנדבים והחבילות?
+</div>
+<div mat-dialog-actions align="end" class="mt-2">
+  <button mat-dialog-close mat-stroked-button>ביטול</button>
+  <button (click)="deleteEventData()" mat-stroked-button color="warn">
+    סיים אירוע
+  </button>
+</div>

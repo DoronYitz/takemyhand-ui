@@ -2,8 +2,39 @@
   margin: 0 auto;
   border-radius: 2rem;
   color: white;
-  height: 380px;
-  width: 600px;
+  height: 350px;
+  width: 500px;
+}
+
+.buttons {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.primary-btn {
+  font-size: 0.9rem;
+  transition: 0.4s;
+  animation: fadeDown 0.8s both;
+  animation-delay: 1.4s;
+  background-color: #df533b;
+  color: white;
+  font-weight: 500;
+  &:hover {
+    background-color: #af3d29;
+  }
+}
+
+.secondary-btn {
+  font-size: 0.9rem;
+  transition: 0.4s;
+  animation: fadeDown 0.8s both;
+  animation-delay: 1.4s;
+  background-color: rgb(71, 71, 71);
+  color: white;
+  font-weight: 500;
+  &:hover {
+    background-color: rgb(51, 51, 51);
+  }
 }
 
 .vi-icon {
@@ -21,8 +52,8 @@
 
 .table-container {
   margin: 5rem auto 5rem;
-  max-height: 40vh;
-  max-width: 85%;
+  max-height: 35vh;
+  max-width: 97%;
   overflow-y: auto;
   overflow-x: hidden;
 }

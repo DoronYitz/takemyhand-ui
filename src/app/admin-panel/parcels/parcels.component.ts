@@ -13,6 +13,7 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { DeleteParcelComponent } from './delete-parcel/delete-parcel.component';
 import { AddParcelComponent } from './add-parcel/add-parcel.component';
 import { EditParcelComponent } from './edit-parcel/edit-parcel.component';
+import { AlgoDialogComponent } from '../control-panel/algo-dialog/algo-dialog.component';
 
 @Component({
   selector: 'app-parcels',

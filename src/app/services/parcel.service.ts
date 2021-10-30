@@ -64,4 +64,12 @@ export class ParcelService {
       this.httpOptions
     );
   }
+
+  setDrivers(): Observable<Parcel[]> {
+    return this.http.patch<Parcel[]>(
+      `${this.baseUrl}/setdrivers`,
+      {},
+      this.httpOptions
+    );
+  }
 }

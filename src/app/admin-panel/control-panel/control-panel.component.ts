@@ -14,6 +14,9 @@ import { IMessage } from 'src/app/models/message.model';
 import * as moment from 'moment';
 import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { AlgoDialogComponent } from './algo-dialog/algo-dialog.component';
+import { FinishEventComponent } from './finish-event/finish-event.component';
 
 @Component({
   selector: 'app-control-panel',
@@ -67,7 +70,8 @@ export class ControlPanelComponent implements OnInit {
   constructor(
     private socket: Socket,
     private parcelService: ParcelService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private alertDialog: MatDialog
   ) {
     monkeyPatchChartJsTooltip();
     monkeyPatchChartJsLegend();
@@ -101,6 +105,18 @@ export class ControlPanelComponent implements OnInit {
       arrived = res.filter((x) => x.arrived).length;
       notarrived = res.filter((x) => !x.arrived).length;
       this.pieChartData = [notarrived, arrived];
+    });
+  }
+
+  popAlertModal() {
+    this.alertDialog.open(AlgoDialogComponent, {
+      closeOnNavigation: false,
+    });
+  }
+
+  popDeleteEventDataModal() {
+    this.alertDialog.open(FinishEventComponent, {
+      closeOnNavigation: false,
     });
   }
 }

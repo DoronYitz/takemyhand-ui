@@ -31,12 +31,12 @@ export class RoleGuard implements CanActivate {
       const expectedRole: string = route.data.expectedRole;
       const user = this.tokenStorage.getUser();
       if (!user.roles.includes(expectedRole)) {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
         return false;
       }
       return true;
     } catch (err) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
       return false;
     }
   }
