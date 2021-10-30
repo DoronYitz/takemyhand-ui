@@ -31,11 +31,6 @@ export class VolunteersComponent implements OnInit {
       cell: (element: Volunteer) => `${element.phone}`,
     },
     {
-      columnDef: 'num_of_people',
-      header: `מס' אנשים`,
-      cell: (element: Volunteer) => `${element.num_of_people}`,
-    },
-    {
       columnDef: 'address',
       header: `כתובת`,
       cell: (element: Volunteer) => `${element.address}`,
@@ -72,11 +67,8 @@ export class VolunteersComponent implements OnInit {
     this.volunteerService
       .getVolunteers()
       .subscribe((volunteers: Volunteer[]) => {
-        const total = volunteers.reduce((acc: number, vulenteer) => {
-          return vulenteer.num_of_people + acc;
-        }, 0);
         this.volunteers = volunteers;
-        this.totalVolunteers = total;
+        this.totalVolunteers = volunteers.length;
         this.dataSource = new MatTableDataSource(this.volunteers);
         this.dataSource.sort = this.sort;
       });
@@ -135,6 +127,7 @@ export class VolunteersComponent implements OnInit {
         return;
       }
       this.volunteers.push(newVolunteer);
+      this.totalVolunteers++;
       this.dataSource = new MatTableDataSource(this.volunteers);
       this.dataSource.sort = this.sort;
     });
@@ -174,6 +167,7 @@ export class VolunteersComponent implements OnInit {
       }
       const eventIndex = this.volunteers.indexOf(selectedVolunteer);
       this.volunteers.splice(eventIndex, 1);
+      this.totalVolunteers--;
       this.dataSource = new MatTableDataSource(this.volunteers);
       this.dataSource.sort = this.sort;
     });

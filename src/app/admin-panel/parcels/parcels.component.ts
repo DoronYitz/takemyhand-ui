@@ -124,7 +124,7 @@ export class ParcelsComponent implements OnInit {
   editParcelArrived(parcel: Parcel, event: MatCheckboxChange) {
     const parcelClone: Parcel = JSON.parse(JSON.stringify(parcel));
     parcelClone.arrived = event.checked;
-    this.parcelService.editParcel(parcelClone).subscribe(
+    this.parcelService.editParcelStatus(parcelClone).subscribe(
       (res: Parcel) => {
         parcel.arrived = event.checked;
         const text = event.checked ? `סומן כהגיע` : 'סומן כלא הגיע';

@@ -20,7 +20,12 @@
   <div class="about">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md-6">
+        <div
+          class="col-md-6"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+          data-aos-once="true"
+        >
           <div class="about-img">
             <div class="about-img-1">
               <img src="../../../assets/img/hero.jpg" alt="Image" />
@@ -30,23 +35,27 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div
+          class="col-md-6"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+          data-aos-once="true"
+        >
           <div class="section-header">
-            <p>Learn About Us</p>
-            <h2>&Here At Takemy</h2>
+            <p>טיפה עלינו</p>
+            <h2>פה ב-&TakeMy</h2>
           </div>
           <div class="about-text">
             <p>
-              Here at Takemy&, we know that sometimes all it takes to change the
-              world is a little support. Since our founding, we have been
-              determined to make an impact. The core of our efforts is to bring
-              our team’s fresh ideas and passion to the range of activities
-              we’re involved in. Through all of our endeavors we hope to display
-              the conviction behind our beliefs.
+              פה ב-&TakeMy, אנחנו יודעים שכל מה שצריך כדי לשנות את העולם הוא קצב
+              תמיכה. מאז הקמתנו היינו נחושים להשפיע. ליבת המאמצים שלנו היא להביא
+              את הרעיונות והתשוקה הטריים של הצוות שלנו למגוון פעילויות שהם אנו
+              מעורבים. דרך כל המאמצים שלנו אנו מקווים להציג את האמונה שלנו
+              מאחורי המעשים.
             </p>
             <p>
-              Join our annual volunteers in gleaning, sorting and packaging food
-              for the needy in our community
+              הצטרפו לקהילת התורמים שלנו, ככל שיתרם יותר כסף, כך נוכל להבטיח
+              שליותר אנשים יהיה שולחן חג בביתיהם!
             </p>
             <a color="warn" class="btn-round btn px-3 py-2 watchBtn"
               ><fa-icon [icon]="['fas', 'donate']" class="ml-2"></fa-icon
@@ -63,8 +72,8 @@
   <div class="blog">
     <div class="container">
       <div class="section-header">
-        <p>Events</p>
-        <h2>2021 Featured events</h2>
+        <p>אירועים</p>
+        <h2>אירועים לשנת {{ date | date: "yyyy" }}</h2>
       </div>
       <div class="row">
         <div class="blog-item col-md-6">
@@ -114,16 +123,21 @@
     <div class="section text-left quote-section mt-5">
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <p class="quote-header">Quote</p>
-            <h3 class="quote section-header">
+          <div
+            class="col-md-12"
+            data-aos="fade-left"
+            data-aos-duration="3000"
+            data-aos-once="true"
+          >
+            <p class="quote-header">במה אנחנו מאמינים</p>
+            <h3 class="quote section-header" dir="ltr">
               <em>
                 “Remember that the happiest people are not those getting
                 more,<br />
                 but those giving more.”
               </em>
             </h3>
-            <h5 class="author"><em> H. Jackson Brown Jr.</em></h5>
+            <h5 class="author" dir="ltr"><em> H. Jackson Brown Jr.</em></h5>
           </div>
         </div>
       </div>
@@ -134,8 +148,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 mr-auto ml-auto">
-            <p>Our Process</p>
-            <h2 class="title">Let's talk about process</h2>
+            <p>התהליך שלנו</p>
+            <h2 class="title">בואו נדבר על התהליך</h2>
             <p class="description mt-3">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
               laboriosam corporis dicta fuga doloremque, mollitia minima ipsam
@@ -145,44 +159,61 @@
         </div>
         <br /><br />
         <div class="row">
-          <div class="col-md-4">
+          <div
+            class="col-md-4"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-once="true"
+          >
             <div class="info">
               <div class="icon icon-danger">
                 <fa-icon [icon]="['fas', 'coins']"></fa-icon>
               </div>
               <div class="description">
-                <h4 class="info-title">Collect Donations</h4>
+                <h4 class="info-title">איסוף תרומות</h4>
                 <p class="description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
-                  facilis!
+                  איסוף תרומות מהקהילה שלנו לצורכי רכישת מוצרים אשר יחולקו
+                  כחבילות מזון לנזקקים
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div
+            class="col-md-4"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-delay="1000"
+            data-aos-once="true"
+          >
             <div class="info">
               <div class="icon icon-danger">
                 <fa-icon [icon]="['fas', 'box-open']"></fa-icon>
               </div>
               <div class="description">
-                <h4 class="info-title">Package Food</h4>
+                <h4 class="info-title">אריזת מזון</h4>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Ipsam, aspernatur!
+                  התאספות ליום מיוחד שבו נפגשים כל חברי הקהילה על מנת לארוז את
+                  החבילות, להנות ולהכיר
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div
+            class="col-md-4"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-delay="2000"
+            data-aos-once="true"
+          >
             <div class="info">
               <div class="icon icon-danger">
                 <fa-icon [icon]="['fas', 'shipping-fast']"></fa-icon>
               </div>
               <div class="description">
-                <h4 class="info-title">Food Distribution</h4>
+                <h4 class="info-title">חלוקת חבילות</h4>
                 <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Modi, rerum?
+                  חילוק חבילות המזון לנזקקים העיר באמצעות רכבי המתנדבים
+                  ואלגוריתם חכם לחילוק יעיל
                 </p>
               </div>
             </div>

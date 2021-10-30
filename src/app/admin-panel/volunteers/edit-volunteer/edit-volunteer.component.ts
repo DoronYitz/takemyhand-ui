@@ -20,7 +20,6 @@ export class EditVolunteerComponent implements OnInit {
       [Validators.required, Validators.pattern('^\\d{10}$')],
     ],
     address: [this.selectedVolunteer.address, [Validators.required]],
-    num_of_people: [this.selectedVolunteer.num_of_people],
     driver: [this.selectedVolunteer.driver],
   });
   loading: boolean = false;

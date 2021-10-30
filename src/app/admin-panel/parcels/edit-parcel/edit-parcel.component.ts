@@ -32,7 +32,7 @@ export class EditParcelComponent implements OnInit {
     parcelClone.address = form.value.address;
     this.loading = true;
     this.parcelService
-      .editParcelAddress(parcelClone)
+      .editParcel(parcelClone)
       .pipe(tap(() => (this.loading = false)))
       .subscribe(
         (res: Parcel) => {

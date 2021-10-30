@@ -50,9 +50,9 @@ export class ParcelService {
     );
   }
 
-  editParcelAddress(parcel: Parcel): Observable<Parcel> {
+  editParcelStatus(parcel: Parcel): Observable<Parcel> {
     return this.http.patch<Parcel>(
-      `${this.baseUrl}/address/${parcel._id}`,
+      `${this.baseUrl}/status/${parcel._id}`,
       parcel,
       this.httpOptions
     );

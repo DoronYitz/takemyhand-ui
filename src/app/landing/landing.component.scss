@@ -1,6 +1,7 @@
 /*******************************/
 /*********** Header CSS **********/
 /*******************************/
+
 .page-header {
   min-height: 100vh;
   width: 100%;
@@ -12,7 +13,6 @@
   position: relative;
   overflow-x: hidden;
   overflow-y: hidden;
-  // clip-path: circle(450vh at 50% -350vh);
 
   &__text {
     width: 70%;

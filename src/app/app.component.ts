@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { EventBusService } from './services/event-bus.service';
 import { TokenStorageService } from './services/token-storage.service';
 import { UserDataService } from './services/user-data.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,6 @@ import { UserDataService } from './services/user-data.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'Final';
-
-  private roles: string[] = [];
-  isLoggedIn = false;
-  showAdminBoard = false;
-  showModeratorBoard = false;
-  username?: string;
 
   eventBusSub?: Subscription;
 
@@ -27,6 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    AOS.init();
     this.eventBusSub = this.eventBusService.on('logout', () => {
       this.logout();
     });
