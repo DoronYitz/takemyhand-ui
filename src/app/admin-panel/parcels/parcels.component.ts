@@ -76,9 +76,22 @@ export class ParcelsComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.parcels);
       this.dataSource.sort = this.sort;
     });
-    this.volunteerService.getDrivers().subscribe((volunteers: Volunteer[]) => {
-      this.drivers = volunteers;
-    });
+    this.volunteerService.getDrivers().subscribe(
+      (volunteers: Volunteer[]) => {
+        this.drivers = volunteers;
+      },
+      (err) => {
+        Swal.fire({
+          text: 'Error occured while loading',
+          timer: 10000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      }
+    );
   }
 
   applyFilter(event: Event) {

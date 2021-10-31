@@ -64,14 +64,25 @@ export class VolunteersComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.volunteerService
-      .getVolunteers()
-      .subscribe((volunteers: Volunteer[]) => {
+    this.volunteerService.getVolunteers().subscribe(
+      (volunteers: Volunteer[]) => {
         this.volunteers = volunteers;
         this.totalVolunteers = volunteers.length;
         this.dataSource = new MatTableDataSource(this.volunteers);
         this.dataSource.sort = this.sort;
-      });
+      },
+      (err) => {
+        Swal.fire({
+          text: 'Error occured while loading',
+          timer: 10000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      }
+    );
   }
 
   applyFilter(event: Event) {

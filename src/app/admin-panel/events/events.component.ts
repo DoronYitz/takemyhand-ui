@@ -67,14 +67,27 @@ export class EventsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.eventService.getEvents().subscribe((events: IEvent[]) => {
-      events.forEach((x) => {
-        x.fixedDate = moment(x.date).format('DD/MM/YYYY');
-      });
-      this.events = events;
-      this.dataSource = new MatTableDataSource(this.events);
-      this.dataSource.sort = this.sort;
-    });
+    this.eventService.getEvents().subscribe(
+      (events: IEvent[]) => {
+        events.forEach((x) => {
+          x.fixedDate = moment(x.date).format('DD/MM/YYYY');
+        });
+        this.events = events;
+        this.dataSource = new MatTableDataSource(this.events);
+        this.dataSource.sort = this.sort;
+      },
+      (err) => {
+        Swal.fire({
+          text: 'Error occured while loading',
+          timer: 10000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      }
+    );
   }
 
   applyFilter(event: Event) {

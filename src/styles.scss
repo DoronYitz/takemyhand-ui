@@ -12,7 +12,7 @@ $custom-typography: mat.define-typography-config(
 html,
 body {
   height: 100%;
-  font-family: "Assistant", "Montserrat", sans-serif;
+  font-family: "Assistant", sans-serif;
 }
 
 body {
@@ -22,12 +22,12 @@ body {
 //Global
 p {
   color: #7e7a76;
-  font-family: "Assistant", "Montserrat", sans-serif;
+  font-family: "Assistant", sans-serif;
   font-weight: 400;
 }
 
 a {
-  font-family: "Assistant", "Montserrat", sans-serif;
+  font-family: "Assistant", sans-serif;
   font-weight: 300;
 }
 

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { ControlPanelComponent } from './admin-panel/control-panel/control-panel.component';
-import { DriversComponent } from './admin-panel/drivers/drivers.component';
 import { EventsComponent } from './admin-panel/events/events.component';
 import { ParcelsComponent } from './admin-panel/parcels/parcels.component';
 import { VolunteersComponent } from './admin-panel/volunteers/volunteers.component';
@@ -38,7 +37,6 @@ const routes: Routes = [
         pathMatch: 'full',
       },
       { path: 'parcels', component: ParcelsComponent },
-      { path: 'drivers', component: DriversComponent },
       { path: 'control', component: ControlPanelComponent },
       { path: 'volunteers', component: VolunteersComponent },
       { path: 'events', component: EventsComponent },

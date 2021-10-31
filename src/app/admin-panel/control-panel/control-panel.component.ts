@@ -78,10 +78,23 @@ export class ControlPanelComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.messageService.getMessages().subscribe((messages: IMessage[]) => {
-      this.messages = messages;
-      this.dataSource = new MatTableDataSource(this.messages);
-    });
+    this.messageService.getMessages().subscribe(
+      (messages: IMessage[]) => {
+        this.messages = messages;
+        this.dataSource = new MatTableDataSource(this.messages);
+      },
+      (err) => {
+        Swal.fire({
+          text: 'Error occured while loading',
+          timer: 10000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      }
+    );
     this.getParcels();
     this.socket.fromEvent('message').subscribe((message: IMessage) => {
       this.messages.unshift(message);

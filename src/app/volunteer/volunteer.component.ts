@@ -20,7 +20,6 @@ export class VolunteerComponent implements OnInit {
     ],
     phone: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
     address: ['', [Validators.required]],
-    num_of_people: [1],
   });
 
   constructor(
@@ -64,14 +63,5 @@ export class VolunteerComponent implements OnInit {
 
   get address() {
     return this.profileForm.get('address');
-  }
-
-  plus() {
-    const number = +this.profileForm.get('num_of_people');
-    this.profileForm.setValue({ num_of_people: number + 1 });
-  }
-  minus() {
-    const number = +this.profileForm.get('num_of_people');
-    this.profileForm.setValue({ num_of_people: number - 1 });
   }
 }

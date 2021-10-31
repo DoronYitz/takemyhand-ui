@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { EventService } from 'src/app/services/event.service';
-import { ParcelService } from 'src/app/services/parcel.service';
 import Swal from 'sweetalert2';
 
 @Component({
