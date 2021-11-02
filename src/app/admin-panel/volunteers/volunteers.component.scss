@@ -128,18 +128,6 @@
   hyphens: auto;
 }
 
-.mat-column-num_of_people {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 16% !important;
-  width: 16% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-}
-
 .mat-column-driver {
   word-wrap: break-word !important;
   white-space: unset !important;
@@ -155,8 +143,8 @@
 .mat-column-address {
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 37% !important;
-  width: 37% !important;
+  flex: 0 0 55% !important;
+  width: 55% !important;
   overflow-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;

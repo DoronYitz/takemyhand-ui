@@ -5,4 +5,5 @@ export interface Parcel {
   address?: string;
   arrived?: boolean;
   volunteer?: Volunteer;
+  driverName?: string;
 }

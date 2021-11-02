@@ -73,6 +73,9 @@ export class ParcelsComponent implements OnInit {
   ngOnInit(): void {
     this.parcelService.getParcels().subscribe((parcels: Parcel[]) => {
       this.parcels = parcels;
+      this.parcels.forEach((parcel) => {
+        parcel.driverName = parcel?.volunteer?.full_name || '';
+      });
       this.dataSource = new MatTableDataSource(this.parcels);
       this.dataSource.sort = this.sort;
     });
@@ -109,6 +112,7 @@ export class ParcelsComponent implements OnInit {
     this.parcelService.editParcel(parcelClone).subscribe(
       (res: Parcel) => {
         parcel.volunteer = event.value;
+        parcel.driverName = parcel?.volunteer?.full_name || '';
         const text = `${parcel.volunteer.full_name} הוגדר כנהג של החבילה`;
         Swal.fire({
           text: text,
@@ -204,7 +208,7 @@ export class ParcelsComponent implements OnInit {
       data: selectedParcel,
       panelClass: 'edit-modal',
     });
-    editDialog.afterClosed().subscribe((res) => {
+    editDialog.afterClosed().subscribe((res: Parcel) => {
       if (!res) {
         return;
       }

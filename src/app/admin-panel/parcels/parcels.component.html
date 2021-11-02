@@ -27,14 +27,25 @@
       *ngFor="let column of columns"
       [matColumnDef]="column.columnDef"
     >
-      <th
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-        arrowPosition="after"
+      <span
+        *ngIf="column.columnDef === 'arrived' || column.columnDef === 'address'"
       >
-        {{ column.header }}
-      </th>
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          arrowPosition="after"
+        >
+          {{ column.header }}
+        </th>
+      </span>
+      <span
+        *ngIf="column.columnDef !== 'arrived' && column.columnDef !== 'address'"
+      >
+        <th mat-header-cell *matHeaderCellDef>
+          {{ column.header }}
+        </th>
+      </span>
       <td mat-cell *matCellDef="let row">
         <span *ngIf="column.columnDef === 'driver'">
           <mat-form-field class="table-input" appearance="standard">

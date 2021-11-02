@@ -76,42 +76,24 @@
         <h2>אירועים לשנת {{ date | date: "yyyy" }}</h2>
       </div>
       <div class="row">
-        <div class="blog-item col-md-6">
+        <div
+          class="blog-item col-md-6"
+          *ngFor="let event of events; let i = index"
+        >
           <div class="blog-img">
-            <img src="../../../assets/img/Applehoney.jpg" alt="Blog" />
+            <img [src]="'../../assets/img/image' + i + '.jpg'" alt="Blog" />
           </div>
           <div class="blog-content">
-            <h2 class="blog-title">Rosh-HaShana</h2>
+            <h2 class="blog-title">{{ event?.title }}</h2>
             <div class="blog-meta">
-              <i class="fa fa-list-alt"></i>
-              <p>Category</p>
+              <fa-icon [icon]="['far', 'list-alt']"></fa-icon>
+              <p class="ml-2">{{ event?.category }}</p>
               <fa-icon [icon]="['far', 'calendar-alt']"></fa-icon>
-              <p>01-Jan-2045</p>
+              <p>{{ event?.date | date: "d/M/yyyy" }}</p>
             </div>
             <div class="blog-text">
               <p>
-                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili
-                ornare velit non vulpte liqum metus tortor.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="blog-item col-md-6">
-          <div class="blog-img">
-            <img src="../../../assets/img/Passover.jpg" alt="Blog" />
-          </div>
-          <div class="blog-content">
-            <h2 class="blog-title">Passover</h2>
-            <div class="blog-meta">
-              <i class="fa fa-list-alt"></i>
-              <p>Category</p>
-              <fa-icon [icon]="['far', 'calendar-alt']"></fa-icon>
-              <p>01-Jan-2045</p>
-            </div>
-            <div class="blog-text">
-              <p>
-                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili
-                ornare velit non vulpte liqum metus tortor.
+                {{ event?.description }}
               </p>
             </div>
           </div>
