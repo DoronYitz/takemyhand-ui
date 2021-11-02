@@ -15,7 +15,7 @@ import { pipe } from 'rxjs';
 })
 export class AddEventComponent implements OnInit {
   private strongSecretRegex = new RegExp(
-    '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$'
+    '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{9,9}$'
   );
   public loading: boolean = false;
 
