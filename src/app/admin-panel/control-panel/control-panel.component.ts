@@ -55,7 +55,7 @@ export class ControlPanelComponent implements OnInit {
       },
     },
   };
-  public pieChartLabels: Label[] = [["Hasn't", 'Arrived', 'Yet'], ['Arrived']];
+  public pieChartLabels: Label[] = [['לא', 'הגיעו'], ['הגיעו']];
   public pieChartData: SingleDataSet = [];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
