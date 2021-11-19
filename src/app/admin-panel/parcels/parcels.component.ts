@@ -85,8 +85,8 @@ export class ParcelsComponent implements OnInit {
       },
       (err) => {
         Swal.fire({
-          text: 'Error occured while loading',
-          timer: 10000,
+          text: 'משהו השתבש בעת טעינת העמוד, נסה שנית',
+          timer: 7000,
           icon: 'error',
           toast: true,
           position: 'bottom-left',

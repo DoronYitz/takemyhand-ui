@@ -47,8 +47,18 @@ export class UploadFileComponent implements OnInit {
           // Passing parent component the result
           this.dialogRef.close(data);
         },
-        (error) => {
-          console.log(error);
+        (err) => {
+          const text = err.error.message || 'משהו השתבש, נסה מאוחר יותר';
+          Swal.fire({
+            text: text,
+            timer: 5000,
+            icon: 'error',
+            toast: true,
+            position: 'bottom-left',
+            showConfirmButton: false,
+            background: '#1d1c31',
+          });
+          this.dialogRef.close();
         }
       );
   }

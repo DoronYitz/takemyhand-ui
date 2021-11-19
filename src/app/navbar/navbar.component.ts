@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { EventData } from '../models/eventData.model';
 import { AuthService } from '../services/auth.service';
 import { EventBusService } from '../services/event-bus.service';
@@ -64,10 +65,21 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    this.authService
-      .logout(this.tokenStorage.getRefreshToken())
-      .subscribe((res) => {
+    this.authService.logout(this.tokenStorage.getRefreshToken()).subscribe(
+      (res) => {
         this.eventBusService.emit(new EventData('logout', null));
-      });
+      },
+      (err) => {
+        Swal.fire({
+          text: 'משהו השתבש בפעולת התנתקות, נסה שנית',
+          timer: 7000,
+          icon: 'error',
+          toast: true,
+          position: 'bottom-left',
+          showConfirmButton: false,
+          background: '#1d1c31',
+        });
+      }
+    );
   }
 }

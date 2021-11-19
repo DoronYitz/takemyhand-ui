@@ -1,5 +1,10 @@
 <div class="container content-wrapper parcel-wrapper" dir="rtl">
-  <div class="text-left">
+  <div
+    class="text-left"
+    data-aos="fade"
+    data-aos-duration="1000"
+    data-aos-once="true"
+  >
     <button
       class="btn btn-round btn-secondary secondary-btn"
       (click)="popLoadFileModal()"
@@ -22,6 +27,9 @@
     [dataSource]="dataSource"
     matSort
     class="table-container mat-elevation-z8 d-block"
+    data-aos="fade"
+    data-aos-duration="1000"
+    data-aos-once="true"
   >
     <ng-container
       *ngFor="let column of columns"

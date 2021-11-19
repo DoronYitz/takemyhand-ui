@@ -5,7 +5,7 @@
   min-height: 100vh;
   width: 100%;
   background-color: rgb(29, 28, 49);
-  background-image: linear-gradient(rgba(4, 9, 30, 0.3), rgb(4, 9, 30, 0.4)),
+  background-image: linear-gradient(rgba(4, 9, 30, 0.25), rgb(4, 9, 30, 0.35)),
     url(../../assets/img/takelove.jpg);
   background-position: center;
   background-size: cover;
@@ -87,7 +87,7 @@ hr {
   background-color: #e7553b;
   color: white;
   font-weight: 500;
-  animation: fadeDown 0.7s 0.7s backwards;
+  animation: fade-down 0.7s 0.7s backwards;
   &:hover {
     background-color: #c3442d;
   }
@@ -198,14 +198,13 @@ hr {
   }
 }
 
-@keyframes fadeDown {
+@keyframes fade-down {
   0% {
     opacity: 0;
     transform: translateY(-2rem);
   }
 
   100% {
-    opacity: 1;
     transform: translateY(0);
   }
 }

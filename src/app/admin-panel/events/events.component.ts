@@ -78,8 +78,8 @@ export class EventsComponent implements OnInit {
       },
       (err) => {
         Swal.fire({
-          text: 'Error occured while loading',
-          timer: 10000,
+          text: 'משהו השתבש בעת טעינת העמוד, נסה שנית',
+          timer: 7000,
           icon: 'error',
           toast: true,
           position: 'bottom-left',
@@ -159,7 +159,6 @@ export class EventsComponent implements OnInit {
     eventClone.active = event.checked;
     this.eventService.editEvent(eventClone).subscribe(
       (res: IEvent) => {
-        console.log(res);
         selecetedEvent.active = event.checked;
         const text = event.checked
           ? `${selecetedEvent.title} פעיל`

@@ -1,5 +1,10 @@
 <div class="container content-wrapper volunteer-wrapper" dir="rtl">
-  <div class="text-left">
+  <div
+    class="text-left"
+    data-aos="fade"
+    data-aos-duration="1000"
+    data-aos-once="true"
+  >
     <button
       class="btn btn-round btn-danger add-volunteer-btn"
       (click)="popAddVolunteerModal()"
@@ -16,6 +21,9 @@
     [dataSource]="dataSource"
     matSort
     class="mat-elevation-z8 demo-table d-block table-container"
+    data-aos="fade"
+    data-aos-duration="1000"
+    data-aos-once="true"
   >
     <ng-container
       *ngFor="let column of columns"

@@ -14,8 +14,6 @@
 .primary-btn {
   font-size: 0.9rem;
   transition: 0.4s;
-  animation: fadeDown 0.8s both;
-  animation-delay: 1.4s;
   background-color: #df533b;
   color: white;
   font-weight: 500;
@@ -27,8 +25,6 @@
 .secondary-btn {
   font-size: 0.9rem;
   transition: 0.4s;
-  animation: fadeDown 0.8s both;
-  animation-delay: 1.4s;
   background-color: rgb(71, 71, 71);
   color: white;
   font-weight: 500;
@@ -52,7 +48,7 @@
 
 .table-container {
   margin: 5rem auto 5rem;
-  max-height: 35vh;
+  height: 35vh;
   max-width: 97%;
   overflow-y: auto;
   overflow-x: hidden;
