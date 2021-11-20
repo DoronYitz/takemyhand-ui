@@ -25,6 +25,7 @@
             routerLink="/login"
             *ngIf="!this.userData.isLoggedIn"
             class="nav-link"
+            routerLinkActive="active-link"
             >התחבר</a
           >
           <div *ngIf="this.userData.isLoggedIn" class="nav-link user-link">
@@ -32,13 +33,25 @@
           </div>
         </li>
         <li class="nav-item">
-          <a routerLink="/volunteer" class="nav-link">התנדבות</a>
+          <a
+            routerLink="/volunteer"
+            routerLinkActive="active-link"
+            class="nav-link"
+            >התנדבות</a
+          >
         </li>
         <li class="nav-item" *ngIf="this.userData.showModeratorBoard">
-          <a routerLink="/userpanel" class="nav-link">פורטל אישי</a>
+          <a
+            routerLink="/userpanel"
+            routerLinkActive="active-link"
+            class="nav-link"
+            >פורטל אישי</a
+          >
         </li>
         <li class="nav-item" *ngIf="this.userData.showAdminBoard">
-          <a routerLink="/admin" class="nav-link">לוח מנהל</a>
+          <a routerLink="/admin" routerLinkActive="active-link" class="nav-link"
+            >לוח מנהל</a
+          >
         </li>
         <li class="nav-item">
           <a
