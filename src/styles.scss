@@ -1,4 +1,6 @@
 @use "~@angular/material" as mat;
+@import "~animate.css/animate.min";
+
 $custom-typography: mat.define-typography-config(
   $font-family: "Assistant",
 );
@@ -140,4 +142,12 @@ td.mat-footer-cell {
 
 .spinner {
   margin: 5px 0;
+}
+
+.animate__delay-05s {
+  animation-delay: 0.5s;
+}
+
+.animate__animated {
+  --animate-duration: 1.2s;
 }

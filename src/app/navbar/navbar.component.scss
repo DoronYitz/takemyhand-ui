@@ -67,7 +67,7 @@ nav {
 
 @media (max-width: 1024px) {
   .nav-link {
-    display: inline;
+    display: block;
   }
 
   .navbar-nav {
@@ -75,16 +75,17 @@ nav {
   }
 
   .nav-link::after {
-    position: absolute;
     display: block;
-    left: 2.2%;
+    margin: 0;
+    margin-right: auto;
   }
 
-  nav .nav-link:hover::after {
-    width: 10%;
+  nav .nav-link:hover::after,
+  .active-link::after {
+    width: 13%;
     opacity: 1;
     display: block;
-    position: absolute;
+    margin-right: auto;
   }
 }
 

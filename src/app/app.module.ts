@@ -58,6 +58,8 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { AlgoDialogComponent } from './admin-panel/control-panel/algo-dialog/algo-dialog.component';
 import { FinishEventComponent } from './admin-panel/control-panel/finish-event/finish-event.component';
 import { environment } from 'src/environments/environment';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { InViewportModule } from 'ng-in-viewport';
 
 const config: SocketIoConfig = { url: environment.backendUrl, options: {} };
 
@@ -115,9 +117,13 @@ const config: SocketIoConfig = { url: environment.backendUrl, options: {} };
     MatTooltipModule,
     ChartsModule,
     MatProgressSpinnerModule,
+    InViewportModule,
     SocketIoModule.forRoot(config),
   ],
-  providers: [authInterceptorProviders],
+  providers: [
+    authInterceptorProviders,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule implements OnInit {

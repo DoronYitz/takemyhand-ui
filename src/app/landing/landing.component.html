@@ -22,9 +22,9 @@
       <div class="row align-items-center">
         <div
           class="col-md-6"
-          data-aos="fade-up"
-          data-aos-duration="2000"
-          data-aos-once="true"
+          inViewport
+          [inViewportOptions]="{ threshold: [0] }"
+          (inViewportAction)="onIntersection($event, 'animate__fadeInUp')"
         >
           <div class="about-img">
             <div class="about-img-1">
@@ -37,9 +37,9 @@
         </div>
         <div
           class="col-md-6"
-          data-aos="fade-up"
-          data-aos-duration="2000"
-          data-aos-once="true"
+          inViewport
+          [inViewportOptions]="{ threshold: [0] }"
+          (inViewportAction)="onIntersection($event, 'animate__fadeInUp')"
         >
           <div class="section-header">
             <p>טיפה עלינו</p>
@@ -71,9 +71,9 @@
   <!-- Events -->
   <div
     class="blog"
-    data-aos="fade-up"
-    data-aos-duration="1500"
-    data-aos-once="true"
+    inViewport
+    [inViewportOptions]="{ threshold: [0] }"
+    (inViewportAction)="onIntersection($event, 'animate__fadeInUp')"
   >
     <div class="container">
       <div>
@@ -112,9 +112,9 @@
         <div class="row">
           <div
             class="col-md-12"
-            data-aos="fade-left"
-            data-aos-duration="2000"
-            data-aos-once="true"
+            inViewport
+            [inViewportOptions]="{ threshold: [0] }"
+            (inViewportAction)="onIntersection($event, 'animate__fadeInRight')"
           >
             <p class="quote-header">במה אנחנו מאמינים</p>
             <h3 class="quote section-header" dir="ltr">
@@ -148,11 +148,14 @@
         </div>
         <br /><br />
         <div class="row">
+          <!-- data-aos="fade-up"
+          data-aos-duration="1500"
+          data-aos-once="true" -->
           <div
             class="col-md-4"
-            data-aos="fade-up"
-            data-aos-duration="1500"
-            data-aos-once="true"
+            inViewport
+            [inViewportOptions]="{ threshold: [0] }"
+            (inViewportAction)="onIntersection($event, 'animate__fadeInUp')"
           >
             <div class="info">
               <div class="icon icon-danger">
@@ -169,10 +172,11 @@
           </div>
           <div
             class="col-md-4"
-            data-aos="fade-up"
-            data-aos-duration="1500"
-            data-aos-delay="800"
-            data-aos-once="true"
+            inViewport
+            [inViewportOptions]="{ threshold: [0] }"
+            (inViewportAction)="
+              onIntersection($event, 'animate__fadeInUp', 'animate__delay-05s')
+            "
           >
             <div class="info">
               <div class="icon icon-danger">
@@ -189,10 +193,11 @@
           </div>
           <div
             class="col-md-4"
-            data-aos="fade-up"
-            data-aos-duration="2000"
-            data-aos-delay="1600"
-            data-aos-once="true"
+            inViewport
+            [inViewportOptions]="{ threshold: [0] }"
+            (inViewportAction)="
+              onIntersection($event, 'animate__fadeInUp', 'animate__delay-1s')
+            "
           >
             <div class="info">
               <div class="icon icon-danger">

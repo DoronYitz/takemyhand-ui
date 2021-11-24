@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import Swal from 'sweetalert2';
 import { IEvent } from '../models/event.model';
 import { EventService } from '../services/event.service';
@@ -27,7 +27,10 @@ export class LandingComponent implements OnInit {
     },
   ];
   imgsPath: Array<string> = [''];
-  constructor(private eventService: EventService) {}
+  constructor(
+    private eventService: EventService,
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit() {
     this.eventService.getEvents().subscribe(
@@ -49,5 +52,19 @@ export class LandingComponent implements OnInit {
         });
       }
     );
+  }
+
+  public onIntersection(
+    { target, visible }: { target: Element; visible: boolean },
+    animation: string,
+    delay_class: string = undefined
+  ) {
+    if (visible) {
+      this.renderer.addClass(target, `animate__animated`);
+      this.renderer.addClass(target, animation);
+      if (delay_class) {
+        this.renderer.addClass(target, delay_class);
+      }
+    }
   }
 }
