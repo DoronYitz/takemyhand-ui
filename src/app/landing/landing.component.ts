@@ -35,6 +35,13 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
     this.eventService.getEvents().subscribe(
       (events: IEvent[]) => {
+        events = events
+          .filter((event) => {
+            return new Date(event.date) > new Date();
+          })
+          .sort(
+            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+          );
         const maxLen = events.length > 2 ? 2 : events.length;
         for (let i = 0; i < maxLen; i++) {
           this.events[i] = events[i];
