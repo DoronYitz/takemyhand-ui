@@ -67,6 +67,13 @@ hr {
     color: white;
     opacity: 0.6;
   }
+
+  .login-spinner {
+    min-width: 45px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
 }
 
 ::ng-deep {
@@ -107,6 +114,11 @@ hr {
       .mat-form-field-label {
         color: white;
       }
+    }
+
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: white;
     }
   }
 }

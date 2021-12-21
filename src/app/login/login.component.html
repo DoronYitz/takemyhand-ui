@@ -68,7 +68,10 @@
                 type="submit"
                 [disabled]="!profileForm.valid"
               >
-                התחבר
+                <span *ngIf="!loading">התחבר</span>
+                <div class="login-spinner">
+                  <mat-spinner *ngIf="loading" diameter="23"></mat-spinner>
+                </div>
               </button>
             </div>
             <div *ngIf="errorMsg" class="error-msg">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import { TokenStorageService } from '../services/token-storage.service';
 import { UserDataService } from '../services/user-data.service';
@@ -14,6 +15,7 @@ import { UserDataService } from '../services/user-data.service';
 export class LoginComponent implements OnInit {
   hide = true;
   errorMsg: string;
+  loading: boolean = false;
 
   profileForm = this.fb.group({
     phone: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
@@ -31,21 +33,25 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm): void {
-    this.authService.login(form.value.phone, form.value.password).subscribe(
-      (data: any) => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveRefreshToken(data.refreshToken);
-        this.tokenStorage.saveUser(data);
-        this.userData.onChange();
-        this.router.navigate(['/']);
-      },
-      (err) => {
-        this.errorMsg = err?.error?.message;
-        if (!this.errorMsg) {
-          this.errorMsg = 'משהו השתבש, נסה שנית מאוחר יותר';
+    this.loading = true;
+    this.authService
+      .login(form.value.phone, form.value.password)
+      .pipe(tap(() => (this.loading = false)))
+      .subscribe(
+        (data: any) => {
+          this.tokenStorage.saveToken(data.accessToken);
+          this.tokenStorage.saveRefreshToken(data.refreshToken);
+          this.tokenStorage.saveUser(data);
+          this.userData.onChange();
+          this.router.navigate(['/']);
+        },
+        (err) => {
+          this.errorMsg = err?.error?.message;
+          if (!this.errorMsg) {
+            this.errorMsg = 'משהו השתבש, נסה שנית מאוחר יותר';
+          }
         }
-      }
-    );
+      );
   }
 
   get phone() {
