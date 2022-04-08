@@ -60,6 +60,11 @@ import { FinishEventComponent } from './admin-panel/control-panel/finish-event/f
 import { environment } from 'src/environments/environment';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { InViewportModule } from 'ng-in-viewport';
+import { HeaderComponent } from './landing/header/header.component';
+import { AboutTextComponent } from './landing/about/about-text/about-text.component';
+import { AboutPicutresComponent } from './landing/about/about-picutres/about-picutres.component';
+import { EventCardComponent } from './landing/event-card/event-card.component';
+import { ProcessDetailsComponent } from './landing/process-details/process-details.component';
 
 const config: SocketIoConfig = { url: environment.backendUrl, options: {} };
 
@@ -90,6 +95,11 @@ const config: SocketIoConfig = { url: environment.backendUrl, options: {} };
     UserPanelComponent,
     AlgoDialogComponent,
     FinishEventComponent,
+    HeaderComponent,
+    AboutTextComponent,
+    AboutPicutresComponent,
+    EventCardComponent,
+    ProcessDetailsComponent,
   ],
   imports: [
     BrowserModule,

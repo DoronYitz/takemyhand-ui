@@ -1,13 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
+  selector: 'app-about-text',
+  templateUrl: './about-text.component.html',
+  styleUrls: ['./about-text.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterComponent implements OnInit {
-  date: Date = new Date();
+export class AboutTextComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}

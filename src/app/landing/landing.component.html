@@ -2,14 +2,7 @@
 <!-- Header  -->
 <div class="page-header" data-parallax="true">
   <div class="container">
-    <div class="text-center page-header__text">
-      <h1>אל תחכה למחר, תעשה שינוי היום!</h1>
-      <h3>התנדב & תרום</h3>
-      <br />
-      <a routerLink="/volunteer" class="btn-round btn px-5 py-3 btnSend">
-        הצטרף אלינו
-      </a>
-    </div>
+    <app-header></app-header>
   </div>
   <div class="icon-scroll"></div>
 </div>
@@ -26,14 +19,7 @@
           [inViewportOptions]="{ threshold: [0] }"
           (inViewportAction)="onIntersection($event, 'animate__fadeInUp')"
         >
-          <div class="about-img">
-            <div class="about-img-1">
-              <img src="../../../assets/img/hero.jpg" alt="Image" />
-            </div>
-            <div class="about-img-2">
-              <img src="../../../assets/img/helpingothers.jpg" alt="Image" />
-            </div>
-          </div>
+          <app-about-picutres></app-about-picutres>
         </div>
         <div
           class="col-md-6"
@@ -41,31 +27,7 @@
           [inViewportOptions]="{ threshold: [0] }"
           (inViewportAction)="onIntersection($event, 'animate__fadeInUp')"
         >
-          <div class="section-header">
-            <p>טיפה עלינו</p>
-            <h2>פה ב-&TakeMy</h2>
-          </div>
-          <div class="about-text">
-            <p>
-              פה ב-&TakeMy, אנחנו יודעים שכל מה שצריך כדי לשנות את העולם הוא קצת
-              תמיכה. מאז הקמתנו היינו נחושים להשפיע. ליבת המאמצים שלנו היא להביא
-              את הרעיונות והתשוקה הטריים של הצוות שלנו למגוון פעילויות שהם אנו
-              מעורבים. דרך כל המאמצים שלנו אנו מקווים להציג את האמונה שלנו
-              מאחורי המעשים.
-            </p>
-            <p>
-              הצטרפו לקהילת התורמים שלנו, ככל שיתרם יותר כסף, כך נוכל להבטיח
-              שליותר אנשים יהיה שולחן חג בביתיהם!
-            </p>
-            <a
-              href="https://www.payboxapp.com/"
-              target="_blank"
-              color="warn"
-              class="btn-round btn btn-danger px-3 py-2 watchBtn"
-              ><fa-icon [icon]="['fas', 'donate']" class="ml-2"></fa-icon
-              ><span>תרום לעמותה</span>
-            </a>
-          </div>
+          <app-about-text></app-about-text>
         </div>
       </div>
     </div>
@@ -89,23 +51,7 @@
           class="blog-item col-md-6"
           *ngFor="let event of events; let i = index"
         >
-          <div class="blog-img">
-            <img [src]="'../../assets/img/image' + i + '.jpg'" alt="Blog" />
-          </div>
-          <div class="blog-content">
-            <h2 class="blog-title">{{ event?.title }}</h2>
-            <div class="blog-meta">
-              <fa-icon [icon]="['far', 'list-alt']"></fa-icon>
-              <p class="ml-2">{{ event?.category }}</p>
-              <fa-icon [icon]="['far', 'calendar-alt']"></fa-icon>
-              <p>{{ event?.date | date: "d/M/yyyy" }}</p>
-            </div>
-            <div class="blog-text">
-              <p>
-                {{ event?.description }}
-              </p>
-            </div>
-          </div>
+          <app-event-card [event]="event" [index]="i"></app-event-card>
         </div>
       </div>
     </div>
@@ -158,18 +104,11 @@
             [inViewportOptions]="{ threshold: [0] }"
             (inViewportAction)="onIntersection($event, 'animate__fadeInUp')"
           >
-            <div class="info">
-              <div class="icon icon-danger">
-                <fa-icon [icon]="['fas', 'coins']"></fa-icon>
-              </div>
-              <div class="description">
-                <h4 class="info-title">איסוף תרומות</h4>
-                <p class="description">
-                  איסוף תרומות מהקהילה שלנו לצורכי רכישת מוצרים אשר יחולקו
-                  כחבילות מזון לנזקקים
-                </p>
-              </div>
-            </div>
+            <app-process-details
+              desc="איסוף תרומות מהקהילה שלנו לצורכי רכישת מוצרים אשר יחולקו כחבילות מזון לנזקקים"
+              title="איסוף תרומות"
+              [icon]="['fas', 'coins']"
+            ></app-process-details>
           </div>
           <div
             class="col-md-4"
@@ -179,18 +118,12 @@
               onIntersection($event, 'animate__fadeInUp', 'animate__delay-05s')
             "
           >
-            <div class="info">
-              <div class="icon icon-danger">
-                <fa-icon [icon]="['fas', 'box-open']"></fa-icon>
-              </div>
-              <div class="description">
-                <h4 class="info-title">אריזת מזון</h4>
-                <p>
-                  התאספות ליום מיוחד שבו נפגשים כל חברי הקהילה על מנת לארוז את
-                  החבילות, להנות ולהכיר
-                </p>
-              </div>
-            </div>
+            <app-process-details
+              desc="                  התאספות ליום מיוחד שבו נפגשים כל חברי הקהילה על מנת לארוז את
+              החבילות, להנות ולהכיר"
+              title="אריזת מזון"
+              [icon]="['fas', 'box-open']"
+            ></app-process-details>
           </div>
           <div
             class="col-md-4"
@@ -200,18 +133,13 @@
               onIntersection($event, 'animate__fadeInUp', 'animate__delay-1s')
             "
           >
-            <div class="info">
-              <div class="icon icon-danger">
-                <fa-icon [icon]="['fas', 'shipping-fast']"></fa-icon>
-              </div>
-              <div class="description">
-                <h4 class="info-title">חלוקת חבילות</h4>
-                <p>
-                  חילוק חבילות המזון לנזקקים העיר באמצעות רכבי המתנדבים
-                  ואלגוריתם חכם לחילוק יעיל
-                </p>
-              </div>
-            </div>
+            <app-process-details
+              desc="
+              חילוק חבילות המזון לנזקקים העיר באמצעות רכבי המתנדבים
+              ואלגוריתם חכם לחילוק יעיל"
+              title="חלוקת חבילות"
+              [icon]="['fas', 'shipping-fast']"
+            ></app-process-details>
           </div>
         </div>
       </div>

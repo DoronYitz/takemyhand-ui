@@ -1,0 +1,37 @@
+.page-header__text {
+  width: 70%;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  h1 {
+    animation: scale 0.7s both;
+    animation-delay: 0.5s;
+  }
+
+  h3 {
+    animation: fadeUp 0.8s both;
+    animation-delay: 0.8s;
+  }
+
+  a {
+    transition: 0.4s;
+    animation: fadeDown 0.8s both;
+    animation-delay: 1.4s;
+    background-color: #df533b;
+    color: white;
+    font-weight: 600;
+    &:hover {
+      background-color: #af3d29;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: #6e6e6e;
+      color: white;
+      opacity: 0.6;
+    }
+  }
+}

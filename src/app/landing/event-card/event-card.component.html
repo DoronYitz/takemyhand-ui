@@ -1,0 +1,17 @@
+<div class="blog-img">
+  <img [src]="'assets/img/image' + index + '.jpg'" alt="Blog" />
+</div>
+<div class="blog-content">
+  <h2 class="blog-title">{{ event?.title }}</h2>
+  <div class="blog-meta">
+    <fa-icon [icon]="['far', 'list-alt']"></fa-icon>
+    <p class="ml-2">{{ event?.category }}</p>
+    <fa-icon [icon]="['far', 'calendar-alt']"></fa-icon>
+    <p>{{ event?.date | date: "d/M/yyyy" }}</p>
+  </div>
+  <div class="blog-text">
+    <p>
+      {{ event?.description }}
+    </p>
+  </div>
+</div>
