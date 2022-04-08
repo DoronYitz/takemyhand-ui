@@ -32,6 +32,18 @@ nav {
   font-weight: 500;
   text-decoration: none;
   font-size: 16px;
+
+  &::after {
+    content: "";
+    width: 0;
+    opacity: 0;
+    height: 2px;
+    background: #f5593d;
+    display: block;
+    margin: auto;
+    margin-top: 2px;
+    transition: 0.5s;
+  }
 }
 
 .user-link.nav-link {
@@ -40,18 +52,6 @@ nav {
   text-decoration: none;
   font-size: 16px;
   pointer-events: none;
-}
-
-.nav-link::after {
-  content: "";
-  width: 0;
-  opacity: 0;
-  height: 2px;
-  background: #f5593d;
-  display: block;
-  margin: auto;
-  margin-top: 2px;
-  transition: 0.5s;
 }
 
 .nav-link:hover::after,
@@ -68,16 +68,15 @@ nav {
 @media (max-width: 1024px) {
   .nav-link {
     display: block;
+    &::after {
+      display: block;
+      margin: 0;
+      margin-right: auto;
+    }
   }
 
   .navbar-nav {
     padding: 0 2%;
-  }
-
-  .nav-link::after {
-    display: block;
-    margin: 0;
-    margin-right: auto;
   }
 
   nav .nav-link:hover::after,

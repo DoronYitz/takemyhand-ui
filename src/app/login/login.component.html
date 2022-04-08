@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <!-- Header  -->
 <div class="page-header" data-parallax="true">
-  <div class="text-center page-header__text">
+  <div>
     <div class="container content text-right">
       <div class="row">
         <div class="formContent">
@@ -40,21 +40,20 @@
                   name="password"
                   id="passowrd"
                   required
-                  [type]="hide ? 'password' : 'text'"
-                  type="password"
+                  [type]="hidePassword ? 'password' : 'text'"
                   autocomplete="off"
                   formControlName="password"
                 />
                 <button
                   mat-icon-button
                   matSuffix
-                  (click)="hide = !hide"
+                  (click)="hidePassword = !hidePassword"
                   [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide"
+                  [attr.aria-pressed]="hidePassword"
                   type="button"
                 >
                   <mat-icon>{{
-                    hide ? "visibility_off" : "visibility"
+                    hidePassword ? "visibility_off" : "visibility"
                   }}</mat-icon>
                 </button>
                 <mat-error *ngIf="password.errors?.required"

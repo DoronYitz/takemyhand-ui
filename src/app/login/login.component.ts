@@ -12,9 +12,18 @@ import { UserDataService } from '../services/user-data.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  hide = true;
-  errorMsg: string;
-  loading: boolean = false;
+  /**
+   * Hide password
+   */
+  public hidePassword = true;
+  /**
+   * error msg from login route
+   */
+  public errorMsg: string;
+  /**
+   * loading bool
+   */
+  public loading = false;
 
   profileForm = this.fb.group({
     phone: ['', [Validators.required, Validators.pattern('^\\d{10}$')]],
@@ -44,18 +53,22 @@ export class LoginComponent implements OnInit {
       },
       (err) => {
         this.loading = false;
-        this.errorMsg = err?.error?.message;
-        if (!this.errorMsg) {
-          this.errorMsg = 'משהו השתבש, נסה שנית מאוחר יותר';
-        }
+        this.errorMsg =
+          err?.error?.message ?? 'משהו השתבש, נסה שנית מאוחר יותר';
       }
     );
   }
 
+  /**
+   * Phone getter
+   */
   get phone() {
     return this.profileForm.get('phone');
   }
 
+  /**
+   * Password getter
+   */
   get password() {
     return this.profileForm.get('password');
   }
