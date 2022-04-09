@@ -21,11 +21,13 @@ export class VolunteerService {
   }
 
   getDrivers(): Observable<Volunteer[]> {
-    return this.http.get<Volunteer[]>(this.baseUrl + '/drivers');
+    const url = new URL('/drivers', this.baseUrl);
+    return this.http.get<Volunteer[]>(url.href);
   }
 
   getVolunteer(volunteer: Volunteer): Observable<Volunteer> {
-    return this.http.get<Volunteer>(`${this.baseUrl}/${volunteer._id}`);
+    const url = new URL(`/${volunteer._id}`, this.baseUrl);
+    return this.http.get<Volunteer>(url.href);
   }
 
   createVolunteer(volunteer: Volunteer): Observable<Volunteer> {
@@ -33,17 +35,12 @@ export class VolunteerService {
   }
 
   editVolunteer(volunteer: Volunteer): Observable<Volunteer> {
-    return this.http.patch<Volunteer>(
-      `${this.baseUrl}/${volunteer._id}`,
-      volunteer,
-      this.httpOptions
-    );
+    const url = new URL(`/${volunteer._id}`, this.baseUrl);
+    return this.http.patch<Volunteer>(url.href, volunteer, this.httpOptions);
   }
 
   deleteVolunteer(volunteer: Volunteer): Observable<Volunteer> {
-    return this.http.delete<Volunteer>(
-      `${this.baseUrl}/${volunteer._id}`,
-      this.httpOptions
-    );
+    const url = new URL(`/${volunteer._id}`, this.baseUrl);
+    return this.http.delete<Volunteer>(url.href, this.httpOptions);
   }
 }

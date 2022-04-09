@@ -21,11 +21,13 @@ export class ParcelService {
   }
 
   getDriverParcels(): Observable<Parcel[]> {
-    return this.http.get<Parcel[]>(`${this.baseUrl}/driverparcels`);
+    const url = new URL('/driverparcels', this.baseUrl);
+    return this.http.get<Parcel[]>(url.href);
   }
 
   getParcel(parcel: Parcel): Observable<Parcel> {
-    return this.http.get<Parcel>(`${this.baseUrl}/${parcel._id}`);
+    const url = new URL(`/${parcel._id}`, this.baseUrl);
+    return this.http.get<Parcel>(url.href);
   }
 
   createParcel(parcel: Parcel): Observable<Parcel> {
@@ -33,43 +35,29 @@ export class ParcelService {
   }
 
   createParcelsFromTextFile(textFile: File): Observable<Parcel[]> {
+    const url = new URL('/textFileHandler', this.baseUrl);
     const formData: FormData = new FormData();
     formData.append('textFile', textFile, textFile.name);
-    return this.http.post<Parcel[]>(
-      `${this.baseUrl}/textFileHandler`,
-      formData,
-      this.httpOptions
-    );
+    return this.http.post<Parcel[]>(url.href, formData, this.httpOptions);
   }
 
   editParcel(parcel: Parcel): Observable<Parcel> {
-    return this.http.patch<Parcel>(
-      `${this.baseUrl}/${parcel._id}`,
-      parcel,
-      this.httpOptions
-    );
+    const url = new URL(`/${parcel._id}`, this.baseUrl);
+    return this.http.patch<Parcel>(url.href, parcel, this.httpOptions);
   }
 
   editParcelStatus(parcel: Parcel): Observable<Parcel> {
-    return this.http.patch<Parcel>(
-      `${this.baseUrl}/status/${parcel._id}`,
-      parcel,
-      this.httpOptions
-    );
+    const url = new URL(`/status/${parcel._id}`, this.baseUrl);
+    return this.http.patch<Parcel>(url.href, parcel, this.httpOptions);
   }
 
   deleteParcel(parcel: Parcel): Observable<Parcel> {
-    return this.http.delete<Parcel>(
-      `${this.baseUrl}/${parcel._id}`,
-      this.httpOptions
-    );
+    const url = new URL(`/${parcel._id}`, this.baseUrl);
+    return this.http.delete<Parcel>(url.href, this.httpOptions);
   }
 
   setDrivers(): Observable<Parcel[]> {
-    return this.http.patch<Parcel[]>(
-      `${this.baseUrl}/setdrivers`,
-      {},
-      this.httpOptions
-    );
+    const url = new URL('/setdrivers', this.baseUrl);
+    return this.http.patch<Parcel[]>(url.href, {}, this.httpOptions);
   }
 }

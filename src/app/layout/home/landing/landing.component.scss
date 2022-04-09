@@ -7,7 +7,7 @@
   width: 100%;
   background-color: rgb(29, 28, 49);
   background-image: linear-gradient(rgba(4, 10, 31, 0.3), rgb(4, 9, 30, 0.8)),
-    url(../../assets/img/hero1.jpg);
+    url(/assets/img/hero1.jpg);
   background-position: center;
   background-size: cover;
   position: relative;
@@ -91,7 +91,7 @@
   width: 100%;
   color: white;
   background-image: linear-gradient(rgb(4, 9, 30, 0.5), rgb(4, 9, 30, 0.7)),
-    url(../../assets/img/qoute.jpg);
+    url(/assets/img/qoute.jpg);
   background-size: cover;
   background-attachment: fixed;
   position: relative;
