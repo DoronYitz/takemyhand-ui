@@ -29,9 +29,10 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 // Shared components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [NgbModule, CommonModule, FontAwesomeModule],
+  imports: [NgbModule, CommonModule, RouterModule, FontAwesomeModule],
   declarations: [NavbarComponent, FooterComponent],
   exports: [
     CommonModule,
