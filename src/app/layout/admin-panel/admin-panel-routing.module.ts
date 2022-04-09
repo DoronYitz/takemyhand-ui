@@ -6,10 +6,11 @@ import { RoleGuard } from 'src/app/core/guards/role.guard';
 
 // Components
 import { AdminPanelComponent } from './admin-panel.component';
-import { ControlPanelComponent } from './control-panel/control-panel.component';
-import { EventsComponent } from './events/events.component';
-import { ParcelsComponent } from './parcels/parcels.component';
-import { VolunteersComponent } from './volunteers/volunteers.component';
+import { ControlPanelComponent } from './components/control-panel/control-panel.component';
+import { EventsComponent } from './components/events/events.component';
+import { ParcelsComponent } from './components/parcels/parcels.component';
+import { VolunteersComponent } from './components/volunteers/volunteers.component';
+
 
 const routes: Routes = [
   {

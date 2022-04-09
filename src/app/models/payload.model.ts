@@ -1,7 +1,22 @@
+/**
+ * Login route response
+ */
 export interface AuthRes {
-  accessToken?: string;
-  refreshToken?: string;
-  roles?: Array<string>;
-  username?: string;
-  id?: string;
+  /**
+   * access token
+   */
+  accessToken: string;
+  /**
+   * refresh token
+   */
+  refreshToken: string;
+  /**
+   * User permissions
+   */
+  roles: Array<string>;
+  /**
+   * username
+   */
+  username: string;
+  id: string;
 }

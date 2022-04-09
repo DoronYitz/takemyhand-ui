@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TokenStorageService } from './token-storage.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class UserDataService {
   roles: string[] = [];
   isLoggedIn = false;

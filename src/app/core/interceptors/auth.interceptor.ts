@@ -18,10 +18,6 @@ import { UserDataService } from '../services/user-data.service';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
-/**
- * Auth interceptor
- * Include logic of adding bearer token, and refresh token if access token isn't valid
- */
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   private isRefreshing = false;
@@ -35,6 +31,10 @@ export class AuthInterceptor implements HttpInterceptor {
     private userData: UserDataService
   ) {}
 
+  /**
+   * Auth interceptor
+   * Include logic of adding bearer token, and refresh token if access token isn't valid
+   */
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler

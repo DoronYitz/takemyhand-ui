@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from 'src/app/shared/shared.module';
-import { HomeRoutingModule } from './home-routing.module';
 
-import { VolunteerComponent } from './volunteer/volunteer.component';
-import { LoginComponent } from './login/login.component';
-import { LandingComponent } from './landing/landing.component';
-import { AboutTextComponent } from './landing/about/about-text/about-text.component';
-import { AboutPicutresComponent } from './landing/about/about-picutres/about-picutres.component';
-import { EventCardComponent } from './landing/event-card/event-card.component';
-import { HeaderComponent } from './landing/header/header.component';
-import { ProcessDetailsComponent } from './landing/process-details/process-details.component';
+// Components
+import { AboutPicutresComponent } from './components/landing/about/about-picutres/about-picutres.component';
+import { AboutTextComponent } from './components/landing/about/about-text/about-text.component';
+import { EventCardComponent } from './components/landing/event-card/event-card.component';
+import { HeaderComponent } from './components/landing/header/header.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { ProcessDetailsComponent } from './components/landing/process-details/process-details.component';
+import { LoginComponent } from './components/login/login.component';
+import { VolunteerComponent } from './components/volunteer/volunteer.component';
+import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
   declarations: [

@@ -5,9 +5,7 @@ const TOKEN_KEY = 'auth-token';
 const REFRESHTOKEN_KEY = 'auth-refreshtoken';
 const USER_KEY = 'auth-user';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class TokenStorageService {
   constructor() {}
 
@@ -43,12 +41,11 @@ export class TokenStorageService {
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  public getUser(): AuthRes {
+  public getUser(): AuthRes | any {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
       return <AuthRes>JSON.parse(user);
     }
-
     return {};
   }
 }

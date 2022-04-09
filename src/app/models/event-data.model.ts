@@ -1,3 +1,6 @@
+/**
+ * Helper class used for event emitting to all components about logout/sudden logout
+ */
 export class EventData {
   name: string;
   value: any;

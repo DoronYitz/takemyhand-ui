@@ -7,12 +7,9 @@ import {
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+
 import { TokenStorageService } from '../services/token-storage.service';
 
-/**
- * Role guard
- * Checks data of exceptedRole, check user permissions according to excepected roleF
- */
 @Injectable({
   providedIn: 'root',
 })
@@ -22,6 +19,10 @@ export class RoleGuard implements CanActivate {
     private router: Router
   ) {}
 
+  /**
+   * Role guard
+   * Checks data of exceptedRole, check user permissions according to excepected roleF
+   */
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
