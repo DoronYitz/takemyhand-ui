@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'https://gothic-handbook-328406.ew.r.appspot.com',
+  backendUrl: 'http://localhost:8081',
 };
 
 /*

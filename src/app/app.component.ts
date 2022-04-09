@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+
 import { Subscription } from 'rxjs';
-import { EventBusService } from './services/event-bus.service';
-import { TokenStorageService } from './services/token-storage.service';
-import { UserDataService } from './services/user-data.service';
 import * as AOS from 'aos';
+
+import { EventBusService } from './core/services/event-bus.service';
+import { TokenStorageService } from './core/services/token-storage.service';
+import { UserDataService } from './core/services/user-data.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +13,6 @@ import * as AOS from 'aos';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'Final';
-
   eventBusSub?: Subscription;
 
   constructor(

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
 import { IEvent } from '../models/event.model';
 
@@ -20,7 +21,8 @@ export class EventService {
   }
 
   getActiveEvent(): Observable<IEvent> {
-    return this.http.get<IEvent>(`${this.baseUrl}/active`);
+    const url = new URL('/active', this.baseUrl);
+    return this.http.get<IEvent>(url.href);
   }
 
   createEvent(event: IEvent): Observable<IEvent> {
@@ -28,29 +30,22 @@ export class EventService {
   }
 
   editEvent(event: IEvent): Observable<IEvent> {
-    return this.http.patch<IEvent>(
-      `${this.baseUrl}/${event._id}`,
-      event,
-      this.httpOptions
-    );
+    const url = new URL(`/${event._id}`, this.baseUrl);
+    return this.http.patch<IEvent>(url.href, event, this.httpOptions);
   }
 
   editEventSecret(event: IEvent): Observable<IEvent> {
-    return this.http.patch<IEvent>(
-      `${this.baseUrl}/secret/${event._id}`,
-      event,
-      this.httpOptions
-    );
+    const url = new URL(`/secret/${event._id}`, this.baseUrl);
+    return this.http.patch<IEvent>(url.href, event, this.httpOptions);
   }
 
   deleteEvent(event: IEvent): Observable<IEvent> {
-    return this.http.delete<IEvent>(
-      `${this.baseUrl}/${event._id}`,
-      this.httpOptions
-    );
+    const url = new URL(`/${event._id}`, this.baseUrl);
+    return this.http.delete<IEvent>(url.href, this.httpOptions);
   }
 
   deleteEventData(): Observable<any> {
-    return this.http.delete<any>(`${this.baseUrl}/data`, this.httpOptions);
+    const url = new URL(`/data`, this.baseUrl);
+    return this.http.delete<any>(url.href, this.httpOptions);
   }
 }
