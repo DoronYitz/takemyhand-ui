@@ -8,21 +8,22 @@ export class AuthService {
     withCredentials: true,
   };
 
-  baseUrl = environment.backendUrl + '/api/auth';
+  baseUrl = environment.backendUrl;
+
   constructor(private http: HttpClient) {}
 
   login(phone: string, password: string) {
-    const url = new URL('/login', this.baseUrl);
+    const url = new URL('/api/auth/login', this.baseUrl);
     return this.http.post(url.href, { phone, password }, this.httpOptions);
   }
 
   logout(refreshToken: string) {
-    const url = new URL('/logout', this.baseUrl);
+    const url = new URL('/api/auth/logout', this.baseUrl);
     return this.http.post(url.href, { refreshToken }, this.httpOptions);
   }
 
   refreshToken(token: string) {
-    const url = new URL('/refreshtoken', this.baseUrl);
+    const url = new URL('/api/auth/refreshtoken', this.baseUrl);
     return this.http.post(url.href, { refreshToken: token }, this.httpOptions);
   }
 }
