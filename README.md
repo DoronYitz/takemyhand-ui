@@ -1,4 +1,15 @@
 # takemyhand-ui
+![](./src/assets/img/Logo.png)
+
+## About 
+Takemy& is a smart system for distributing food packages to the community using coordinates and etc.
+Also it has a live control panel for the organizers of the food distributing event. 
+
+UI part is a website that shares information about Takemy& and its contribution to the community, includes: 
+- Next events information
+- Registering to the next event
+- Fully featured admin panel
+- Drivers panel - Addresses of the parcels, waze guide, changing "arrived" status on live
 
 ## Main parts
 Takemy& project, includes 3 main parts: 
