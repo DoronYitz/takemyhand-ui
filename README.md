@@ -1,8 +1,29 @@
 # takemyhand-ui
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
+## Main parts
+Takemy& project, includes 3 main parts: 
+- Public part - which includes landing page, registeration and login page
+- Driver's panel - include a driver panel, where he can see and change the status for his parcels that he is delivering
+- Admin's panel - include a fully featured admin panel, with a smart control panel to view the active event parcels' statuses on live.
+
+## Modules 
+- Layout module - includes all components and features modules: 
+  - Home module - include public part
+  - User panel module - include driver's panel
+  - Admin panel module - include admin's panel
+- Shared module - includes all shared modules like CommonModule and FormsModule of angular, other directives and components
+- Core module - includes all core services, and layout modules.
+
+## Settings
+
+```
+Angular 12.2.10
+npm 8.5.0
+```
 
 ## Development server
+
+Run `npm i` after cloning the project.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
@@ -12,15 +33,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--configuration production` flag for a production build.
 
 ## Further help
 
