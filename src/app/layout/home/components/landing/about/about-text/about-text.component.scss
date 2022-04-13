@@ -12,13 +12,13 @@
     position: relative;
     margin-top: 15px;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: var(--fw-b);
     letter-spacing: 1px;
     transition: 0.5s;
-    background-color: #df533b;
-    color: white;
+    background-color: var(--accent-clr-400);
+    color: var(--natural-clr-white);
     &:hover {
-      background-color: #af3d29;
+      background-color: var(--accent-clr-600);
     }
   }
 }

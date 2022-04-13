@@ -21,13 +21,13 @@
   right: 30px;
   padding: 15px 30px 15px;
   border-radius: 5px;
-  background: #ffffff;
+  background: var(--natural-clr-white);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   z-index: 2;
 
   h2.blog-title {
     font-size: 25px;
-    font-weight: 400;
+    font-weight: var(--fw-n);
     letter-spacing: 1px;
   }
 }
@@ -41,12 +41,12 @@
     margin: 0;
     padding: 0;
     font-size: 14px;
-    font-weight: 300;
-    color: #797979;
+    font-weight: var(--fw-l);
+    color: var(--natural-clr-600);
   }
 
   fa-icon {
-    color: #f5593d;
+    color: var(--accent-clr-400);
     margin: 0 5px 0 10px;
   }
 

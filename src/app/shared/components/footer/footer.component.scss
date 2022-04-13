@@ -1,12 +1,13 @@
 .footer {
-  background-color: rgb(29, 28, 49);
+  background-color: var(--primary-clr-400);
   user-select: none;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 7rem;
+
   p {
-    color: white;
+    color: var(--natural-clr-white);
     margin: 0;
   }
 }

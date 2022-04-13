@@ -1,7 +1,7 @@
 .canvas-wrapper {
   margin: 0 auto;
   border-radius: 2rem;
-  color: white;
+  color: var(--natural-clr-white);
   height: 350px;
   width: 500px;
 }
@@ -14,22 +14,22 @@
 .primary-btn {
   font-size: 0.9rem;
   transition: 0.4s;
-  background-color: #df533b;
-  color: white;
-  font-weight: 500;
+  background-color: var(--primary-clr-400);
+  color: var(--natural-clr-white);
+  font-weight: var(--fw-m);
   &:hover {
-    background-color: #af3d29;
+    background-color: var(--primary-clr-600);
   }
 }
 
 .secondary-btn {
   font-size: 0.9rem;
   transition: 0.4s;
-  background-color: rgb(71, 71, 71);
-  color: white;
-  font-weight: 500;
+  background-color: var(--natural-clr-800);
+  color: var(--natural-clr-white);
+  font-weight: var(--fw-m);
   &:hover {
-    background-color: rgb(51, 51, 51);
+    background-color: var(--natural-clr-900);
   }
 }
 

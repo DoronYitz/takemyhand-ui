@@ -12,16 +12,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--natural-clr-white);
 }
 
 p {
-  color: white;
+  color: var(--natural-clr-white);
 }
 
 h5 {
   color: #f5593d;
-  font-weight: 300 !important;
+  font-weight: var(--fw-l) !important;
 }
 
 hr {
@@ -82,8 +82,8 @@ hr {
 
 .btnSend {
   background-color: #e7553b;
-  color: white;
-  font-weight: 500;
+  color: var(--natural-clr-white);
+  font-weight: var(--fw-m);
   animation: fade-down 0.7s 0.7s backwards;
   &:hover {
     background-color: #c3442d;
@@ -91,7 +91,7 @@ hr {
   &:disabled {
     cursor: not-allowed;
     background-color: #6e6e6e;
-    color: white;
+    color: var(--natural-clr-white);
     opacity: 0.6;
   }
 }
@@ -99,7 +99,7 @@ hr {
 ::ng-deep {
   .register-form {
     .mat-form-field.mat-focused .mat-form-field-label {
-      color: white !important;
+      color: var(--natural-clr-white) !important;
     }
 
     .mat-form-field-suffix .mat-icon {
@@ -107,36 +107,36 @@ hr {
     }
 
     .mat-select-arrow {
-      color: white !important;
+      color: var(--natural-clr-white) !important;
     }
 
     .mat-form-field-appearance-standard .mat-form-field-underline {
       transition: 0.5s;
-      background-color: white !important;
+      background-color: var(--natural-clr-white) !important;
     }
 
     .mat-form-field-appearance-standard .mat-form-field-ripple {
       transition: 0.2s;
-      background-color: white !important;
+      background-color: var(--natural-clr-white) !important;
     }
 
     mat-form-field input {
-      caret-color: white !important;
+      caret-color: var(--natural-clr-white) !important;
     }
 
     .mat-focused {
-      color: white !important;
+      color: var(--natural-clr-white) !important;
     }
 
     .mat-select-min-line {
-      color: white;
+      color: var(--natural-clr-white);
     }
 
     mat-form-field {
       .mat-hint,
       input,
       .mat-form-field-label {
-        color: white;
+        color: var(--natural-clr-white);
       }
     }
   }

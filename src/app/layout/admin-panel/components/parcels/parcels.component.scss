@@ -9,11 +9,11 @@
   font-size: 0.9rem;
   transition: 0.4s;
 
-  background-color: #df533b;
-  color: white;
-  font-weight: 500;
+  background-color: var(--primary-clr-400);
+  color: var(--natural-clr-white);
+  font-weight: var(--fw-m);
   &:hover {
-    background-color: #af3d29;
+    background-color: var(--primary-clr-600);
   }
 }
 
@@ -21,11 +21,11 @@
   font-size: 0.9rem;
   transition: 0.4s;
 
-  background-color: rgb(71, 71, 71);
-  color: white;
-  font-weight: 500;
+  background-color: var(--natural-clr-800);
+  color: var(--natural-clr-white);
+  font-weight: var(--fw-m);
   &:hover {
-    background-color: rgb(51, 51, 51);
+    background-color: var(--natural-clr-900);
   }
 }
 
@@ -51,7 +51,7 @@
     margin-top: 5rem;
 
     .mat-form-field.mat-focused .mat-form-field-label {
-      color: white !important;
+      color: var(--natural-clr-white) !important;
     }
 
     .mat-form-field-suffix .mat-icon {
@@ -60,36 +60,36 @@
 
     .mat-form-field-appearance-standard .mat-form-field-underline {
       transition: 0.5s;
-      background-color: white !important;
+      background-color: var(--natural-clr-white) !important;
     }
 
     .mat-form-field-appearance-standard .mat-form-field-ripple {
       transition: 0.2s;
-      background-color: white !important;
+      background-color: var(--natural-clr-white) !important;
     }
 
     .mat-focused {
-      color: white !important;
+      color: var(--natural-clr-white) !important;
     }
 
     .mat-select-min-line {
-      color: white !important;
+      color: var(--natural-clr-white) !important;
     }
 
     mat-form-field {
       input,
       .mat-form-field-label {
-        color: white !important;
+        color: var(--natural-clr-white) !important;
       }
     }
 
     .mat-checkbox-background {
-      border: 1px solid white;
+      border: 1px solid var(--natural-clr-white);
     }
 
     .mat-select-arrow,
     .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-      color: white;
+      color: var(--natural-clr-white);
     }
 
     .mat-checkbox-checked.mat-accent .mat-checkbox-background {

@@ -10,7 +10,7 @@
 }
 
 .sidebar {
-  background-color: #1d1c31;
+  background-color: var(--primary-clr-400);
   min-height: 100vh;
   flex-basis: 14%;
   padding-top: 1rem;
@@ -18,8 +18,8 @@
   flex-direction: column;
 
   .nav-text {
-    color: white;
-    font-weight: 500;
+    color: var(--natural-clr-white);
+    font-weight: var(--fw-m);
     text-align: center;
   }
 
@@ -40,14 +40,14 @@
       margin: 0 1.5rem;
       border-radius: 0.25rem;
       &:hover {
-        color: white;
-        background-color: #090d1d;
+        color: var(--natural-clr-white);
+        background-color: var(--primary-clr-600);
       }
     }
     .active-link,
     .active-link:hover {
-      color: white;
-      background-color: #6e6e6e;
+      color: var(--natural-clr-white);
+      background-color: var(--natural-clr-600);
     }
   }
 

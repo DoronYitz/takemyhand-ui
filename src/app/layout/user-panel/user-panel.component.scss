@@ -4,19 +4,22 @@
 .page-wrapper {
   min-height: 100vh;
   width: 100%;
-  background-color: rgb(29, 28, 49);
-  background-image: linear-gradient(rgba(4, 9, 30, 0.4), rgb(4, 9, 30, 0.5)),
+  background-color: var(--primary-clr-400);
+  background-image: linear-gradient(
+      hsla(228, 76%, 7%, 0.4),
+      hsla(228, 76%, 7%, 0.5)
+    ),
     url(/assets/img/takelove.jpg);
   background-position: center;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--natural-clr-white);
 }
 
 p {
-  color: white;
+  color: var(--natural-clr-white);
 }
 
 .table-container {
@@ -31,11 +34,11 @@ p {
   transition: 0.4s;
   animation: fadeDown 0.8s both;
   animation-delay: 1.4s;
-  background-color: #df533b;
-  color: white;
-  font-weight: 500;
+  background-color: var(--accent-clr-400);
+  color: var(--natural-clr-white);
+  font-weight: var(--fw-m);
   &:hover {
-    background-color: #af3d29;
+    background-color: var(--accent-clr-600);
   }
 }
 
@@ -61,7 +64,7 @@ p {
     margin-top: 5rem;
 
     .mat-form-field.mat-focused .mat-form-field-label {
-      color: white !important;
+      color: var(--natural-clr-white) !important;
     }
 
     .mat-form-field-suffix .mat-icon {
@@ -70,31 +73,31 @@ p {
 
     .mat-form-field-appearance-standard .mat-form-field-underline {
       transition: 0.5s;
-      background-color: white !important;
+      background-color: var(--natural-clr-white) !important;
     }
 
     .mat-form-field-appearance-standard .mat-form-field-ripple {
       transition: 0.2s;
-      background-color: white !important;
+      background-color: var(--natural-clr-white) !important;
     }
 
     .mat-focused {
-      color: white !important;
+      color: var(--natural-clr-white) !important;
     }
 
     .mat-select-min-line {
-      color: white !important;
+      color: var(--natural-clr-white) !important;
     }
 
     mat-form-field {
       input,
       .mat-form-field-label {
-        color: white !important;
+        color: var(--natural-clr-white) !important;
       }
     }
 
     .mat-checkbox-background {
-      border: 1px solid white;
+      border: 1px solid var(--natural-clr-white);
     }
 
     .mat-select-arrow,

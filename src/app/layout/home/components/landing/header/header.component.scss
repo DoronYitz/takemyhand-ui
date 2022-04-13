@@ -1,10 +1,5 @@
 .page-header__text {
-  width: 70%;
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  color: var(--natural-clr-white);
   text-align: center;
 
   h1 {
@@ -21,17 +16,11 @@
     transition: 0.4s;
     animation: fadeDown 0.8s both;
     animation-delay: 1.4s;
-    background-color: #df533b;
-    color: white;
-    font-weight: 600;
+    background-color: var(--accent-clr-400);
+    color: var(--natural-clr-white);
+    font-weight: var(--fw-b);
     &:hover {
-      background-color: #af3d29;
-    }
-    &:disabled {
-      cursor: not-allowed;
-      background-color: #6e6e6e;
-      color: white;
-      opacity: 0.6;
+      background-color: var(--accent-clr-600);
     }
   }
 }
