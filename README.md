@@ -1,29 +1,26 @@
 # takemyhand-ui
+
 ![](./src/assets/img/Logo.png)
 
-## About 
-Takemy& is a smart system for distributing food packages to the community using coordinates and etc.
-Also it has a live control panel for the organizers of the food distributing event. 
+## About
 
-UI part is a website that shares information about Takemy& and its contribution to the community, includes: 
+Takemy& is a smart system for distributing food packages to the community using coordinates and etc.
+Also it has a live control panel for the organizers of the food distributing event.
+
+UI part is a website that shares information about Takemy& and its contribution to the community, includes:
+
 - Next events information
 - Registering to the next event
 - Fully featured admin panel
 - Drivers panel - Addresses of the parcels, waze guide, changing "arrived" status on live
 
 ## Main parts
-Takemy& project, includes 3 main parts: 
+
+Takemy& project, includes 3 main parts:
+
 - Public part - which includes landing page, registeration and login page
 - Driver's panel - include a driver panel, where he can see and change the status for his parcels that he is delivering
 - Admin's panel - include a fully featured admin panel, with a smart control panel to view the active event parcels' statuses on live.
-
-## Modules 
-- Layout module - includes all components and features modules: 
-  - Home module - include public part
-  - User panel module - include driver's panel
-  - Admin panel module - include admin's panel
-- Shared module - includes all shared modules like CommonModule and FormsModule of angular, other directives and components
-- Core module - includes all core services, and layout modules.
 
 ## Settings
 
