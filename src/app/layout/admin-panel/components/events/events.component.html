@@ -6,7 +6,7 @@
     data-aos-once="true"
   >
     <button
-      class="btn btn-round btn-danger add-event-btn"
+      class="btn btn-round btn-danger primary-btn"
       (click)="popAddEventModal()"
     >
       הוסף אירוע
@@ -70,14 +70,14 @@
         </div>
         <div *ngIf="column.columnDef === 'edit'">
           <fa-icon
-            class="edit-btn icon"
+            class="edit-icon icon"
             matTooltip="ערוך אירוע"
             matTooltipPosition="above"
             [icon]="['far', 'edit']"
             (click)="popEditEventModal(column.cell(row))"
           ></fa-icon>
           <fa-icon
-            class="edit-btn icon mr-3"
+            class="edit-icon icon mr-3"
             matTooltip="אפס מפתח סודי"
             matTooltipPosition="above"
             [icon]="['fas', 'key']"
@@ -92,7 +92,7 @@
           <fa-icon
             matTooltip="מחק אירוע"
             matTooltipPosition="above"
-            class="delete-btn icon"
+            class="delete-icon icon"
             [icon]="['far', 'trash-alt']"
           ></fa-icon>
         </div>

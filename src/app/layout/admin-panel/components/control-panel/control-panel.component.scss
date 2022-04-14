@@ -1,3 +1,5 @@
+@use '/src/sass/icons.scss';
+
 .canvas-wrapper {
   margin: 0 auto;
   border-radius: 2rem;
@@ -11,38 +13,7 @@
   margin-bottom: 3rem;
 }
 
-.primary-btn {
-  font-size: 0.9rem;
-  transition: 0.4s;
-  background-color: var(--primary-clr-400);
-  color: var(--natural-clr-white);
-  font-weight: var(--fw-m);
-  &:hover {
-    background-color: var(--primary-clr-600);
-  }
-}
-
-.secondary-btn {
-  font-size: 0.9rem;
-  transition: 0.4s;
-  background-color: var(--natural-clr-800);
-  color: var(--natural-clr-white);
-  font-weight: var(--fw-m);
-  &:hover {
-    background-color: var(--natural-clr-900);
-  }
-}
-
-.vi-icon {
-  color: rgb(54, 162, 235);
-}
-
-.warning-icon {
-  color: rgb(255, 99, 132);
-}
-
 .demo-table {
-  width: 100%;
   margin-bottom: 5rem;
 }
 
@@ -51,41 +22,19 @@
   height: 35vh;
   max-width: 97%;
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .mat-column-text {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 30% !important;
-  width: 30% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 30%;
+  width: 30%;
 }
 
 .mat-column-arrived {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 3% !important;
-  width: 3% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 3%;
+  width: 3%;
 }
 
 .mat-column-date {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 3% !important;
-  width: 3% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 3%;
+  width: 3%;
 }

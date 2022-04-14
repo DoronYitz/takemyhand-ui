@@ -1,16 +1,12 @@
-/*******************************/
-/*********** Header CSS **********/
-/*******************************/
+@import "/src/sass/animations.scss";
 
 .page-header {
   min-height: 100vh;
-  width: 100%;
-  background-color: rgb(29, 28, 49);
+  background-color: var(--primary-clr-400);
   background-image: linear-gradient(rgba(4, 10, 31, 0.3), rgb(4, 9, 30, 0.8)),
     url(/assets/img/hero1.jpg);
   background-position: center;
   background-size: cover;
-  position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -46,47 +42,25 @@
       animation-name: scroll;
     }
   }
-
-  @keyframes scroll {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(25px);
-    }
-  }
 }
 
-/*******************************/
-/*********** About us **********/
-/*******************************/
+// About us
 .about {
-  margin-top: 2%;
-  position: relative;
-  width: 100%;
-  padding: 45px 0;
+  margin-top: 3rem;
+  padding: 6vh 0;
   text-align: right;
 }
 
-/*******************************/
-/*********** Blog CSS **********/
-/*******************************/
+// Blog
 .blog {
   text-align: right;
-  position: relative;
-  width: 100%;
-  padding: 45px 0;
-
+  padding: 6vh 0;
   .section-header {
     margin-bottom: 40px;
   }
 }
 
-/*******************************/
-/*********** Quote **********/
-/*******************************/
-
+// Quote
 .quote-section {
   padding: 6vh 0;
   min-height: 20vh;
@@ -96,7 +70,6 @@
     url(/assets/img/qoute.jpg);
   background-size: cover;
   background-attachment: fixed;
-  position: relative;
 }
 
 .quote,
@@ -127,53 +100,5 @@
 
   .author {
     font-size: 1.05rem;
-  }
-}
-
-/* Animation */
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(4rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animation */
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes scale {
-  0% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-2rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

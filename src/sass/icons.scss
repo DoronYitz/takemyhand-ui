@@ -1,0 +1,41 @@
+// Icon & Edit and delete hovers
+.icon {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-icon {
+  &:hover {
+    color: var(--edit-clr-hover);
+  }
+}
+
+.delete-icon {
+  &:hover {
+    color: var(--delete-clr-hover);
+  }
+}
+
+.waze-icon-background {
+  padding: 0.27rem 0.23rem;
+  border-radius: 0.5rem;
+  transition: 0.2s;
+  background-color: hsl(194, 75%, 70%);
+  &:hover {
+    background-color: hsl(194, 75%, 55%);
+  }
+}
+
+.waze-icon {
+  margin-bottom: 3px;
+  height: 20px;
+  width: 20px;
+}
+
+.vi-icon {
+  color: hsl(204, 82%, 57%);
+}
+
+.warning-icon {
+  color: hsl(347, 100%, 69%);
+}

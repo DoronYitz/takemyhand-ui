@@ -1,0 +1,15 @@
+.swal-height {
+  height: 60px;
+}
+
+.swal2-popup.swal2-toast .swal2-html-container {
+  padding: 12px !important;
+  color: var(--natural-clr-white);
+}
+
+.swal2-popup.swal2-toast {
+  box-shadow: 0 0 1px var(--toaster-shadow-clr),
+    0 1px 2px var(--toaster-shadow-clr), 1px 2px 4px var(--toaster-shadow-clr),
+    1px 3px 8px var(--toaster-shadow-clr),
+    2px 4px 16px var(--toaster-shadow-clr) !important;
+}

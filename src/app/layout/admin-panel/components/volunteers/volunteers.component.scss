@@ -1,175 +1,42 @@
-.demo-table {
-  width: 100%;
-}
-
-.add-volunteer-btn {
-  font-size: 0.9rem;
-  transition: 0.4s;
-  background-color: var(--primary-clr-400);
-  color: var(--natural-clr-white);
-  font-weight: var(--fw-m);
-  &:hover {
-    background-color: var(--primary-clr-600);
-  }
-}
-
-.icon {
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.edit-btn {
-  &:hover {
-    color: #86b1ff;
-  }
-}
-
-.delete-btn {
-  &:hover {
-    color: rgb(255, 71, 71);
-  }
-}
-
 .table-container {
   max-height: 70vh;
-  max-width: 100%;
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
-::ng-deep {
-  .content-wrapper {
-    margin-top: 5rem;
+.checkbox {
+  transform: translateY(5px);
+}
 
-    .mat-form-field.mat-focused .mat-form-field-label {
-      color: var(--natural-clr-white) !important;
-    }
-
-    .mat-form-field-suffix .mat-icon {
-      font-size: 120%;
-    }
-
-    .checkbox {
-      transform: translateY(5px);
-    }
-
-    .mat-form-field {
-      font-size: 14px;
-      width: 100%;
-    }
-
-    .mat-header-cell {
-      color: transparent;
-    }
-
-    .mat-form-field.table-input {
-      font-size: 14px;
-      width: 80%;
-    }
-
-    .mat-form-field-appearance-standard .mat-form-field-underline {
-      transition: 0.5s;
-      background-color: var(--natural-clr-white) !important;
-    }
-
-    .mat-form-field-appearance-standard .mat-form-field-ripple {
-      transition: 0.2s;
-      background-color: var(--natural-clr-white) !important;
-    }
-
-    .mat-focused {
-      color: var(--natural-clr-white) !important;
-    }
-
-    .mat-select-min-line {
-      color: var(--natural-clr-white) !important;
-    }
-
-    mat-form-field {
-      input,
-      .mat-form-field-label {
-        color: var(--natural-clr-white) !important;
-      }
-    }
-
-    .mat-checkbox-background {
-      border: 1px solid var(--natural-clr-white);
-    }
-
-    .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-      background-color: #ef3e36;
-    }
-  }
+.content-wrapper {
+  margin-top: 5rem;
 }
 
 .mat-column-full_name {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 16% !important;
-  width: 16% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 16%;
+  width: 16%;
 }
 
 .mat-column-phone {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 16% !important;
-  width: 16% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 16%;
+  width: 16%;
 }
 
 .mat-column-driver {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 5% !important;
-  width: 5% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 5%;
+  width: 5%;
 }
 
 .mat-column-address {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 55% !important;
-  width: 55% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 55%;
+  width: 55%;
 }
 
 .mat-column-edit {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 5% !important;
-  width: 5% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 5%;
+  width: 5%;
 }
 
 .mat-column-delete {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 5% !important;
-  width: 5% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 5%;
+  width: 5%;
 }

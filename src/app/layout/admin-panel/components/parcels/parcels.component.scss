@@ -1,202 +1,44 @@
+@use "/src/sass/icons.scss";
+
 .table-container {
   max-height: 70vh;
-  max-width: 100%;
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
-.primary-btn {
-  font-size: 0.9rem;
-  transition: 0.4s;
-
-  background-color: var(--primary-clr-400);
-  color: var(--natural-clr-white);
-  font-weight: var(--fw-m);
-  &:hover {
-    background-color: var(--primary-clr-600);
-  }
-}
-
-.secondary-btn {
-  font-size: 0.9rem;
-  transition: 0.4s;
-
-  background-color: var(--natural-clr-800);
-  color: var(--natural-clr-white);
-  font-weight: var(--fw-m);
-  &:hover {
-    background-color: var(--natural-clr-900);
-  }
-}
-
-.icon {
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.edit-btn {
-  &:hover {
-    color: #86b1ff;
-  }
-}
-
-.delete-btn {
-  &:hover {
-    color: rgb(255, 71, 71);
-  }
-}
-
-::ng-deep {
-  .content-wrapper {
-    margin-top: 5rem;
-
-    .mat-form-field.mat-focused .mat-form-field-label {
-      color: var(--natural-clr-white) !important;
-    }
-
-    .mat-form-field-suffix .mat-icon {
-      font-size: 120%;
-    }
-
-    .mat-form-field-appearance-standard .mat-form-field-underline {
-      transition: 0.5s;
-      background-color: var(--natural-clr-white) !important;
-    }
-
-    .mat-form-field-appearance-standard .mat-form-field-ripple {
-      transition: 0.2s;
-      background-color: var(--natural-clr-white) !important;
-    }
-
-    .mat-focused {
-      color: var(--natural-clr-white) !important;
-    }
-
-    .mat-select-min-line {
-      color: var(--natural-clr-white) !important;
-    }
-
-    mat-form-field {
-      input,
-      .mat-form-field-label {
-        color: var(--natural-clr-white) !important;
-      }
-    }
-
-    .mat-checkbox-background {
-      border: 1px solid var(--natural-clr-white);
-    }
-
-    .mat-select-arrow,
-    .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-      color: var(--natural-clr-white);
-    }
-
-    .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-      background-color: #ef3e36;
-    }
-
-    .mat-form-field {
-      font-size: 14px;
-      width: 100%;
-    }
-
-    .mat-form-field.table-input {
-      font-size: 14px;
-      width: 80%;
-    }
-
-    .checkbox {
-      transform: translate(-2px, 4px) !important;
-    }
-  }
+.checkbox {
+  transform: translate(-2px, 4px) !important;
 }
 
 .mat-column-address {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 65% !important;
-  width: 65% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 65%;
+  width: 65%;
 }
 
 .mat-column-driver {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 18% !important;
-  width: 18% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 18%;
+  width: 18%;
 }
 
 .mat-column-arrived {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 7% !important;
-  width: 7% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 7%;
+  width: 7%;
 }
 
 .mat-column-edit {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 5% !important;
-  width: 5% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 5%;
+  width: 5%;
 }
 
 .mat-column-delete {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 5% !important;
-  width: 5% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 5%;
+  width: 5%;
 }
 
 .mat-column-waze {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 5% !important;
-  width: 5% !important;
-  overflow-wrap: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  flex: 0 0 5%;
+  width: 5%;
 }
 
-.waze-icon-background {
-  padding: 0.27rem 0.23rem;
-  border-radius: 0.5rem;
-  transition: 0.2s;
-  color: black;
-  background-color: #74d0eb;
-  &:hover {
-    background-color: #68b5cc;
-  }
-}
-
-.waze-icon {
-  margin-bottom: 3px;
-  height: 20px;
-  width: 20px;
+.content-wrapper {
+  margin-top: 5rem;
 }

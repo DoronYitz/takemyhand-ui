@@ -1,85 +1,77 @@
 <app-navbar></app-navbar>
 <!-- Header  -->
 <div class="page-header" data-parallax="true">
-  <div>
-    <div class="container content text-right">
-      <div class="row">
-        <div class="formContent">
-          <h1>התחבר</h1>
-          <h5>היכנס אל פורטל הנהגים שלנו</h5>
-          <form
-            class="form login-form"
-            [formGroup]="profileForm"
-            (ngSubmit)="onSubmit(f)"
-            #f="ngForm"
+  <div class="container content text-right">
+    <h1>התחבר</h1>
+    <h5>היכנס אל פורטל הנהגים שלנו</h5>
+    <form
+      class="form login-form"
+      [formGroup]="profileForm"
+      (ngSubmit)="onSubmit(f)"
+      #f="ngForm"
+    >
+      <hr />
+      <div class="field-wrapper">
+        <mat-form-field appearance="standard" class="input mt-1">
+          <mat-label>פלאפון</mat-label>
+          <input
+            matInput
+            type="text"
+            required
+            id="phone"
+            name="phone"
+            autocomplete="off"
+            formControlName="phone"
+          />
+          <mat-error *ngIf="phone.errors?.required">שדה חובה</mat-error>
+          <mat-error *ngIf="phone.errors?.pattern"
+            >מספר הפלאפון שהוזן אינו תקני</mat-error
           >
-            <hr />
-            <div class="field-wrapper">
-              <mat-form-field appearance="standard" class="input mt-1">
-                <mat-label>פלאפון</mat-label>
-                <input
-                  matInput
-                  type="text"
-                  required
-                  id="phone"
-                  name="phone"
-                  autocomplete="off"
-                  formControlName="phone"
-                />
-                <mat-error *ngIf="phone.errors?.required">שדה חובה</mat-error>
-                <mat-error *ngIf="phone.errors?.pattern"
-                  >מספר הפלאפון שהוזן אינו תקני</mat-error
-                >
-              </mat-form-field>
-            </div>
-            <div class="field-wrapper">
-              <mat-form-field appearance="standard" class="input mt-3">
-                <mat-label>סיסמא</mat-label>
-                <input
-                  matInput
-                  name="password"
-                  id="passowrd"
-                  required
-                  [type]="hidePassword ? 'password' : 'text'"
-                  autocomplete="off"
-                  formControlName="password"
-                />
-                <button
-                  mat-icon-button
-                  matSuffix
-                  (click)="hidePassword = !hidePassword"
-                  [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hidePassword"
-                  type="button"
-                >
-                  <mat-icon>{{
-                    hidePassword ? "visibility_off" : "visibility"
-                  }}</mat-icon>
-                </button>
-                <mat-error *ngIf="password.errors?.required"
-                  >שדה חובה</mat-error
-                >
-              </mat-form-field>
-            </div>
-            <div class="mt-3">
-              <button
-                class="btnSend btn btn-round mt-4 px-4 py-2"
-                type="submit"
-                [disabled]="!profileForm.valid"
-              >
-                <span *ngIf="!loading">התחבר</span>
-                <div class="login-spinner">
-                  <mat-spinner *ngIf="loading" diameter="23"></mat-spinner>
-                </div>
-              </button>
-            </div>
-            <div *ngIf="errorMsg" class="error-msg">
-              <span>{{ errorMsg }}</span>
-            </div>
-          </form>
-        </div>
+        </mat-form-field>
       </div>
-    </div>
+      <div class="field-wrapper">
+        <mat-form-field appearance="standard" class="input mt-3">
+          <mat-label>סיסמא</mat-label>
+          <input
+            matInput
+            name="password"
+            id="passowrd"
+            required
+            [type]="hidePassword ? 'password' : 'text'"
+            autocomplete="off"
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword"
+            type="button"
+          >
+            <mat-icon>{{
+              hidePassword ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error *ngIf="password.errors?.required">שדה חובה</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="mt-3">
+        <button
+          class="primary-btn btn btn-round mt-4 px-4 py-2"
+          type="submit"
+          [disabled]="!profileForm.valid"
+        >
+          <span *ngIf="!loading">התחבר</span>
+          <div class="login-spinner">
+            <mat-spinner *ngIf="loading" diameter="23"></mat-spinner>
+          </div>
+        </button>
+      </div>
+      <div *ngIf="errorMsg" class="error-msg">
+        <span>{{ errorMsg }}</span>
+      </div>
+    </form>
   </div>
 </div>
 <!-- Header  -->

@@ -100,7 +100,7 @@
         <div *ngIf="column.columnDef === 'edit'" class="mr-1">
           <span
             (click)="popEditParcelModal(column.cell(row))"
-            class="icon edit-btn"
+            class="icon edit-icon"
             matTooltip="ערוך חבילה"
             matTooltipPosition="above"
           >
@@ -110,7 +110,7 @@
         <div *ngIf="column.columnDef === 'delete'" class="mr-1">
           <span
             (click)="popDeleteParcelModal(column.cell(row))"
-            class="icon delete-btn"
+            class="icon delete-icon"
             matTooltip="מחק חבילה"
             matTooltipPosition="above"
           >

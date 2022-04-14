@@ -6,7 +6,7 @@
     data-aos-once="true"
   >
     <button
-      class="btn btn-round btn-danger add-volunteer-btn"
+      class="btn btn-round btn-danger primary-btn"
       (click)="popAddVolunteerModal()"
     >
       הוסף מתנדב
@@ -74,7 +74,7 @@
           (click)="popEditVolunteerModal(column.cell(row))"
         >
           <fa-icon
-            class="edit-btn icon"
+            class="edit-icon icon"
             matTooltip="ערוך מתנדב"
             matTooltipPosition="above"
             [icon]="['far', 'edit']"
@@ -88,7 +88,7 @@
           <fa-icon
             matTooltip="מחק מתנדב"
             matTooltipPosition="above"
-            class="delete-btn icon"
+            class="delete-icon icon"
             [icon]="['far', 'trash-alt']"
           ></fa-icon>
         </div>
@@ -103,7 +103,7 @@
       <td class="mat-cell" colspan="7">אין תוצאות עבור "{{ input.value }}"</td>
     </tr>
   </table>
-  <div class="text-right mt-4 mr-2 text-var(--natural-clr-white)">
+  <div class="text-right mt-4 mr-2 text-white">
     <span>סה"כ מתנדבים: </span>
     <span class="mr-2">{{ this.totalVolunteers }}</span>
   </div>

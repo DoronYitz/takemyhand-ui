@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Guard
-import { RoleGuard } from '../../core/guards/role.guard';
-
 // User panel comp
 import { UserPanelComponent } from './user-panel.component';
 

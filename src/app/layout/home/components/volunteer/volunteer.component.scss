@@ -1,10 +1,6 @@
-/*******************************/
-/*********** Header CSS **********/
-/*******************************/
 .page-wrapper {
   min-height: 100vh;
-  width: 100%;
-  background-color: rgb(29, 28, 49);
+  background-color: var(--primary-clr-400);
   background-image: linear-gradient(rgba(4, 9, 30, 0.25), rgb(4, 9, 30, 0.35)),
     url(/assets/img/takelove.jpg);
   background-position: center;
@@ -20,12 +16,12 @@ p {
 }
 
 h5 {
-  color: #f5593d;
+  color: var(--accent-clr-400);
   font-weight: var(--fw-l) !important;
 }
 
 hr {
-  border-color: #f5593d;
+  border-color: var(--accent-clr-400);
   width: 80%;
   margin: 1.5rem 0;
 }
@@ -37,13 +33,14 @@ hr {
   margin: 5.5rem 0;
   border-radius: 30px;
   animation: fade 0.7s ease-in-out;
+  display: flex;
 }
 
 .content img {
   border-radius: 30px 0 0 30px;
 }
 
-.formContent {
+.form-content {
   padding: 3rem 3.5rem 1rem 3.5rem;
   flex-basis: 50%;
   max-width: 50%;
@@ -54,13 +51,13 @@ hr {
   line-height: 1.25rem;
 }
 
-.second {
+.thanks.second {
   margin-top: -10px;
 }
 
 .error-msg {
   margin-top: 1.5rem;
-  color: rgb(255, 81, 81);
+  color: var(--error-clr);
   font-size: 0.9rem;
 }
 
@@ -78,68 +75,6 @@ hr {
 .side-image {
   flex-basis: 50%;
   max-width: 50%;
-}
-
-.btnSend {
-  background-color: #e7553b;
-  color: var(--natural-clr-white);
-  font-weight: var(--fw-m);
-  animation: fade-down 0.7s 0.7s backwards;
-  &:hover {
-    background-color: #c3442d;
-  }
-  &:disabled {
-    cursor: not-allowed;
-    background-color: #6e6e6e;
-    color: var(--natural-clr-white);
-    opacity: 0.6;
-  }
-}
-
-::ng-deep {
-  .register-form {
-    .mat-form-field.mat-focused .mat-form-field-label {
-      color: var(--natural-clr-white) !important;
-    }
-
-    .mat-form-field-suffix .mat-icon {
-      font-size: 120%;
-    }
-
-    .mat-select-arrow {
-      color: var(--natural-clr-white) !important;
-    }
-
-    .mat-form-field-appearance-standard .mat-form-field-underline {
-      transition: 0.5s;
-      background-color: var(--natural-clr-white) !important;
-    }
-
-    .mat-form-field-appearance-standard .mat-form-field-ripple {
-      transition: 0.2s;
-      background-color: var(--natural-clr-white) !important;
-    }
-
-    mat-form-field input {
-      caret-color: var(--natural-clr-white) !important;
-    }
-
-    .mat-focused {
-      color: var(--natural-clr-white) !important;
-    }
-
-    .mat-select-min-line {
-      color: var(--natural-clr-white);
-    }
-
-    mat-form-field {
-      .mat-hint,
-      input,
-      .mat-form-field-label {
-        color: var(--natural-clr-white);
-      }
-    }
-  }
 }
 
 @media (max-width: 768px) {
@@ -167,51 +102,5 @@ hr {
 
   .error-msg {
     margin-bottom: 2.5rem;
-  }
-}
-
-/* Animation */
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(4rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scale {
-  0% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fade-down {
-  0% {
-    opacity: 0;
-    transform: translateY(-2rem);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
   }
 }

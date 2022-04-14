@@ -1,0 +1,35 @@
+.btn-round {
+  border-radius: 1.5rem;
+}
+
+.primary-btn {
+  font-size: 0.9rem;
+  transition: 0.4s;
+  background-color: var(--accent-clr-400);
+  color: var(--natural-clr-white);
+  font-weight: var(--fw-m);
+
+  &:hover {
+    background-color: var(--accent-clr-600);
+    color: var(--natural-clr-white);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--natural-clr-600);
+    color: var(--natural-clr-white);
+    opacity: 0.6;
+  }
+}
+
+.secondary-btn {
+  font-size: 0.9rem;
+  transition: 0.4s;
+  background-color: var(--natural-clr-800);
+  color: var(--natural-clr-white);
+  font-weight: var(--fw-m);
+
+  &:hover {
+    background-color: var(--natural-clr-900);
+  }
+}

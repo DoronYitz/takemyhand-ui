@@ -18,8 +18,8 @@ export class AuthService {
   }
 
   logout(refreshToken: string) {
-    const url = new URL('/api/auth/logout', this.baseUrl);
-    return this.http.post(url.href, { refreshToken }, this.httpOptions);
+    const url = new URL(`/api/auth/logout/${refreshToken}`, this.baseUrl);
+    return this.http.delete(url.href, this.httpOptions);
   }
 
   refreshToken(token: string) {
