@@ -64,12 +64,12 @@
 .quote-section {
   padding: 6vh 0;
   min-height: 20vh;
-  width: 100%;
-  color: var(--natural-clr-white);
   background-image: linear-gradient(rgb(4, 9, 30, 0.5), rgb(4, 9, 30, 0.7)),
     url(/assets/img/qoute.jpg);
-  background-size: cover;
   background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .quote,
