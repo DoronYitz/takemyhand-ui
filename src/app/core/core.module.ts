@@ -1,16 +1,24 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// # Strategy
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { authInterceptorProviders } from './interceptors/auth.interceptor';
+
+// Modules
 import { LayoutModule } from '../layout/layout.module';
 
+// Guards
+import { throwIfAlreadyLoaded } from './guards/module-import.guard';
+
+// Services
 import { UserDataService } from './services/user-data.service';
 import { AuthService } from './services/auth.service';
 import { EventBusService } from './services/event-bus.service';
 import { TokenStorageService } from './services/token-storage.service';
 import { ToasterService } from './services/toaster.service';
-import { throwIfAlreadyLoaded } from './guards/module-import.guard';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { VolunteerService } from './services/volunteer.service';
 import { ParcelService } from './services/parcel.service';
 import { EventService } from './services/event.service';
@@ -42,6 +50,8 @@ export class CoreModule {
         VolunteerService,
         ParcelService,
         EventService,
+        authInterceptorProviders,
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
       ],
     };
   }
