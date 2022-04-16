@@ -13,14 +13,9 @@
   }
 
   a {
-    transition: 0.4s;
     animation: fadeDown 0.8s both;
     animation-delay: 1.4s;
-    background-color: var(--accent-clr-400);
-    color: var(--natural-clr-white);
     font-weight: var(--fw-b);
-    &:hover {
-      background-color: var(--accent-clr-600);
-    }
+    font-size: 1.05rem;
   }
 }

@@ -3,7 +3,7 @@
 @use "/src/sass//sweetalert2.scss";
 
 @use "~@angular/material" as mat;
-@import "~animate.css/animate.min";
+@use "~animate.css/animate.min";
 
 $custom-typography: mat.define-typography-config(
   $font-family: "Assistant",
@@ -33,7 +33,7 @@ $custom-typography: mat.define-typography-config(
   --accent-clr-800: hsl(9, 90%, 22%);
 
   // White
-  --natural-clr-white: #fff;
+  --natural-clr-white: hsl(0, 0%, 100%);
 
   // Greys
   --natural-clr-200: hsl(0, 0%, 86%);

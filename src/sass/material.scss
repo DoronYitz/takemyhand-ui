@@ -38,7 +38,7 @@ mat-form-field {
 
 .mat-select-arrow,
 .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-  color: white;
+  color: var(--natural-clr-white);
 }
 
 .mat-checkbox-checked.mat-accent .mat-checkbox-background {
