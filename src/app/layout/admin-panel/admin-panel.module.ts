@@ -82,7 +82,6 @@ const config: SocketIoConfig = { url: environment.backendUrl, options: {} };
     DeleteVolunteerComponent,
     EditVolunteerComponent,
     VolunteersComponent,
-  ],
-  providers: [MessageService],
+  ]
 })
 export class AdminModule {}

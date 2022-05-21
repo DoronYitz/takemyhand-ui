@@ -5,7 +5,9 @@ import { Parcel } from 'src/app/models/parcel.model';
 
 import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ParcelService {
   baseUrl = environment.backendUrl;
 

@@ -5,7 +5,9 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IEvent } from '../../models/event.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class EventService {
   baseUrl = environment.backendUrl;
 

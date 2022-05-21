@@ -3,7 +3,9 @@ import { Subject, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { EventData } from '../../models/event-data.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class EventBusService {
   private subject$ = new Subject<EventData>();
 

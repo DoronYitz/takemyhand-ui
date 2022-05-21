@@ -5,7 +5,9 @@ const TOKEN_KEY = 'auth-token';
 const REFRESHTOKEN_KEY = 'auth-refreshtoken';
 const USER_KEY = 'auth-user';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class TokenStorageService {
   constructor() {}
 

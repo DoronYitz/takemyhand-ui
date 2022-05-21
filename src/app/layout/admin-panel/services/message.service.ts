@@ -5,7 +5,9 @@ import { Message } from 'src/app/models/message.model';
 
 import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class MessageService {
   baseUrl = environment.backendUrl + '/api/message';
   httpOptions = {

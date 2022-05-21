@@ -5,7 +5,9 @@ import { Volunteer } from 'src/app/models/volunteer.model';
 
 import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class VolunteerService {
   baseUrl = environment.backendUrl;
   httpOptions = {
