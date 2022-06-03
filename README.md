@@ -1,7 +1,5 @@
 # takemyhand-ui
 
-![](./src/assets/img/Logo.png)
-
 ## About
 
 Takemy& is a smart system for distributing food packages to the community using coordinates and etc.
