@@ -2,10 +2,10 @@
 
 ## About
 
-Takemy& is a smart system for distributing food packages to the community using coordinates and etc.
-Also it has a live control panel for the organizers of the food distributing event.
+Takemy& is a smart system for distributing food packages to the community using coordinates and etc. 
+Also it has a live control panel for the organizers of the food distribution event.
 
-UI part is a website that shares information about Takemy& and its contribution to the community, includes:
+UI part shares information about Takemy& and its contributions to the community, including:
 
 - Next events information
 - Registering to the next event
@@ -14,7 +14,7 @@ UI part is a website that shares information about Takemy& and its contribution 
 
 ## Main parts
 
-Takemy& project, includes 3 main parts:
+Takemy& project includes 3 main parts:
 
 - Public part - which includes landing page, registeration and login page
 - Driver's panel - include a driver panel, where he can see and change the status for his parcels that he is delivering
